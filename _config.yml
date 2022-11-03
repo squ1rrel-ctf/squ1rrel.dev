@@ -9,10 +9,10 @@ words_per_minute: 200
 baseurl: /
 
 # Website info
-title: Ghost
-description: The professional publishing platform
+title: squ1rrel
+description: Vanderbilt's CTF Club
 cover: assets/images/blog-cover.jpg
-logo: assets/images/blog-icon.png
+logo: assets/images/squ1rrel_white.png
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
 CNAME: #add cname for website to be created
