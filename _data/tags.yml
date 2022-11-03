@@ -6,6 +6,10 @@ WRECKCTF:
   name: WRECKCTF
   description: Writeups from WRECKCTF!
   cover: False
+BlueHensCTF:
+  name: BlueHens CTF (UD)
+  description: Writeups from University of Deleware's CTF, BlueHens CTF.
+  cover: False
 
 misc:
   name: misc
