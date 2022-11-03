@@ -5,7 +5,7 @@ cover:  False
 navigation: True
 title: "Bottle Poem"
 date: 2022-11-03 10:00:00
-tags: [SekaiCTF]
+tags: [SekaiCTF, web]
 class: post-template
 subclass: 'post'
 author: Ace314159

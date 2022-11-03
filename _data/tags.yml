@@ -1,8 +1,21 @@
 SekaiCTF:
-  name: SekaiCTF
-  description: Writeups from SekaiCTF!
+  name: "SEKAI CTF"
+  description: Writeups from SEKAI CTF!
   cover: False
 WRECKCTF:
   name: WRECKCTF
-  description: Writeups from WreckCTF!
+  description: Writeups from WRECKCTF!
+  cover: False
+
+misc:
+  name: misc
+  description: Writeups on misc challenges.
+  cover: False
+cryptography:
+  name: cryptography
+  description: Writeups on cryptography challenges.
+  cover: False
+web:
+  name: web
+  description: Writeups on web challenges.
   cover: False

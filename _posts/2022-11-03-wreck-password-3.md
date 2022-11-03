@@ -5,7 +5,7 @@ cover:  False
 navigation: True
 title: "password-3"
 date: 2022-11-03 10:00:00
-tags: [WRECKCTF]
+tags: [WRECKCTF, web]
 class: post-template
 subclass: 'post'
 author: ZeroDayTea

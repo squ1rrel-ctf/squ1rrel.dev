@@ -33,7 +33,7 @@ into the {body} of the default.hbs template -->
                             {% if forloop.index == page.tags.size %}
                                <a href='{{ site.baseurl }}tag/{{ tag | slugify: "latin" }}/'>{{ tag | upcase }}</a>
                             {% else %}
-                               <a href='{{ site.baseurl }}tag/{{ tag | slugify: "latin" }}/'>{{ tag | upcase }}</a>,
+                               <a href='{{ site.baseurl }}tag/{{ tag | slugify: "latin" }}/'>{{ tag | upcase }}</a>&nbsp;
                             {% endif %}
                         {% endfor %}
                     {% endif %}
@@ -140,7 +140,7 @@ into the {body} of the default.hbs template -->
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; {{ site.title }} &mdash;</small>
                             {% if primary %}
-                                <h3 class="read-next-card-header-title"><a href="{{ site.baseurl }}tag/{{ primary | slugify: "latin" }}/">{{ primary | capitalize }}</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="{{ site.baseurl }}tag/{{ primary | slugify: "latin" }}/">{{ site.data.tags[primary].name }}</a></h3>
                             {% endif %}
                         </header>
                         <div class="read-next-divider">{% include infinity.html %}</div>

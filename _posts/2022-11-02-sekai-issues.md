@@ -5,7 +5,7 @@ cover:  False
 navigation: True
 title: "Issues: Another JWT Challenge"
 date: 2022-11-02 10:00:00
-tags: [SekaiCTF]
+tags: [SekaiCTF, web]
 class: post-template
 subclass: 'post'
 author: nisala

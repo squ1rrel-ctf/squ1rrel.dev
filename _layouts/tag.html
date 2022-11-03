@@ -18,13 +18,9 @@ logo: 'assets/images/ghost.png'
     <div class="inner">
         {% include site-nav.html %}
         <div class="site-header-content">
-            <h1 class="site-title">{{ page.tag | capitalizeall }}</h1>
+            <h1 class="site-title">{{ site.data.tags[page.tag].name }}</h1>
             <h2 class="site-description">
-                {% if tag_description %}
-                    {{ tag_description }}
-                {% elsif page.tag %}
-    			    A collection of {{ paginator.total_posts }} posts
-                {% endif %}
+                {{ site.data.tags[page.tag].description }}
             </h2>
         </div>
     </div>

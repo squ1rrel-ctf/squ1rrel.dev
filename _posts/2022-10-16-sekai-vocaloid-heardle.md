@@ -5,7 +5,7 @@ cover:  False
 navigation: True
 title: "Vocaloid Heardle"
 date: 2022-10-16 10:00:00
-tags: [SekaiCTF]
+tags: [SekaiCTF, misc]
 class: post-template
 subclass: 'post'
 author: zineanteoh
