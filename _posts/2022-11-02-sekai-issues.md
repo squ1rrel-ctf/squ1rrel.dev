@@ -11,7 +11,9 @@ subclass: 'post'
 author: nisala
 ---
 
-Oh, JWTs. A well-intentioned standard, for sure -- but my god, the number of implementation mistakes you can make. From selecting a bad algorithm to using an unverified header for information, there are a lot of ways to mess up and create a security vulnerability. So let's see what the *issue* was in this challenge.
+Oh, JWTs. A well-intentioned standard, for sure -- but my god, the number of implementation mistakes you can make.
+
+From leaking secrets to using an unverified header for information, there are a lot of ways to mess up and create a security vulnerability. So let's see what the *issue* was in this challenge.
 
 ## The Challenge
 
