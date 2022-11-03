@@ -13,9 +13,31 @@ nisala:
   name: Nisala
   location: Portland, OR
   url_full: https://github.com/nkalupahana
-  url: nisa.la
+  url: github.com/nkalupahana
   bio: Nisala is a junior studying Computer Science at Vanderbilt University. Right now, he's working on baseline, an open source journaling and mood tracking app.
   picture: assets/images/nkalupahana.png
   facebook: False
   twitter: False
   cover: False
+kyleburgess2025:
+  username: kyleburgess2025
+  name: Kyle Burgess
+  location: Charlotte, NC
+  url_full: https://github.com/kyleburgess2025
+  url: github.com/kyleburgess2025
+  bio: Kyle has big muscles and an even bigger heart
+  picture: assets/images/kyleburgess2025.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/kyleburgess2025_cover.png
+siraben:
+  username: siraben
+  name: Ben Siraphob
+  location: The Earth
+  url_full: https://siraben.dev
+  url: siraben.dev
+  bio: Ben has worked in areas ranging from analyzing surveillance footage to proofs of correctness for smart contracts. He is a polyglot with both natural and computer languages. He loves to travel, make and break things. He also has been playing the piano for over 15 years and is learning the skill of prompt engineering.
+  picture: assets/images/siraben.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/siraben_cover.jpeg
