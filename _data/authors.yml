@@ -52,3 +52,14 @@ ZeroDayTea:
   facebook: False
   twitter: ZeroDayTea
   cover: assets/images/ZeroDayTea_cover.png
+zineanteoh:
+  username: zineanteoh
+  name: Zi Teoh
+  location: Malaysia
+  url_full: https://github.com/zineanteoh
+  url: github.com/zineanteoh
+  bio: Zi is a student from Malaysia studying CS + Math at Vanderbilt. Unbeknownst to many, Zi has a bunch of useless(?) talents, such as being able to do handstands, juggle 3 balls, solve a Rubik's cube blindfolded, ride a bike without hands, rock climb upside down, and type insanely fast. 
+  picture: assets/images/zineanteoh.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/zineanteoh_cover.png
