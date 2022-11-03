@@ -27,11 +27,11 @@ Well, it’s just too usual to hide a flag in stegano, database, cipher, or serv
 
 ## Problem Description
 
-> Well, it’s just too usual to hide a flag in stegano, database, cipher, or server. What if we decide to sing it out instead?
->
-> Author: pamLELcu
->
-> See challenge here: https://ctf.sekai.team/challenges#Vocaloid-Heardle-23
+Well, it’s just too usual to hide a flag in stegano, database, cipher, or server. What if we decide to sing it out instead?
+
+Author: pamLELcu
+
+See challenge here: https://ctf.sekai.team/challenges#Vocaloid-Heardle-23
 
 ## Files Provided
 
