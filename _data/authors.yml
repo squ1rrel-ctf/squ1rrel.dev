@@ -63,3 +63,14 @@ zineanteoh:
   facebook: False
   twitter: False
   cover: assets/images/zineanteoh_cover.png
+Ace314159:
+  username: Ace314159
+  name: Akash
+  location: California
+  url_full: https://github.com/Ace314159
+  url: github.com/Ace314159
+  bio: Akash is a person who likes CTFs and coding cool things.
+  picture: assets/images/Ace314159.png
+  facebook: False
+  twitter: False
+  cover: assets/images/Ace314159_cover.png
