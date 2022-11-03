@@ -1,10 +1,10 @@
-ghost:
-  username: ghost
+squ1rrel:
+  username: squ1rrel
   name: squ1rrel team
   url_full: https://github.com/squ1rrel-ctf
   url: github.com/squ1rrel-ctf
   bio: Vanderbilt University's CTF team.
-  picture: assets/images/ghost.png
+  picture: assets/images/favicon.png
   facebook: False
   twitter: False
   cover: False
@@ -41,3 +41,14 @@ siraben:
   facebook: False
   twitter: False
   cover: assets/images/siraben_cover.jpeg
+ZeroDayTea:
+  username: ZeroDayTea
+  name: Patrick Dobranowski
+  location: Earth, Sol, Virgo Supercluster
+  url_full: https://patrickdobranowski.com/
+  url: patrickdobranowski.com
+  bio: Making and breaking things around the world since before Pluto lost its planet status. Just your average spray-on-cheese hater navigating this complex reality by a love of cybersecurity, machine learning, low-level architecture, physics, and tea that makes you think everything will be alright.
+  picture: assets/images/ZeroDayTea.jpg
+  facebook: False
+  twitter: ZeroDayTea
+  cover: assets/images/ZeroDayTea_cover.jpeg

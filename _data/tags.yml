@@ -1,4 +1,8 @@
 SekaiCTF:
   name: SekaiCTF
-  description: Writeups from SekaiCTF
+  description: Writeups from SekaiCTF!
+  cover: False
+WRECKCTF:
+  name: WRECKCTF
+  description: Writeups from WreckCTF!
   cover: False
