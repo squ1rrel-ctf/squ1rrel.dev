@@ -26,7 +26,6 @@ Well, it’s just too usual to hide a flag in stegano, database, cipher, or serv
 -   [Step 4: Getting the flag](#step-4-getting-the-flag)
 
 ## Problem Description
-
 > Well, it’s just too usual to hide a flag in stegano, database, cipher, or server. What if we decide to sing it out instead?
 >
 > Author: pamLELcu
