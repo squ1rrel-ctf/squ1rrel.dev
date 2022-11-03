@@ -44,67 +44,68 @@ After looking at the files, it became clear that `vocaloid_heardly.py` is the fi
 
 Let's imagine that the flag is `SEKAI{THIS_IS_MY_FIRST_WRITEUP}`. Given this flag, the python script:
 
-1.  Removes the enclosing `SEKAI{...}` to get the inner substring `THIS_IS_MY_FIRST_WRITEUP`.
+1. Removes the enclosing `SEKAI{...}` to get the inner substring `THIS_IS_MY_FIRST_WRITEUP`.
 
-2.  Converts each character to unicode:
+2. Converts each character to unicode:
+```py
+ord('T') -> 84
+ord('H') ->  72
+ord('I') ->  73
+...
+```
 
-        ord(' T ') =  84
-        ord(' H ') =  72
-        ord(' I ') =  73
-        ...
+3. Gets all musics with musicId equal to the characters' unicodes and downloads it, storing them into the array `tracks`:
 
-3.  Gets all musics with musicId equal to the characters' unicodes and downloads it, storing them into the array `tracks`:
+```python
+# returns a random assetbundleName from the list of all musics with musicId equals to the given input mid
+def get_resource(mid):
+    return random.choice([i for i in resources if i["musicId"] == mid])["assetbundleName"]
 
-    ```python
-    # returns a random assetbundleName from the list of all musics with musicId equals to the given input mid
-    def get_resource(mid):
-        return random.choice([i for i in resources if i["musicId"] == mid])["assetbundleName"]
+def download(mid):
+    resource = get_resource(mid)
+    r = requests.get(f"https://storage.sekai.best/sekai-assets/music/short/{resource}_rip/{resource}_short.mp3")
+    filename = f"tracks/{mid}.mp3"
+    with open(filename, "wb") as f:
+        f.write(r.content)
+    return mid
 
-    def download(mid):
-        resource = get_resource(mid)
-        r = requests.get(f"https://storage.sekai.best/sekai-assets/music/short/{resource}_rip/{resource}_short.mp3")
-        filename = f"tracks/{mid}.mp3"
-        with open(filename, "wb") as f:
-            f.write(r.content)
-        return mid
+tracks = [download(ord(i)) for i in flag]
 
-    tracks = [download(ord(i)) for i in flag]
-
-    # here is how tracks look like after execution:
-    # tracks = [
-    #   'vs_0084_01',       --> musicId = 84 ('T')
-    #   '0072_01',          --> musicId = 72 ('H')
-    #   'se_0073_01'        --> musicId = 73 ('I')
-    #   ...
-    # ]
-    ```
+# here is how tracks look like after execution:
+# tracks = [
+#   'vs_0084_01',       --> musicId = 84 ('T')
+#   '0072_01',          --> musicId = 72 ('H')
+#   'se_0073_01'        --> musicId = 73 ('I')
+#   ...
+# ]
+```
 
 4.  Stitches together the given music files using `ffmpeg` to generate `flag.mp3`:
 
-    ```python
-    # stage 1
-    inputs = sum([["-i", f"tracks/{i}.mp3"] for i in tracks], [])
-    # stage 2
-    filters = "".join(f"[{i}:a]atrim=end=3,asetpts=PTS-STARTPTS[a{i}];" for i in range(len(tracks))) + \
-          "".join(f"[a{i}]" for i in range(len(tracks))) + \
-          f"concat=n={len(tracks)}:v=0:a=1[a]"
-    # stage 3
-    subprocess.run(["ffmpeg"] + inputs + ["-filter_complex", filters, "-map", "[a]", "flag.mp3"])
+```python
+# stage 1
+inputs = sum([["-i", f"tracks/{i}.mp3"] for i in tracks], [])
+# stage 2
+filters = "".join(f"[{i}:a]atrim=end=3,asetpts=PTS-STARTPTS[a{i}];" for i in range(len(tracks))) + \
+        "".join(f"[a{i}]" for i in range(len(tracks))) + \
+        f"concat=n={len(tracks)}:v=0:a=1[a]"
+# stage 3
+subprocess.run(["ffmpeg"] + inputs + ["-filter_complex", filters, "-map", "[a]", "flag.mp3"])
 
-    # stage 1:
-    # inputs = [
-    #   '-i', 'tracks/vs_0084_01.mp3',
-    #   '-i', 'tracks/0071_01.mp3',
-    #   '-i', 'tracks/se_0073_01.mp3',
-    #   ...
-    # ]
+# stage 1:
+# inputs = [
+#   '-i', 'tracks/vs_0084_01.mp3',
+#   '-i', 'tracks/0071_01.mp3',
+#   '-i', 'tracks/se_0073_01.mp3',
+#   ...
+# ]
 
-    # stage 2:
-    # filters = '[0:a]atrim=end=3,asetpts=PTS-STARTPTS[a0];[1:a]atrim=end=3,asetpts=PTS-STARTPTS[a1];[2:a]atrim=end=3,asetpts=PTS-STARTPTS[a2]; ...'
+# stage 2:
+# filters = '[0:a]atrim=end=3,asetpts=PTS-STARTPTS[a0];[1:a]atrim=end=3,asetpts=PTS-STARTPTS[a1];[2:a]atrim=end=3,asetpts=PTS-STARTPTS[a2]; ...'
 
-    # stage 3:
-    # ffmpeg -i tracks/vs_0084_01.mp3 -i ... -filter_complex <filters> -map [a] flag.mp3
-    ```
+# stage 3:
+# ffmpeg -i tracks/vs_0084_01.mp3 -i ... -filter_complex <filters> -map [a] flag.mp3
+```
 
 ## Step 2: Reversing the code
 
@@ -184,29 +185,29 @@ Brute force. Brute force is the way.
 
 And so that's what I did:
 
--   I scraped and downloaded all 638 music files (>500MB) provided by `resources.json`:
+- I scraped and downloaded all 638 music files (>500MB) provided by `resources.json`:
 
-    ```python
-    # get all possible resourceID from resources.josn
-    def scrape():
-        with open("resources.json", "r") as f:
-            resources = json.load(f)
+```python
+# get all possible resourceID from resources.josn
+def scrape():
+    with open("resources.json", "r") as f:
+        resources = json.load(f)
 
-        # download all possible assetBundleNames
-        for resource in resources:
-            ass = resource["assetbundleName"]
-            print("getting asset:", ass)
-            r = requests.get(f"https://storage.sekai.best/sekai-assets/music/short/{ass}_rip/{ass}_short.mp3")
+    # download all possible assetBundleNames
+    for resource in resources:
+        ass = resource["assetbundleName"]
+        print("getting asset:", ass)
+        r = requests.get(f"https://storage.sekai.best/sekai-assets/music/short/{ass}_rip/{ass}_short.mp3")
 
-            # write to a new file
-            filename = f"tracks/{ass}.mp3"
-            with open(filename, "wb") as f:
-                f.write(r.content)
-            print(f"wrote to file: tracks/{ass}.mp3")
+        # write to a new file
+        filename = f"tracks/{ass}.mp3"
+        with open(filename, "wb") as f:
+            f.write(r.content)
+        print(f"wrote to file: tracks/{ass}.mp3")
 
-    # sit and wait
-    scrape()
-    ```
+# sit and wait
+scrape()
+```
 
 Now my folder looks like this:
 
@@ -226,52 +227,52 @@ Now my folder looks like this:
 
 Here comes the hard part: figuring out which audio file maps to each of the `flag_char_XXX.mp3`.
 
--   Attempt 1: I tried using python difflib's [SequenceMatcher](https://docs.python.org/3/library/difflib.html), but was not able to find matching audio files. My guess is that while performing `ffmpeg` the sequence of bytes may not necessarily align perfectly.
+**Attempt 1:** I tried using python difflib's [SequenceMatcher](https://docs.python.org/3/library/difflib.html), but was not able to find matching audio files. My guess is that while performing `ffmpeg` the sequence of bytes may not necessarily align perfectly.
 
-    ```python
-    # DID NOT WORK
-    from difflib import SequenceMatcher
+```python
+# DID NOT WORK
+from difflib import SequenceMatcher
 
-    def compare():
-        # loop through all track files
-        with open("resources.json", "r") as f:
-            resources = json.load(f)
+def compare():
+    # loop through all track files
+    with open("resources.json", "r") as f:
+        resources = json.load(f)
 
-        for resource in resources:
-            ass = resource["assetbundleName"]
-            # use ffmpeg to compare file with all 12 flags
+    for resource in resources:
+        ass = resource["assetbundleName"]
+        # use ffmpeg to compare file with all 12 flags
 
-    def similar(a, b):
-        return SequenceMatcher(None, a, b).ratio()
+def similar(a, b):
+    return SequenceMatcher(None, a, b).ratio()
 
-    def brute_force_flag_char(file_name):
-        file_to_brute = open(file_name, "rb").read()
-        # loop through all track files
-        with open("resources.json", "r") as f:
-            resources = json.load(f)
+def brute_force_flag_char(file_name):
+    file_to_brute = open(file_name, "rb").read()
+    # loop through all track files
+    with open("resources.json", "r") as f:
+        resources = json.load(f)
 
-        for resource in resources:
-            ass = resource["assetbundleName"]
-            # use ffmpeg to compare file with all 12 flags
-            file2 = open(f"trim_tracks_mp3/{ass}_3s.wav", "rb").read()
-            sim_ratio = similar(file_to_brute, file2)
-            if sim_ratio > 0:
-                print(f"{sim_ratio}: {ass}")
+    for resource in resources:
+        ass = resource["assetbundleName"]
+        # use ffmpeg to compare file with all 12 flags
+        file2 = open(f"trim_tracks_mp3/{ass}_3s.wav", "rb").read()
+        sim_ratio = similar(file_to_brute, file2)
+        if sim_ratio > 0:
+            print(f"{sim_ratio}: {ass}")
 
-    # sit and wait
-    for i in range(11):
-        brute_force_flag_char(f"flags/flag_char_{i:03}.mp3")
-    ```
+# sit and wait
+for i in range(11):
+    brute_force_flag_char(f"flags/flag_char_{i:03}.mp3")
+```
 
--   Attempt 2: I then tried using [audiodiff](https://github.com/SteveClement/audiodiff), but again it didn't work.
+**Attempt 2:** I then tried using [audiodiff](https://github.com/SteveClement/audiodiff), but again it didn't work.
 
 At this point I felt defeated.
 
-Maybe I implemented someting wrongly...
+Maybe I implemented someting incorrectly...
 
 ### Step 3: Stumbling upon gold
 
-Then, after some more Googling, I stumbled upon gold: [Sononym](https://www.sononym.net/)
+Then, after some more Googling, I found this: [Sononym](https://www.sononym.net/)
 
 It is a free software that allows you to find similar sounding samples in a sample collection with simple drag-and-drop UI:
 
