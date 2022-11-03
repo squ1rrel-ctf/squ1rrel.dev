@@ -17,7 +17,7 @@ For this web challenge, we had to utilize two different exploits to get the flag
 
 We're presented with a website where we can select different poems to view. When we click on a poem, we can see that the URL contains the name of a text file: `/show?id=spring.txt`.
 
-## Local File Exclusion (LFI)
+## Local File Inclusion (LFI)
 
 The first thing that comes to mind when we can access arbitrary files on a web server is Local File Inclusion (LFI). We tried it out by trying to access /etc/passwd `/show?id=../../etc/passwd`. We were successful! 
 
@@ -194,3 +194,5 @@ msg = base64.b64encode(pickle.dumps(data, -1))
 sig = base64.b64encode(hmac.new(tob(secret), msg, digestmod=hashlib.md5).digest())
 print(tob('!') + sig + tob('?') + msg)
 ```
+
+Flag: `SEKAI{W3lcome_To_Our_Bottle}`
