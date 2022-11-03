@@ -33,7 +33,9 @@ We were given two PNG files and the following bullet points.
 
 `Matryoshka.png`             |  `Matryoshka-Lite.png`
 :-------------------------:|:-------------------------:
-![Matryoshka](/assets/sekai/siraben/Matryoshka.png)  |  ![Matryoshka-Lite](/assets/sekai/siraben/Matryoshka-Lite.png)
+<img src="/assets/sekai/siraben/Matryoshka.png" alt="Matryoshka" width="380"/> | <img src="/assets/sekai/siraben/Matryoshka-Lite.png" alt="Matryoshka Lite" width="380"/>
+
+<!-- ![Matryoshka](/assets/sekai/siraben/Matryoshka.png) | ![Matryoshka-Lite](/assets/sekai/siraben/Matryoshka-Lite.png) -->
 
 
 - [x] One extra bit will double the 8 colors you already have, but
