@@ -47,65 +47,73 @@ Let's imagine that the flag is `SEKAI{THIS_IS_MY_FIRST_WRITEUP}`. Given this fla
 1. Removes the enclosing `SEKAI{...}` to get the inner substring `THIS_IS_MY_FIRST_WRITEUP`.
 
 2. Converts each character to unicode:
-```py
-ord('T') -> 84
-ord('H') ->  72
-ord('I') ->  73
-...
-```
+   ```py
+   ord('T') -> 84
+   ord('H') -> 72
+   ord('I') -> 73
+   ...
+   ```
 
 3. Gets all musics with musicId equal to the characters' unicodes and downloads it, storing them into the array `tracks`:
+    ```py
+    print()
+    # returns a random assetbundleName from the list of all musics
+    # with musicId equals to the given input mid
+    def get_resource(mid):
+        choice = random.choice([i for i in resources if i["musicId"] == mid])
+        return choice["assetbundleName"]
 
-```python
-# returns a random assetbundleName from the list of all musics with musicId equals to the given input mid
-def get_resource(mid):
-    return random.choice([i for i in resources if i["musicId"] == mid])["assetbundleName"]
+    def download(mid):
+        resource = get_resource(mid)
+        r = requests.get("https://storage.sekai.best/sekai-assets/" + \
+                f"music/short/{resource}_rip/{resource}_short.mp3")
+        filename = f"tracks/{mid}.mp3"
+        with open(filename, "wb") as f:
+            f.write(r.content)
+        return mid
 
-def download(mid):
-    resource = get_resource(mid)
-    r = requests.get(f"https://storage.sekai.best/sekai-assets/music/short/{resource}_rip/{resource}_short.mp3")
-    filename = f"tracks/{mid}.mp3"
-    with open(filename, "wb") as f:
-        f.write(r.content)
-    return mid
+    tracks = [download(ord(i)) for i in flag]
 
-tracks = [download(ord(i)) for i in flag]
+    # here is how tracks look like after execution:
+    # tracks = [
+    #   'vs_0084_01',       --> musicId = 84 ('T')
+    #   '0072_01',          --> musicId = 72 ('H')
+    #   'se_0073_01'        --> musicId = 73 ('I')
+    #   ...
+    # ]
+    ```
 
-# here is how tracks look like after execution:
-# tracks = [
-#   'vs_0084_01',       --> musicId = 84 ('T')
-#   '0072_01',          --> musicId = 72 ('H')
-#   'se_0073_01'        --> musicId = 73 ('I')
-#   ...
-# ]
-```
+4. Stitches together the given music files using `ffmpeg` to generate `flag.mp3`:
+    ```python
+    # stage 1
+    inputs = sum([["-i", f"tracks/{i}.mp3"] for i in tracks], [])
+    # stage 2
+    filters = "".join(f"[{i}:a]atrim=end=3,asetpts=PTS-STARTPTS[a{i}];" 
+                            for i in range(len(tracks))) + \
+              "".join(f"[a{i}]" for i in range(len(tracks))) + \
+              f"concat=n={len(tracks)}:v=0:a=1[a]"
+    # stage 3
+    subprocess.run(["ffmpeg"] + inputs + 
+        ["-filter_complex", filters, "-map", "[a]", "flag.mp3"])
 
-4.  Stitches together the given music files using `ffmpeg` to generate `flag.mp3`:
+    # stage 1:
+    # inputs = [
+    #   '-i', 'tracks/vs_0084_01.mp3',
+    #   '-i', 'tracks/0071_01.mp3',
+    #   '-i', 'tracks/se_0073_01.mp3',
+    #   ...
+    # ]
 
-```python
-# stage 1
-inputs = sum([["-i", f"tracks/{i}.mp3"] for i in tracks], [])
-# stage 2
-filters = "".join(f"[{i}:a]atrim=end=3,asetpts=PTS-STARTPTS[a{i}];" for i in range(len(tracks))) + \
-        "".join(f"[a{i}]" for i in range(len(tracks))) + \
-        f"concat=n={len(tracks)}:v=0:a=1[a]"
-# stage 3
-subprocess.run(["ffmpeg"] + inputs + ["-filter_complex", filters, "-map", "[a]", "flag.mp3"])
+    # stage 2:
+    # filters = '[0:a]atrim=end=3,asetpts=PTS-STARTPTS[a0];
+    # [1:a]atrim=end=3,asetpts=PTS-STARTPTS[a1];
+    # [2:a]atrim=end=3,asetpts=PTS-STARTPTS[a2]; ...'
 
-# stage 1:
-# inputs = [
-#   '-i', 'tracks/vs_0084_01.mp3',
-#   '-i', 'tracks/0071_01.mp3',
-#   '-i', 'tracks/se_0073_01.mp3',
-#   ...
-# ]
+    # stage 3:
+    # ffmpeg -i tracks/vs_0084_01.mp3 -i ... 
+    # -filter_complex <filters> -map [a] flag.mp3
+    ```
 
-# stage 2:
-# filters = '[0:a]atrim=end=3,asetpts=PTS-STARTPTS[a0];[1:a]atrim=end=3,asetpts=PTS-STARTPTS[a1];[2:a]atrim=end=3,asetpts=PTS-STARTPTS[a2]; ...'
-
-# stage 3:
-# ffmpeg -i tracks/vs_0084_01.mp3 -i ... -filter_complex <filters> -map [a] flag.mp3
-```
 
 ## Step 2: Reversing the code
 
@@ -183,9 +191,7 @@ Okay, we got the individual audio files. Now we need to know which musicId each 
 
 Brute force. Brute force is the way.
 
-And so that's what I did:
-
-- I scraped and downloaded all 638 music files (>500MB) provided by `resources.json`:
+And so that's what I did: I scraped and downloaded all 638 music files (>500MB) provided by `resources.json`:
 
 ```python
 # get all possible resourceID from resources.josn
@@ -300,8 +306,6 @@ Now quickly repeat this for all 11 characters:
 | flag_char_009.mp3 | vs_0051_01.mp3  | 51      | 3     |
 | flag_char_010.mp3 | vs_0117_01 .mp3 | 117     | u     |
 
-And at last, the flag has been found:
-
-    SEKAI{v0CaloId<3u}
+And at last, the flag has been found: `SEKAI{v0CaloId<3u}`
 
 The end must justify the means.
