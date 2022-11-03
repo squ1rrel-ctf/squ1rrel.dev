@@ -8,11 +8,11 @@ ghost:
   facebook: False
   twitter: False
   cover: False
-nkalupahana:
-  username: nkalupahana
+nisala:
+  username: nisala
   name: Nisala
   location: Portland, OR
-  url_full: https://nisa.la/
+  url_full: https://github.com/nkalupahana
   url: nisa.la
   bio: Nisala is a junior studying Computer Science at Vanderbilt University. Right now, he's working on baseline, an open source journaling and mood tracking app.
   picture: assets/images/nkalupahana.png
