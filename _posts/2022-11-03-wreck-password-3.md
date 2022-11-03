@@ -85,9 +85,10 @@ form.addEventListener('submit', async (event) => {
   });
 ```
 
-We can see that after clicking the `Login` button, our password field data will be sent over to the server endpoint `/password` and processed using the SQL select string ```
+We can see that after clicking the `Login` button, our password field data will be sent over to the server endpoint `/password` and processed using the SQL select string 
+
 ```SQL
-SELECT password FROM passwords WHERE password='${password}';`.
+SELECT password FROM passwords WHERE password='${password}';
 ```
 
 Trying the standard authentication bypass string `admin' OR '1'='1';--` and logging in we are able to see the message 
