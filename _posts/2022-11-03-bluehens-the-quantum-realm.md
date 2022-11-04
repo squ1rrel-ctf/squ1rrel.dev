@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  False
+cover:  assets/bluehens/quantum/cover.png
 navigation: True
 title: "The Quantum Realm"
 date: 2022-11-03 10:00:00

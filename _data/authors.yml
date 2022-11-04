@@ -74,3 +74,15 @@ Ace314159:
   facebook: False
   twitter: False
   cover: assets/images/Ace314159_cover.png
+abi-kothapalli:
+  username: abi-kothapalli
+  name: Abi Kothapalli
+  location: Kansas City
+  url_full: https://github.com/abi-kothapalli
+  url: github.com/abi-kothapalli
+  bio: Abi is a sophomore studying Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything. 
+  picture: assets/images/abi-kothapalli.png
+  facebook: False
+  twitter: False
+  cover: assets/images/abi-kothapalli_cover.png
+
