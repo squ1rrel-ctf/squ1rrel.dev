@@ -23,3 +23,7 @@ web:
   name: web
   description: Writeups on web challenges.
   cover: False
+forensics:
+  name: forensics
+  description: Writeups on forensics challenges.
+  cover: False
