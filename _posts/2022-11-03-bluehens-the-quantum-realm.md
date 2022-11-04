@@ -18,7 +18,7 @@ Forensics! Stego! Look, they even gave us an image! You know the drill.
 </center>
 
 ```ShellSession
-$ binwalk -- Antman.jpeg
+$ binwalk Antman.jpeg
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 Too easy.  Extraction time.
 
 ```ShellSession
-$ binwalk -- Antman.jpeg -E
+$ binwalk Antman.jpeg -E
 $ cat _Antman.jpeg.extracted/could_this_be_it.txt | tr -cd '[:print:]\n' | base64 -d | head -15
 45754(218, 116, 208)
 (218, 116, 208)
