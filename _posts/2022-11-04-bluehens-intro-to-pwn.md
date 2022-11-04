@@ -11,9 +11,9 @@ subclass: 'post'
 author: squ1rrel
 ---
 
-## Background
+This was my first time doing a CTF, so I literally had no idea what was going on the whole time. But I do think I learned a good bit from just observing the CTF, so maybe I can at least get an A for effort.
 
-This was my first time doing a CTF, so I literally had no idea what was going on the whole time. But I do think I learned a good bit from just observing the CTF, so maybe I can at least get an A for effort. All of these solutions sorta came from Akash, but I did have to put in a bit of effort to recreate them myself. Hopefully I can actually contribute next time :)
+All of these solutions sorta came from Akash, but I did have to put in a bit of effort to recreate them myself. Hopefully I can actually contribute next time :)
 
 ## Intro to PWN 1
 
