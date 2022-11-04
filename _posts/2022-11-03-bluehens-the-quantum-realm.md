@@ -18,7 +18,7 @@ Forensics! Stego! Look, they even gave us an image! You know the drill.
 </center>
 
 ```ShellSession
-$ nix run nixpkgs#binwalk -- Antman.jpeg
+$ binwalk -- Antman.jpeg
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
 --------------------------------------------------------------------------------
