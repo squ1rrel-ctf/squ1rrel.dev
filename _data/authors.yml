@@ -85,4 +85,47 @@ abi-kothapalli:
   facebook: False
   twitter: False
   cover: assets/images/abi-kothapalli_cover.png
-
+clash:
+  username: clash
+  name: Aadi Bajpai
+  location: Kanpur, India
+  url_full: https://aadibajpai.com
+  url: aadibajpai.com
+  bio: Aadi is a junior at Vanderbilt studying CS honors, Applied Math and Business. He enjoys finding gaps in things, playing table tennis and competing in CTFs with the best CTF team a lad could ask for. Very proud of all of you ❤️
+  picture: assets/images/clash.jpg
+  facebook: False
+  twitter: clasherintherye
+  cover: assets/images/clash_cover.png
+agarg-usa:
+  username: agarg-usa
+  name: Aryan Garg
+  location: San Jose, California
+  url_full: https://github.com/agarg-usa
+  url: github.com/agarg-usa
+  bio: Aryan Is A Man Who Loves Learning About Machine Learning Technologies In BlockChain To Help To Help Finding Fish Tumors To Generate Kubenernatre Containerized Decentralization Using 8 Dimensional Deep Tensor Learning With Complicated Hypercomputing Big Data (Not Interested In Web3 As to Avoid The Beauracrazy) 
+  picture: assets/images/agarg-usa.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/agarg-usa_cover.png
+bunnyrabbit022:
+  username: bunnyrabbit022
+  name: Evelyn
+  location: Earth
+  url_full: https://github.com/bunnyrabbit022
+  url: github.com/bunnyrabbit022
+  bio: Evelyn is a university student at a university. She really needs to sleep more but she can't because of university.
+  picture: assets/images/bunnyrabbit022.png
+  facebook: False
+  twitter: False
+  cover: assets/images/bunnyrabbit022_cover.png
+samalws:
+  username: samalws
+  name: Sam Alws
+  location: New Jersey
+  url_full: https://samalws.com
+  url: samalws.com
+  bio: Sam is a CS/math student at Vanderbilt. He likes to guess his way through misc and crypto challenges. Sam has been living in the Metaverse since 2005.
+  picture: assets/images/samawls.png
+  facebook: False
+  twitter: False
+  cover: assets/images/samawls_cover.png
