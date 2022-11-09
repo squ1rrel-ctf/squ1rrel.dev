@@ -135,7 +135,7 @@ Running this script with the command `python3 odtff_to_tff.py 02F30FAD-6532-20AE
 
 ## Step 4: Playing With our Font File
 
-To further investigate our `.tff` file, I used a font viewer I found online called [FontDrop]https://fontdrop.info/#/?darkmode=true.
+To further investigate our `.tff` file, I used a font viewer I found online called [FontDrop](https://fontdrop.info/#/?darkmode=true).
 
 Dragging in our `tff` file, we can immediately find our first flag.
 

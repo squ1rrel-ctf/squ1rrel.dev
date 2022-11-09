@@ -13,7 +13,7 @@ BlueHensCTF:
 
 misc:
   name: misc
-  description: Writeups on misc challenges.
+  description: Writeups on miscellaneous challenges.
   cover: False
 cryptography:
   name: cryptography
