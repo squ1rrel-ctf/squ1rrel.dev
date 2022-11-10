@@ -15,7 +15,7 @@ I can sorta do CTF problems -- but deep down, I'm a DevOps guy.
 
 So a challenge where I get to run a bunch of Linux tools in a VM to get a result is kinda my dream come true.
 
-## Figuring out The Challenge
+## Figuring Out The Challenge
 
 The challenge is named `devil`, and when you connect to it, it gives you a 75 second CAN bus capture 
 that looks something like this:
