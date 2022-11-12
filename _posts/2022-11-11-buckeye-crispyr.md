@@ -87,7 +87,7 @@ The function just converts an iterator of character bytes into a unicode String.
 
 The last thing I needed to do was figure out an input string that would produce the trait we were asked to produce.
 
-My first instinct was to use a combination of T's (which would increment the current cell in the buffer) and G's (which would increment the index) to set up the buffer to have all the correct ASCII bytes, leading to this code.
+My first instinct was to use a combination of Ts (which would increment the current cell in the buffer) and Gs (which would increment the index) to set up the buffer to have all the correct ASCII bytes, leading to this code.
 
 ```python
 payload = ""
@@ -105,11 +105,11 @@ However, I wasn't sure how to fulfill the rules I had discovered above. As a rem
 2. count of G = C
 3. count of A = T
 
-So I asked the rest of the team for help. Ben instantly figured out that 2 C's were essentially a NOP, and we could use those to separate our increments. This would fulfill Rule 1. However, neither of us was sure how to fulfill Rules 2 or 3.
+So I asked the rest of the team for help. Ben instantly figured out that 2 Gs were essentially a NOP, and we could use those to separate our increments. This would fulfill Rule 1. However, neither of us was sure how to fulfill Rules 2 or 3.
 
-After giving it some more thought, I realized that the A and G commands don't actually modify the buffer at all. As long as the number of C's and T's were greater than the number of A's and G's, I could just add the A's and G's in a specific order to get the counts to match. With that out of the way, the last problem to solve was to figure out how to print out the A's and G's so that they met Rule 1.
+After giving it some more thought, I realized that the A and G commands don't actually modify the buffer at all. As long as the number of Gs and Ts were greater than the number of As and Gs, I could just add the As and Gs in a specific order to get the counts to match. With that out of the way, the last problem to solve was to figure out how to print out the As and Gs so that they met Rule 1.
 
-I thought about it for a while, but my brain got fried. Instead of doing the thinking myself, is there a way I can just let my code figure it out? MATH! I knew that there were always going to be more C's than T's, so that means there will always be more G's than A's. The problem boils down to figuring out how I can combine sequences of `AG`, `AGG`, and `AGGG`. From this, I came up with this system of equations. Each variable represents the number of times each type of sequence would occur:
+I thought about it for a while, but my brain got fried. Instead of doing the thinking myself, is there a way I can just let my code figure it out? MATH! I knew that there were always going to be more Gs than Ts, so that means there will always be more Gs than As. The problem boils down to figuring out how I can combine sequences of `AG`, `AGG`, and `AGGG`. From this, I came up with this system of equations. Each variable represents the number of times each type of sequence would occur:
 
 ```python
 3 * a + 2 * b + c = NUM_A
