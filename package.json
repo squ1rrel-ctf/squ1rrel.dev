@@ -52,5 +52,8 @@
     },
     "config": {
         "posts_per_page": 25
+    },
+    "overrides": {
+        "graceful-fs": "^4.2.10"
     }
 }
