@@ -3,7 +3,7 @@ layout: post
 current: post
 cover:  assets/buckeye/Ace314159/cover2.png
 navigation: True
-title: "crispyr"
+title: "intel does what amd'ont"
 date: 2022-11-12 10:00:00
 tags: [BuckeyeCTF, rev]
 class: post-template
