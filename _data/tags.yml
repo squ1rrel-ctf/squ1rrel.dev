@@ -31,3 +31,7 @@ forensics:
   name: forensics
   description: Writeups on forensics challenges.
   cover: False
+ref:
+  name: rev
+  description: Writeups on reverse engineering challenges.
+  cover: False
