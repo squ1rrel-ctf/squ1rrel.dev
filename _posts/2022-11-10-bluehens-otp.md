@@ -36,9 +36,11 @@ The challenge description gives us a lot of information, so we immediately know 
 
 OTPs, or One-Time-Pads, are a form of encryption scheme in which every character in a plaintext is combined by some operation to a single character in a key to produce a single character in the ciphertext as shown in the form below.
 
-> plaintext:   ABCDEFG
-> key:           TUVWXYZ
-> ciphertext: MNOPQRS
+```
+plaintext:  ABCDEFG
+key:        TUVWXYZ
+ciphertext: MNOPQRS
+```
 
 First invented in the late 1800s but then accidentally reinvented in 1917 by the creation of the Vernam machine, OTPs have been consistently used since the first World War with some of their most notable uses taking place during the Cold War where messengers were given pages of numbers to use as keys that they were then told to destroy. 
 
@@ -85,9 +87,10 @@ Note: applying XOR on the second `a` character with itself in the key produced `
 
 This also reveals an additional special property of XOR in that it is reversible. For example:
 
-> A **⊕** B = C
-
-> ∴ C **⊕** B = A and C **⊕** A = B
+```
+A ⊕ B = C
+∴ C ⊕ B = A and C ⊕ A = B
+```
 
 Many examples both in CTF challenges and real-world codebreaking are able to use property to find parts of the key if parts of the plaintext are known.
 
@@ -97,7 +100,7 @@ Going back to our XOR example and plugging our operation into our favorite encry
 While XOR, if implemented correctly, is not the only stream one-time-pad operation, it is certainly the most common. The A5/1 standard for GSM (global standard for mobile communication), for example, is among the most popular encryption schemes for GSM phone calls and SMS messages in North America and Europe and is a stream cipher applying XOR as seen below:
 
 ![XOR diagram](/assets/bluehens/ZeroDayTea/A51.jpg)
-*image courtesy of Wikipedia and Matt Crypto*
+<center><i>image courtesy of Wikipedia and Matt Crypto</i></center>
 
 ## Back to the Challenge At Hand
 
@@ -251,15 +254,14 @@ exec :: String -> Stack
 exec = run . parse
 ```
 
-Using the wonderful Glasgow Haskell Compiler we compile the interpreter and execute as such
-```
-$ ghci interpreter.hs
-GHCi, version 8.6.5: http://www.haskell.org/ghc/  :? for help                                                           [1 of 1] Compiling List             ( interpreter.hs, interpreted )                                                     Ok, one module loaded.                                                                                                  *List> exec "irIiSriiSisSiisIsSiisiSsiiSissiisiSsiisissiisissiisissiisiSsIisiSsiIsriRiS@SSIsIISsISIISSIsIISSISIISSISIISSISIISSIsIiSSIsIIsSISiIsIIRIrSIIsIIpisisIsisisddisiriisrisisisisIsIsisIsiSisiSiSisisIsiiSrirdisiSisisisisisisisisisisisiSiSisiSdiIsisSiIsrirIisrDdiriisrIisiisrirssisisisisisisiSiSisiSisIsisIsIsisiSddiRiisriiiSissiisissiisissiisissdiRiIsrdIriIsriIsIisriRsssIisrirdiRiisrdiriisriisiisrirsssIiSrirSiiSrirIsIsisiSisiSdisisisIsisisisisisddddiriisrisIsIsisIsiSisiSiSisisIsisIisrirdiRiisriisissiisissiisissiIsIssiIsiSsiiSiSsiisIssiIsissiisRirisisisisiriisririisriRiIsriIisIssiIsIssdiRiisRiisiisrIrssdiriisriisiisrirssiiSiSsirIisRiisIiSrirsSiisRiriisriRiisrirdisisisdisisisisiSiSdirIisRdiiSiSisisIsisIsisisisIsisisisissiisririisisisSdIriiSrdIisiSiSisisIsisIsisisdiRiisriisiisrirssissdisisIsIsisIsiSddiRiIsrisIsisIsisisisIsiriisrisisisisisiisrirIiSrirIisRirdIiSisisSiriIsrdiisiSisisisdiriisriisiisrirsSdIriiSriIsiiSrIrssiSisiSsdisisiSisisisisisisisisiisrirdDiRiisRiiSisiSiSisisIssiIsririsiSddiriisriisisisisisisisIsIsisIsiSisiSsDiisiSisiSisissiiSririsisdiriisrdiisisisiSiSisiSisIsisIsDiriiSriiSiisrirsSsdisisisisiisrirdiriisrDiIsisIsiSisiSiSisisIsisDiriisriIsiisrirssissdiriisrdisiSiSisiSisIsisIsIsisiSdisIsisiisrIriisisisisisissiisrirdiIsIsisIsiSsdiSiSdiriIsrdIisisisiSisisisisisisisisisissiiSrIrisIsdIriiSrDiisiSisiSisisisiSissdiisisissdiriisrdiisIsIsisIsiSisdIrIisriIsiiSrirssisSiisririsisisisiisrirddiIsIsisSdiIsisIsIsissIriiSririisrIriisrdiisisisisisdiriisRiIsiiSriRssdIrIisriIsiiSrirssisIsisisisissdisisiisririiSrIriiSriRdirIiSriisIsisIsisisisIsdiriisriisiisrirsssdiiSiSsdiSisDisiSiSdisdIisiSsdisisiIsrirdiisisisisisisisdirIiSriiSiiSrirSsIssdiIsisSdiisisiSisisisdiriisriisiisrirsSsIisr"
-```
+Using the wonderful Glasgow Haskell Compiler we compile the interpreter and execute it by running `ghci interpreter.hs`.
+
 Aaaaaaaaaand it doesn't work. 
+
 ```
 *** Exception: List.hs:(48,5)-(50,44): Non-exhaustive patterns in function opR
 ```
+
 On the verge of switching my major to Business Development or Communications, I flip back to the description of Wagon macros and continue parsing. With the help of the resident Haskell expert on my team I was able to modify the last two lines of the interpreter from
 ```haskell
 parse :: String -> Op 
