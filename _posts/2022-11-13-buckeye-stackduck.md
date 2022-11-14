@@ -11,7 +11,7 @@ subclass: 'post'
 author: ZeroDayTea
 ---
 
-I love ducks so I was a little saddened to see that this duck was a canary in disguise. Still a birb though!
+I love ducks, so I was a little saddened to see that this duck was a canary in disguise. Still a birb though!
 
 ## Problem Description
 <img src="/assets/buckeye/ZeroDayTea/stackduck.png" alt="CTF challenge duck meme" style="width: 400px"/>
