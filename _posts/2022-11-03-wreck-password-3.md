@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  False
+cover:  assets/wreck/ZeroDayTea/cover.png
 navigation: True
 title: "password-3"
 date: 2022-11-03 10:00:00
