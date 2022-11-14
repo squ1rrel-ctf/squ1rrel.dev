@@ -11,10 +11,8 @@ subclass: 'post'
 author: siraben
 ---
 
-![Cover image](/assets/buckeye cover.jpg)
-
 Despite having [worked](https://certora.com/) in smart contract
-security, I have never actually performed an attack before---until
+security, I have never actually performed an attack before -- until
 now.  Let's take a look at some not-so-smart contracts, shall we?
 
 ## Background
