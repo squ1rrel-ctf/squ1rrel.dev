@@ -21,7 +21,7 @@ mathjax: true
 
 ## Problem Statement
 
-See the challenge here: https://flu.xxx/challenges/5
+[See the challenge here!](https://flu.xxx/challenges/5)
 
 > Every delicious meal needs a starter and I have great news for you: This one is even linear! A mathematical dream, so delicious!
 >
@@ -29,7 +29,7 @@ See the challenge here: https://flu.xxx/challenges/5
 
 ## Deducing the length of the flag
 
-We are given two files: `otp.py` and `out.txt`:
+We are given two files, `otp.py` and `out.txt`:
 
 ```python
 # otp.py
