@@ -13,7 +13,7 @@ squ1rrel is the competitive team of the Vanderbilt CTF Club.
 A Capture the Flag (CTF) is a type of cybersecurity
 competition where teams compete to solve challenges based on binary exploitation, reverse engineering, web exploitation, forensics, and cryptography to find a "flag" that gives them points.
 
-This website also serves to house our writeups for interesting challenges we have solved, which should
+This website serves to house our writeups for interesting challenges we have solved, which should
 give you a good idea of what sort of challenges to expect in a CTF.
 
 We are also nationally and globally ranked, check out
