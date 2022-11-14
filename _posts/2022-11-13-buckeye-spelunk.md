@@ -62,7 +62,7 @@ Since we're looking for a flag, there has to be some way to just... search the w
 ></details>
 
 What the hell is a `.mca` file?  Why are there so many of them? Oh no.
-One more google search later, I quickly learned that all of minecraft's data files are in a propiertry file format called NBT (**n**amed **b**inary **t**ag) and that the best way to edit them is using a program called [NBTExplorer.](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/1262665-nbtexplorer-nbt-editor-for-windows-and-mac)
+One more google search later, I quickly learned that all of minecraft's data files are in a proprietary file format called NBT (**n**amed **b**inary **t**ag) and that the best way to edit them is using a program called [NBTExplorer.](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-tools/1262665-nbtexplorer-nbt-editor-for-windows-and-mac)
 
 One quick ~~sketchy~~ download later, we're greeted with this wonderful page.
 
