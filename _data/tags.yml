@@ -14,6 +14,10 @@ BuckeyeCTF:
   name: BuckeyeCTF
   description: Writeups from BuckeyeCTF.
   cover: False
+Hacklu:
+  name: Hack.lu
+  description: Writeups from Hack.lu.
+  cover: False
 
 misc:
   name: misc
