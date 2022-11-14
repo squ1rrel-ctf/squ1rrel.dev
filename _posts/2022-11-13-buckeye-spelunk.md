@@ -13,9 +13,7 @@ author: honeyedfox
 
 All of these challenges are too hard for me. Wait... is that Minecraft???
 
-Last weekend, I got to participate in BuckeyeCTF as an official member of squ1rrel! It was my very first time ever ctf'ing, let alone delving into any type of code or anything similar. Honestly, it was pretty overwhelming, as a lot of the challenges were pretty math or computer science heavy, and my skills lie mostly in the OSINT world, but I still managed to get this flag all on my own! Let's see how a non-cs major tackles "Spelunk!" 
-
-## The hint:
+Last weekend, I got to participate in BuckeyeCTF as an official member of squ1rrel! It was my very first time ever ctf'ing, let alone delving into any type of code or anything similar. Honestly, it was pretty overwhelming, as a lot of the challenges were pretty math or computer science heavy, and my skills lie mostly in the OSINT world, but I still managed to get this flag all on my own! Let's see how a non-cs major tackles "Spelunk!"
 
 > I wrote the flag on a sign [somewhere](https://drive.google.com/file/d/1R_YzJK7QXt7NZarjpXJKq-LwGX-_kQ7e/view), but I lost it. Only a REAL spelunker can find it!
 
