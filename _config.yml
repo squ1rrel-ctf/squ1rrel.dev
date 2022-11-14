@@ -11,7 +11,7 @@ baseurl: '/'
 # Website info
 title: squ1rrel
 description: Vanderbilt's CTF Club
-cover: assets/images/blog-cover.jpg
+cover: assets/images/squ1rrel_cover.png
 logo: assets/images/squ1rrel_white.png
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
