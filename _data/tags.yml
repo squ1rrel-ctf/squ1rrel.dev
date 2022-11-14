@@ -8,7 +8,7 @@ WRECKCTF:
   cover: False
 BlueHensCTF:
   name: BlueHens CTF
-  description: Writeups from University of Deleware's CTF, BlueHens CTF.
+  description: Writeups from University of Delaware's CTF, BlueHens CTF.
   cover: False
 BuckeyeCTF:
   name: BuckeyeCTF

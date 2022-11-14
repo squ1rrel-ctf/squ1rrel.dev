@@ -2,15 +2,15 @@
 markdown: kramdown
 highlighter: rouge
 paginate: 100 # it will paginate after this number
-language: 'en-us'
+language: "en-us"
 words_per_minute: 150
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: '/'
+baseurl: "/"
 
 # Website info
 title: squ1rrel
-description: Vanderbilt's CTF Club
+description: The Vanderbilt University CTF Club
 cover: assets/images/squ1rrel_cover.png
 logo: assets/images/squ1rrel_white.png
 logo_dark: assets/images/favicon.png
@@ -72,7 +72,7 @@ repo: squ1rrel.dev
 branch: main
 relative_source: ./
 destination: ./_site/
-production_url:  https://squ1rrel.dev/
+production_url: https://squ1rrel.dev/
 source_url: https://github.com/squ1rrel-ctf/squ1rrel.dev
 
 exclude:
