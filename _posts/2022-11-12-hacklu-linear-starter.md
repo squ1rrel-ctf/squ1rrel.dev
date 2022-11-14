@@ -12,6 +12,8 @@ author: zineanteoh
 mathjax: true
 ---
 
+Every delicious meal needs a starter and I have great news for you: This one is even linear!
+
 -   [Problem Statement](#problem-statement)
 -   [Deducing the length of the flag](#deducing-the-length-of-the-flag)
 -   [Visualizing the OTP array](#visualizing-the-otp-array)
@@ -111,9 +113,9 @@ Here is a visual representation of this little piece of code:
 
 ![Visualizing OTP array](https://i.imgur.com/w1utQFf.png)
 
-Notice that the first element $x_0$ is unknown, while all subsequent elements $x_n$ depends on $x_{n-1}$.
+Notice that the first element $$x_0$$ is unknown, while all subsequent elements $$x_n$$ depends on $$x_{n-1}$$.
 
-Hmm, interesting. It seems like if we can figure out $x_0$, then we can figure out the entire `otp` array.
+Hmm, interesting. It seems like if we can figure out $$x_0$$, then we can figure out the entire `otp` array.
 
 ## Back-tracking to get our flag
 
@@ -137,7 +139,7 @@ Similarly, we know `x2`, `x3`, `x4`, `x5`, and `x50`!
 
 ![Finding xn](https://i.imgur.com/JrrV0Ku.png)
 
-But we only need $x_1$, $x_2$, $x_3$ to get our flag.
+But we only need $$x_1$$, $$x_2$$, $$x_3$$ to get our flag.
 
 Remember how linear equations work?
 
