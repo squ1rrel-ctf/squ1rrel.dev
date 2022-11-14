@@ -21,7 +21,6 @@ The link goes to Google Drive with a file called spelunk.zip!
 
 Let’s unzip it!
 
-## The File!
 ><details ><summary>🗀 Spelunk</summary>
 ><details ><summary>&emsp;⤷🗀 World</summary>
 ><div>&emsp;&emsp;&emsp;&emsp;⤷🗀 advancements</div>
@@ -92,7 +91,6 @@ Ah. What do I search? ... Ah, yeah, the flag.  “Buckeye{“ should work, yeah?
 ![](https://lh3.googleusercontent.com/1app8jK12p1y8KTSvWx7icWYfuObFjT0mA1qLMPo5n_duvs3jd-YTM1jAFS8Kq634YBGnow0NbRw4XFYoHcu0wp_mbE3s41ND1SWqAGrkLuxsDv7-YNGXzwIgzmJ2v_qsBQkqT3rv8HIdCV-ylIlLSn4No4TjxjbW7Tuin9NARhQA6u-Ux84U-UG5nwmsw)
 
 This might take a while.
-
   
 
 ![](https://lh6.googleusercontent.com/RzB8cHjWve_Poza1VgxkA-Pf-__RhZNUpjcxT_3FiE6KPjLgAxYCdgAMcGXNhdYrQZAAYUfDGRSgSwuKFZl33YUSOf80emrZMfGXYtb8ancrkA2fpHOajig81414HMODYMlbK8E65C4F52mfcIFA3WCp3r4cX1pvlX6RYZUbxVAeslLipe-MO5oBZVTHGw)
