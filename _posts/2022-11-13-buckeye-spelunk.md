@@ -70,8 +70,6 @@ One quick ~~sketchy~~ download later, we're greeted with this wonderful page.
 
 Hmm. Well, maybe there's more info now! Let's go back to the region file.
 
-Let’s click it. 
-
 ![](https://lh6.googleusercontent.com/GkjCtyWWuAucsxAnytTruAHhpQk-Ziqp_mBtgVHzjR9EQJRpGfh64T1q_zX2b7UPVwGfORw59I7dA3X1QMrOk4G01DCCj937nU6uC4DHMTufopu7hs3HXZB9rm0ioTvEoJCRxLHmXddMewec0c5cl3F3bKLKMDkjt4gl6npUQL-N7cdg8Xis1w7ctaTEmQ)
 
 Seems about right.
@@ -80,18 +78,15 @@ Seems about right.
 
 Oh no. I've severely underestimated the amount of spelunking I've gotten myself into.
 
-There’s got to be an easier way to do this, right?
-
-That spyglass icon looks interesting.🤔
+There’s got to be an easier way to do this, right? That spyglass icon looks interesting. 🤔
 
 ![](https://lh6.googleusercontent.com/NYhtpKQ-utZFuTigsGbpDZDrJr-czax0ZRpBjgayvsLb83vSWPYR0apj8-1gtr-UhtyXz6x6GGtsIthOmYk_jtsIcy0T7Av6GP75DR_3BZtp7xmujn2T8XEmThvC9AibkI1F9zmOyrJSZsioH2tiqsgZBR_RwShwlQrlFLkPnNAjUqIl3_r5PwJv5w7IJA)
 
-Ah. What do I search? ... Ah, yeah, the flag.  “Buckeye{“ should work, yeah? Layman’s version of find()
+Ah. What do I search? ... Ah, yeah, the flag. `buckeye{` should work, yeah?
 
 ![](https://lh3.googleusercontent.com/1app8jK12p1y8KTSvWx7icWYfuObFjT0mA1qLMPo5n_duvs3jd-YTM1jAFS8Kq634YBGnow0NbRw4XFYoHcu0wp_mbE3s41ND1SWqAGrkLuxsDv7-YNGXzwIgzmJ2v_qsBQkqT3rv8HIdCV-ylIlLSn4No4TjxjbW7Tuin9NARhQA6u-Ux84U-UG5nwmsw)
 
 This might take a while.
-  
 
 ![](https://lh6.googleusercontent.com/RzB8cHjWve_Poza1VgxkA-Pf-__RhZNUpjcxT_3FiE6KPjLgAxYCdgAMcGXNhdYrQZAAYUfDGRSgSwuKFZl33YUSOf80emrZMfGXYtb8ancrkA2fpHOajig81414HMODYMlbK8E65C4F52mfcIFA3WCp3r4cX1pvlX6RYZUbxVAeslLipe-MO5oBZVTHGw)
 
