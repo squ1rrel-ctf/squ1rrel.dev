@@ -129,3 +129,14 @@ samalws:
   facebook: False
   twitter: False
   cover: assets/images/samalws_cover.png
+honeyedfox:
+  username: honeyedfox
+  name: Maya
+  location: Atlanta, Georgia
+  url_full: https://vanderbilt.edu
+  url: vanderbilt.edu
+  bio: non-cs major. in fact, anti-cs major. professional cs hater. was attracted by the promise of osint and puzzles.
+  picture: assets/images/honeyedfox.png
+  facebook: False
+  twitter: False
+  cover: assets/images/honeyedfox_cover.jpg
