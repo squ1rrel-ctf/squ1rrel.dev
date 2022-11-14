@@ -57,7 +57,7 @@ The second principle stems from the fact that once all the characters of a key h
 ```
 plaintext:    A B C D E F G H
 key:          K E Y K E Y K E
-ciphertext:   T U V W X Y Z
+ciphertext:   S T U V W X Y Z
 ```
 
 Just this principle alone usually isn't enough to be able to break the key for a one-time-pad, but it reduces the complexity of bruteforcing by orders of magnitude in many cases. If, however, the key is in fact the same length as the plaintext then the one-time-pad qualifies to be a "stream cipher" -- but more on that later.
@@ -254,7 +254,10 @@ exec :: String -> Stack
 exec = run . parse
 ```
 
-Using the wonderful Glasgow Haskell Compiler we compile the interpreter and execute it by running `ghci interpreter.hs`.
+Using the wonderful Glasgow Haskell Compiler we run the Wagon interpreter with `ghci interpreter.hs` and run our Wagon program as such
+```
+exec "irIiSriiSisSiisIsSiisiSsiiSissiisiSsiisissiisissiisissiisiSsIisiSsiIsriRiS@SSIsIISsISIISSIsIISSISIISSISIISSISIISSIsIiSSIsIIsSISiIsIIRIrSIIsIIpisisIsisisddisiriisrisisisisIsIsisIsiSisiSiSisisIsiiSrirdisiSisisisisisisisisisisisiSiSisiSdiIsisSiIsrirIisrDdiriisrIisiisrirssisisisisisisiSiSisiSisIsisIsIsisiSddiRiisriiiSissiisissiisissiisissdiRiIsrdIriIsriIsIisriRsssIisrirdiRiisrdiriisriisiisrirsssIiSrirSiiSrirIsIsisiSisiSdisisisIsisisisisisddddiriisrisIsIsisIsiSisiSiSisisIsisIisrirdiRiisriisissiisissiisissiIsIssiIsiSsiiSiSsiisIssiIsissiisRirisisisisiriisririisriRiIsriIisIssiIsIssdiRiisRiisiisrIrssdiriisriisiisrirssiiSiSsirIisRiisIiSrirsSiisRiriisriRiisrirdisisisdisisisisiSiSdirIisRdiiSiSisisIsisIsisisisIsisisisissiisririisisisSdIriiSrdIisiSiSisisIsisIsisisdiRiisriisiisrirssissdisisIsIsisIsiSddiRiIsrisIsisIsisisisIsiriisrisisisisisiisrirIiSrirIisRirdIiSisisSiriIsrdiisiSisisisdiriisriisiisrirsSdIriiSriIsiiSrIrssiSisiSsdisisiSisisisisisisisisiisrirdDiRiisRiiSisiSiSisisIssiIsririsiSddiriisriisisisisisisisIsIsisIsiSisiSsDiisiSisiSisissiiSririsisdiriisrdiisisisiSiSisiSisIsisIsDiriiSriiSiisrirsSsdisisisisiisrirdiriisrDiIsisIsiSisiSiSisisIsisDiriisriIsiisrirssissdiriisrdisiSiSisiSisIsisIsIsisiSdisIsisiisrIriisisisisisissiisrirdiIsIsisIsiSsdiSiSdiriIsrdIisisisiSisisisisisisisisisissiiSrIrisIsdIriiSrDiisiSisiSisisisiSissdiisisissdiriisrdiisIsIsisIsiSisdIrIisriIsiiSrirssisSiisririsisisisiisrirddiIsIsisSdiIsisIsIsissIriiSririisrIriisrdiisisisisisdiriisRiIsiiSriRssdIrIisriIsiiSrirssisIsisisisissdisisiisririiSrIriiSriRdirIiSriisIsisIsisisisIsdiriisriisiisrirsssdiiSiSsdiSisDisiSiSdisdIisiSsdisisiIsrirdiisisisisisisisdirIiSriiSiiSrirSsIssdiIsisSdiisisiSisisisdiriisriisiisrirsSsIisr"
+```
 
 Aaaaaaaaaand it doesn't work. 
 
@@ -262,7 +265,7 @@ Aaaaaaaaaand it doesn't work.
 *** Exception: List.hs:(48,5)-(50,44): Non-exhaustive patterns in function opR
 ```
 
-On the verge of switching my major to Business Development or Communications, I flip back to the description of Wagon macros and continue parsing. With the help of the resident Haskell expert on my team I was able to modify the last two lines of the interpreter from
+On the verge of switching my major to Business Development or Communications, I flip back to the description of Wagon macros and continue parsing. With the help of the resident Haskell expert on my team I was able to modify the last six lines of the interpreter from
 ```haskell
 parse :: String -> Op 
 parse = foldl (flip parseOp) id 
