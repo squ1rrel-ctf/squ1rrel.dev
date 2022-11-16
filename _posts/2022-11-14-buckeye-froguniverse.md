@@ -9,6 +9,7 @@ tags: [BuckeyeCTF, misc]
 class: post-template
 subclass: 'post'
 author: agarg-usa
+mathjax: true
 ---
 
 Welcome to Frog Universe!
@@ -105,21 +106,21 @@ Let's take a look at this board, as an example. Look at the 1 in the middle. The
 
 Now we can mark that position as a bomb, and we can check all the neighbors of that bomb to see if there were any other squares we might be able to better understand because of this new information.
 
-![previous board, but with a bomb flagged](/assets/buckeye/agarg-usa/minesweeper_one_neighbor_marked.png)
+<img src="/assets/buckeye/agarg-usa/minesweeper_one_neighbor_marked.png" alt="previous board, but with a bomb flagged" style="width: 300px" />
 
 > I will be referring to the coordinates of these squares as $$(y, x)$$, where $$(1, 1)$$ is the top left and $$(5,5)$$ is the bottom right.
 
 Since we know the position of the bomb is $$(2, 3)$$, we can check all 8 of its adjacent squares.
 
-> (2,4), (1,4), (1,3), (1,2)
+> $$(2, 4)$$, $$(1, 4)$$, $$(1, 3)$$, $$(1, 2)$$
 
 These points are still unknown to us, so let's not touch them just yet.
 
-> (3,2), (3,3), (3,4)
+> $$(3, 2)$$, $$(3,3)$$, $$(3,4)$$
 
 These points are all marked as a 1, and we now know the location of the bomb that they're referring to. This means that all other surrounding the 1's are not a bomb, so we can mark these other adjacent points as safe. We will mark points $$(2, 4)$$ and $$(2, 5)$$ as safe. We can also add these coordinates to some type of list to keep track of possible points we can use to recursively discover using our 0-neighbor pruning trick later on.
 
-> (2,2)
+> (2, 2)
 
 Since we now know new information about the bombs surrounding this point, we can check it agian. We now know one of the two bombs that surround this point, but since we still do not know the second bomb we can't do anything more.
 
@@ -181,7 +182,7 @@ There are also some other ways to traverse a graph. For example, depth first sea
 
 And A* search, which is a highly optimized graph traversal algorithm:
 
-![A* search of a grid](/assets/buckeye/agarg-usa/astar.gif)
+<img src="/assets/buckeye/agarg-usa/astar.gif" alt="A* search of a grid" style="width: 500px" />
 
 Let's see if we can now traverse the graph of Minesweeper.
 
@@ -240,8 +241,7 @@ So in summary, this is what we would need to code:
 
 Now that we know the technique, let's code it!
 
-Wait wait wait, before we code it... let's take out some pen and paper, and leetcode interviewing style check our time-complexity first.
-
+Wait wait wait, before we code it... let's take out some pen and paper, and leetcode interviewing-style check our time-complexity first.
 
 ## O(Error 408 Request Timeout)
 
