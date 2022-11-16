@@ -11,7 +11,9 @@ subclass: "post"
 author: bunnyrabbit022
 ---
 
-This challenge gives us two files, `output.txt` and `bonce.py`. Opening up `output.txt`, we see:
+This challenge gives us two files, `output.txt` and `bonce.py`. 
+
+Opening up `output.txt`, we see:
 
 ```
 input: Look in thy glass, and tell
