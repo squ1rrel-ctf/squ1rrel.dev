@@ -129,14 +129,7 @@ into the {body} of the default.hbs template -->
                   {% endif %}
                 {% endfor %}
                 {% if related_posts > 1 %}
-                    <article class="read-next-card"
-                        {% if site.cover %}
-                            style="background-image: url({{ site.baseurl }}{{ site.cover }})"
-                        {% else %}
-                            {% if page.cover %}
-                                style="background-image: url(url({{ site.baseurl }}{{ page.cover }})"{% endif %}
-                        {% endif %}
-                    >
+                    <article class="read-next-card">
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; {{ site.title }} &mdash;</small>
                             {% if primary %}
