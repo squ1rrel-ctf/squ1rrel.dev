@@ -105,7 +105,7 @@ However, I wasn't sure how to fulfill the rules I had discovered above. As a rem
 2. count of G = C
 3. count of A = T
 
-So I asked the rest of the team for help. Ben instantly figured out that 2 Gs were essentially a NOP, and we could use those to separate our increments. This would fulfill Rule 1. However, neither of us was sure how to fulfill Rules 2 or 3.
+So I asked the rest of the team for help. Ben instantly figured out that 2 Cs were essentially a NOP, and we could use those to separate our increments. This would fulfill Rule 1. However, neither of us was sure how to fulfill Rules 2 or 3.
 
 After giving it some more thought, I realized that the A and G commands don't actually modify the buffer at all. As long as the number of Gs and Ts were greater than the number of As and Gs, I could just add the As and Gs in a specific order to get the counts to match. With that out of the way, the last problem to solve was to figure out how to print out the As and Gs so that they met Rule 1.
 
