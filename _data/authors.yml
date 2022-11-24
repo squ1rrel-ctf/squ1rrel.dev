@@ -18,7 +18,7 @@ nisala:
   picture: assets/images/nkalupahana.png
   facebook: False
   twitter: False
-  cover: False
+  cover: assets/images/nkalupahana_cover.png
 kyleburgess2025:
   username: kyleburgess2025
   name: Kyle Burgess
