@@ -7,7 +7,7 @@ squ1rrel:
   picture: assets/images/favicon.png
   facebook: False
   twitter: False
-  cover: False
+  cover: assets/images/squ1rrel_team_cover.png
 nisala:
   username: nisala
   name: Nisala
