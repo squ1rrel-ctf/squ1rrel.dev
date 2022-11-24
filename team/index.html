@@ -1,7 +1,7 @@
 ---
 layout: default
-current: author
-title: Author Page
+current: home
+title: Team Page
 cover: false
 class: "author-template"
 navigation: True
@@ -96,7 +96,7 @@ logo: "assets/images/ghost.png"
                         {% assign post_count = post_count | plus: 1 %} 
                     {% endif %} 
                 {% endfor %} 
-                {% if post_count == 0 %}&nbsp; No posts{% elsif post_count == 1 %}&nbsp;1 post{%else %}&nbsp;{{ post_count }} posts{% endif %}<span class="bull">&bull;</span>
+                {% if post_count == 0 %}&nbsp; No posts{% elsif post_count == 1 %}&nbsp;1 post{%else %}&nbsp;{{ post_count }} posts{% endif %}
             </div>
 
             {% if author[1].url %}
