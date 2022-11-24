@@ -41,7 +41,9 @@ logo: "assets/images/ghost.png"
       <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
       <!-- #author  -->
       <!-- Everything inside the #author tags pulls data from the author -->
-      {% for author in site.data.authors %}
+      <!-- sort authors but I don't know how to control the sort-->
+      {% assign authors = site.data.authors | sort %}
+      {% for author in authors %}
       <article
         class="post-card {{ page.class }}{% unless author[1].cover %} no-image{% endunless %}"
       >
