@@ -100,7 +100,8 @@ body {
         padding-top: 0;
     }
 
-    .home-template .site-nav {
+    .home-template .site-nav,
+    .team-template .site-nav {
         position: relative;
         top: -70px;
     }
