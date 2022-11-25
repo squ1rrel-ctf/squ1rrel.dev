@@ -1,0 +1,117 @@
+---
+layout: default
+current: home
+title: Team Page
+cover: false
+class: "tag-template team-template"
+navigation: True
+label: Author
+logo: "assets/images/ghost.png"
+---
+<!-- copied this from index, not sure if there is a better way -->
+<!-- The big featured header, it uses blog cover image as a BG if available -->
+<header
+  class="site-header outer {% if page.cover or site.cover %}"
+  style="background-image:  url({{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}) {% else %}no-cover{% endif %}"
+>
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title">
+        {% if site.logo %}
+        <img
+          class="site-logo"
+          src="{{ site.baseurl }}{{ site.logo }}"
+          alt="{{ site.title }}"
+        />
+        {% else %} {{ site.title }} {% endif %}
+      </h1>
+      <h2 class="site-description">
+        Meet our CTF team!
+      </h2>
+    </div>
+    {% include site-nav.html %}
+  </div>
+</header>
+
+<!-- The main content area -->
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    <div class="post-feed">
+      <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
+      <!-- #author  -->
+      <!-- Everything inside the #author tags pulls data from the author -->
+      <!-- sort authors but I don't know how to control the sort-->
+      {% assign authors = site.data.authors | sort %}
+      {% for author in authors %}
+      <article
+        class="post-card {{ page.class }}{% unless author[1].cover %} no-image{% endunless %}"
+      >
+        {% if author[1].cover %}
+        <a
+          class="post-card-image-link"
+          href="{{ site.baseurl }}author/{{ author[0] }}/"
+        >
+          <div
+            class="post-card-image"
+            style="background-image: url({{ site.baseurl }}{{ author[1].cover }})"
+          ></div>
+        </a>
+        {% endif %} {% if author[1].picture %}
+        <!-- only add margin top and z-index if author.cover-->
+        <img
+          style="width: 100px;height: 100px;margin-left: 25px;{% if author[1].cover %}margin-top: -50px;z-index: 1;{%endif%}"
+          class="author-profile-image"
+          src="{{ site.baseurl }}{{ author[1].picture }}"
+          alt="{{ author[1].name }}"
+        />
+        {% endif %}
+        <div class="post-card-content">
+          <a
+            class="post-card-content-link"
+            href="{{ site.baseurl }}author/{{ author[0] }}/"
+          >
+            <header class="post-card-header">
+              <h2 class="post-card-title">{{ author[1].name }}</h2>
+            </header>
+            <section class="post-card-excerpt">
+              <p>{{ author[1].bio }}</p>
+            </section>
+          </a>
+        </div>
+        <footer class="post-card-meta">
+          <div class="author-meta" style="display: flex; align-items: center">
+
+            {% if author[1].location %}
+            <div class="author-location">
+              {{ author[1].location }} <span class="bull">&bull; </span>
+            </div>
+            {% endif %}
+
+            <div class="author-stats">
+                <!-- count posts per author -->
+                {% assign post_count = 0 %} 
+                {% for post in site.posts %} 
+                    {% if post.author == author[1].username %} 
+                        {% assign post_count = post_count | plus: 1 %} 
+                    {% endif %} 
+                {% endfor %} 
+                {% if post_count == 0 %}&nbsp; No posts{% elsif post_count == 1 %}&nbsp;1 post{%else %}&nbsp;{{ post_count }} posts{% endif %}
+            </div>
+
+            {% if author[1].url %}
+            <a
+              class="social-link"
+              href="{{ author[1].url_full }}"
+              target="_blank"
+              rel="noopener"
+              >{% include website.html %}</a
+            >
+            {% endif %}
+
+          </div>
+        </footer>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</main>
