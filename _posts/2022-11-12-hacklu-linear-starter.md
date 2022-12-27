@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/hacklu/zineanteoh/cover.png
+cover: assets/hacklu/zineanteoh/cover.webp
 navigation: True
 title: "Linear Starter"
 date: 2022-11-12 10:00:00

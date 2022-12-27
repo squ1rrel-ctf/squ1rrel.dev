@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/bluehens/wordles/cover.png
+cover: assets/bluehens/wordles/cover.webp
 navigation: True
 title: "Wordles with Dads"
 date: 2022-11-09 10:00:00

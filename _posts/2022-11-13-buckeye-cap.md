@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/abi-kothapalli/cover.png
+cover: assets/buckeye/abi-kothapalli/cover.webp
 navigation: True
 title: "cap"
 date: 2022-11-13 10:00:00

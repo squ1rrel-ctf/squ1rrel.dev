@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/vocaloid_heardle/cover.png
+cover:  assets/sekai/vocaloid_heardle/cover.webp
 navigation: True
 title: "Vocaloid Heardle"
 date: 2022-10-16 10:00:00

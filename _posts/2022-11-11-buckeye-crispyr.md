@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/buckeye/Ace314159/cover.png
+cover:  assets/buckeye/Ace314159/cover.webp
 navigation: True
 title: "crispyr"
 date: 2022-11-11 10:00:00
@@ -38,17 +38,17 @@ The decompilation Ghidra provided was very complex, as expected of a Rust binary
 
 The first 100 or so lines appear to just be the prologue printing due to the recurring `std::io::stdio::_print` call. Ghidra wasn't able to find the strings, so the decompilation looked terrible.
 
-![Repeating, difficult-to-read Ghidra decompilation](/assets/buckeye/Ace314159/2022-11-11-00-13-44.png)
+![Repeating, difficult-to-read Ghidra decompilation](/assets/buckeye/Ace314159/2022-11-11-00-13-44.webp)
 
 I kept looking, trying to find any place where it was reading input. Eventually, I found `std::io::stdio::Stdin::read_line`:
 
-![read_line followed by a bunch of strange code in Ghidra](/assets/buckeye/Ace314159/2022-11-11-00-14-42.png)
+![read_line followed by a bunch of strange code in Ghidra](/assets/buckeye/Ace314159/2022-11-11-00-14-42.webp)
 
 I wasn't too sure what the following code did, but I just chose to ignore it, hoping it was nothing important.
 
 Eventually, I came across a switch statement, with cases for `0x41`, `0x43`, `0x47`, and `0x54`. That's ASCII for A, C, G, and T! This must be where the string is parsed. It seemed like `pvVar4` had the string and `i` was an index to get a specific character. I quickly verified that this was the case using GDB.
 
-![switch statement for parsing input](/assets/buckeye/Ace314159/2022-11-11-00-16-38.png)
+![switch statement for parsing input](/assets/buckeye/Ace314159/2022-11-11-00-16-38.webp)
 
 Ghidra was correctly able to identify the switch, but the code was not perfect, with a bunch of annoying gotos and random labels everywhere. In the end, though, I was able to reverse it, and I discovered that this was the code to verify that a given DNA sequence was valid. I came up with the following rules:
 
@@ -60,7 +60,7 @@ Ghidra was correctly able to identify the switch, but the code was not perfect, 
 
 Now, I know how to always produce a trait. What was left was figuring out how a trait was produced. I kept scrolling, and then I found another switch! Just like before, it was iterating through the string.
 
-![switch statement for creating the trait](/assets/buckeye/Ace314159/2022-11-11-00-17-31.png)
+![switch statement for creating the trait](/assets/buckeye/Ace314159/2022-11-11-00-17-31.webp)
 
 This one was simpler, and it was just modifying a buffer. The buffer was `0x100` bytes large and was zero-initialized.
 
@@ -73,7 +73,7 @@ Eventually, I was able to figure out how each character modified this buffer. It
 
 The last step was to figure out how this buffer was used to create the trait. I noticed that immediately after the loop, a very descriptively-named function was called and was passed in the buffer contents
 
-![code for creating trait string out of buffer](/assets/buckeye/Ace314159/2022-11-11-01-03-36.png)
+![code for creating trait string out of buffer](/assets/buckeye/Ace314159/2022-11-11-01-03-36.webp)
 
 It had been mangled out of recognition. I looked online for a rust demangler, and I found [rustfilt](https://github.com/luser/rustfilt), which produced a much more readable rust function name
 

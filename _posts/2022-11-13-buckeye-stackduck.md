@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/ZeroDayTea/cover.png
+cover: assets/buckeye/ZeroDayTea/cover.webp
 navigation: True
 title: "stack duck"
 date: 2022-11-13 10:00:00
@@ -14,7 +14,7 @@ author: ZeroDayTea
 I love ducks, so I was a little saddened to see that this duck was a canary in disguise. Still a birb though!
 
 ## Problem Description
-<img src="/assets/buckeye/ZeroDayTea/stackduck.png" alt="CTF challenge duck meme" style="width: 400px"/>
+<img src="/assets/buckeye/ZeroDayTea/stackduck.webp" alt="CTF challenge duck meme" style="width: 400px"/>
 
 In addition to this adorable meme, we are provided with a ZIP file containing some setup files, a fake `flag.txt`, an ELF binary, as well as the C source code for our binary. Let's take a look at that first.
 
@@ -92,7 +92,7 @@ Full RELRO is usually disabled by default on compilers largely because of the in
 
 NX stands for `"Non-executable stack"` which is a virtual memory procedure in which the Memory Management Unit (MMU) of the CPU implements an NX bit that sets each memory page as either allowed to or not allowed to execute code. It specifically restricts the stack from being able to execute code: so if an attacker were to attempt to inject any shellcode on a variable contained on the stack and return to it, the program would crash. Looking to [shellstorm](https://shell-storm.org/shellcode/index.html), this seems like a pretty important protection considering shellcode like the one below can spawn a shell in just 29 bytes!
 
-![29 byte shellcode that can spawn a shell](/assets/buckeye/ZeroDayTea/shellstorm.png)
+![29 byte shellcode that can spawn a shell](/assets/buckeye/ZeroDayTea/shellstorm.webp)
 
 And finally, PIE. PIE stands for `"Position Independent Executable"`, meaning that every time an executable is run, it is loaded in at a random memory address. This prevents an attacker from hardcoding the absolute addresses of functions or gadgets. However, from the attacker's perspective the offsets between different parts of the binary are still the same, so if you can leak some particular address and you know the offsets of the functions and gadgets you want to return to from that address you are still able to run similar exploits.
 
@@ -100,7 +100,7 @@ And finally, PIE. PIE stands for `"Position Independent Executable"`, meaning th
 Birbs! Cookies! In my code??
 
 Canaries, or stack cookies as they're sometimes called, are a protection against buffer overflows in which a token is placed on the stack before the value of a buffer or variable to be written to. It stands between the buffer and the SFP/RET addresses of the current frame, preventing a buffer overflow from redirecting program control flow. 
-![memory layout with canary](/assets/buckeye/ZeroDayTea/canary.png)
+![memory layout with canary](/assets/buckeye/ZeroDayTea/canary.webp)
 <center><i>image courtesy of gitbook.io</i></center>
 <br />
 
@@ -167,7 +167,7 @@ Here the vulnerability is immediately obvious. Despite using the safer `fgets()`
 
 After trying many large inputs though we notice that unfortunately the binary does completely quit upon seeing a modified cookie. We'll have to find another way to bypass the canary check. Let's try decompiling the binary with Ghidra.
 
-![ghidra decompilation of the binary](/assets/buckeye/ZeroDayTea/ghidraduck.png)
+![ghidra decompilation of the binary](/assets/buckeye/ZeroDayTea/ghidraduck.webp)
 
 We first notice that there seems to be a special segment of code run if the variable DuckCounter is exactly 30 which we can get to by "entering our code" 29 times (thus being able to use it on the 30th time). In this special segment there appears to be something odd about the canary check. During the check it's being cast to type char -- so only the least significant byte is kept!
 

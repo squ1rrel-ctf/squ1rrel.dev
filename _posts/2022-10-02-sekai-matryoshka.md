@@ -33,9 +33,9 @@ We were given two PNG files and the following bullet points.
 
 `Matryoshka.png`             |  `Matryoshka-Lite.png`
 :-------------------------:|:-------------------------:
-<img src="/assets/sekai/siraben/Matryoshka.png" alt="Matryoshka" width="380"/> | <img src="/assets/sekai/siraben/Matryoshka-Lite.png" alt="Matryoshka Lite" width="380"/>
+<img src="/assets/sekai/siraben/Matryoshka.webp" alt="Matryoshka" width="380"/> | <img src="/assets/sekai/siraben/Matryoshka-Lite.webp" alt="Matryoshka Lite" width="380"/>
 
-<!-- ![Matryoshka](/assets/sekai/siraben/Matryoshka.png) | ![Matryoshka-Lite](/assets/sekai/siraben/Matryoshka-Lite.png) -->
+<!-- ![Matryoshka](/assets/sekai/siraben/Matryoshka.webp) | ![Matryoshka-Lite](/assets/sekai/siraben/Matryoshka-Lite.webp) -->
 
 
 - [x] One extra bit will double the 8 colors you already have, but
@@ -103,7 +103,7 @@ character](https://en.wikipedia.org/wiki/Question_mark#Fullwidth_question_mark_i
 which is used in East Asian languages.  This was important in making
 sure that the outputs matched exactly.
 
-![My replication of the screenshot](/assets/sekai/siraben/matryoshka-replicate.png)
+![My replication of the screenshot](/assets/sekai/siraben/matryoshka-replicate.webp)
 
 ### Decrypting the block cipher
 Cryptography wise, this was a relief.  It's immediately evident that
@@ -152,7 +152,7 @@ code](https://www.emacswiki.org/emacs/HexColour) that would highlight
 the hex colors in `text-mode` buffers for ease of viewing.
 
 ![Customizing Emacs to view hex
-colors](/assets/sekai/siraben/emacs-font-lock-hex.png)
+colors](/assets/sekai/siraben/emacs-font-lock-hex.webp)
 
 So now we have a list of hex colors.  Then, a bit of Emacs-fu and
 visual cross-checks allowed me to obtain the list of numbers.
@@ -172,7 +172,7 @@ Decoding becomes a piece of cake.  We obtain the URL
 `https://matryoshka.sekai.team/-qLf-Aoaur8ZVqK4aFngYg.png`, which is
 the following image:
 
-![Matroyshka stage 2](/assets/sekai/siraben/matryoshka-stage2.png)
+![Matroyshka stage 2](/assets/sekai/siraben/matryoshka-stage2.webp)
 
 ## Think Different(ly about PNG parsing)
 I encourage you to scan the QR code.  Things were looking a bit duller
@@ -187,7 +187,7 @@ several teammates were using Windows laptops.  However,
 while, and we were pleasantly surprised when we saw Safari correctly
 incorrectly rendering the PNG:
 
-![Matroyshka stage 3](/assets/sekai/siraben/matryoshka-stage3.png)
+![Matroyshka stage 3](/assets/sekai/siraben/matryoshka-stage3.webp)
 
 Bingo.  Now when we scan the QR code, instead of a funny YouTube video
 we have this string:
@@ -240,7 +240,7 @@ stages.  At first it seemed like just noise but on closer listening we
 could faintly hear a human voice speak in regular intervals.  It
 doesn't show up on a spectrogram however:
 
-![Spectrogram of the WAV file](/assets/sekai/siraben/matryoshka-audacity.png)
+![Spectrogram of the WAV file](/assets/sekai/siraben/matryoshka-audacity.webp)
 
 ### Finding the signal in the noise
 By now half of our team was listening to parts of the audio file and
@@ -251,7 +251,7 @@ we found a website that did noise reduction and put the audio file
 through it *5* times, then, to our continual surprise (which was
 routine at this point), this is what we saw and heard:
 
-![Five times cleaned audio file](/assets/sekai/siraben/matryoshka-cleaned.png)
+![Five times cleaned audio file](/assets/sekai/siraben/matryoshka-cleaned.webp)
 
 Now the words were very clear.  The words corresponded to the [NATO
 phonetic

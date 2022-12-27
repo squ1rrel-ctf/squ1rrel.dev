@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/buckeye/Ace314159/cover2.png
+cover:  assets/buckeye/Ace314159/cover2.webp
 navigation: True
 title: "intel does what amd'ont"
 date: 2022-11-12 10:00:00
@@ -26,7 +26,7 @@ Wrong!!!! Do better ;)
 
 As usual, I loaded the binary into Ghidra, and the decompilation kept loading for a long time. I assumed this was because of some obfuscation, making it hard for Ghidra to generate the decompilation. As a result, I started looking at the assembly. I saw that it would essentially do a "real" instruction before immediately jumping somewhere else, where it would repeat. The structure looked something like this:
 
-![Assembly structure from Ghidra](/assets/buckeye/Ace314159/2022-11-11-23-55-30.png)
+![Assembly structure from Ghidra](/assets/buckeye/Ace314159/2022-11-11-23-55-30.webp)
 
 Since the obfuscation follows a pattern, I wrote a script using [Capstone](https://www.capstone-engine.org/), a disassembler, to extract the function code:
 
@@ -74,15 +74,15 @@ with open("parsed.bin", "wb") as f:
 
 Then, I opened the generated binary in Ghidra. I had to clean up the assembly because Ghidra didn't give a good decompilation at first. Eventually, I ended up with this. The string begins at `start[-0xc]` because I couldn't get the function parameter to be located at an offset of `RBP`, instead of just `RBP`.
 
-![Ghidra disassembly of generated binary](/assets/buckeye/Ace314159/2022-11-12-01-26-52.png)
+![Ghidra disassembly of generated binary](/assets/buckeye/Ace314159/2022-11-12-01-26-52.webp)
 
 It interprets the character array as an array of 32-bit unsigned integers and applies a combination of logical and arithmetic operations to each element. In the end, it compares the result to a fixed constant on the stack. I was able to figure this out by using GDB and the original code's disassembly.
 
-![Ghidra decomplication of first comparison](/assets/buckeye/Ace314159/2022-11-12-01-18-52.png)
+![Ghidra decomplication of first comparison](/assets/buckeye/Ace314159/2022-11-12-01-18-52.webp)
 
 Ghidra's decompilation still wasn't perfect since it only showed the first comparison. I guessed that there were more because I saw 6 other constants being set in the same area of the parsed disassembly. Note that the offsets in the screenshot below are byte offsets, but the offsets in the Ghidra screenshots are 32-bit word offsets.
 
-![Constants in disassembly](/assets/buckeye/Ace314159/2022-11-12-01-37-28.png)
+![Constants in disassembly](/assets/buckeye/Ace314159/2022-11-12-01-37-28.webp)
 
 ## Getting the Flag
 

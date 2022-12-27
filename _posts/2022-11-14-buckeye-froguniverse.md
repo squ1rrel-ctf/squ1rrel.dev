@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/agarg-usa/cover.png
+cover: assets/buckeye/agarg-usa/cover.webp
 navigation: True
 title: "frog-universe"
 date: 2022-11-14 10:00:00
@@ -100,13 +100,13 @@ So now let's assume we are at the point where we chose our initial position, we 
 
 Well, there are multiple techniques for figuring out what to do next. For instance, how would a human think -- and can we replicate that computationally?
 
-![minesweeper board with edge](/assets/buckeye/agarg-usa/minesweeper_one_neighbor.png)
+![minesweeper board with edge](/assets/buckeye/agarg-usa/minesweeper_one_neighbor.webp)
 
 Let's take a look at this board, as an example. Look at the 1 in the middle. The 1 tells us that there is only one bomb that surrounds the square. If we look at its neighbors, only one of the square's neighbors is unknown. Since there is only one unknown neighbor and one bomb that surrounds the square, we can say that square has a bomb.
 
 Now we can mark that position as a bomb, and we can check all the neighbors of that bomb to see if there were any other squares we might be able to better understand because of this new information.
 
-<img src="/assets/buckeye/agarg-usa/minesweeper_one_neighbor_marked.png" alt="previous board, but with a bomb flagged" style="width: 300px" />
+<img src="/assets/buckeye/agarg-usa/minesweeper_one_neighbor_marked.webp" alt="previous board, but with a bomb flagged" style="width: 300px" />
 
 > I will be referring to the coordinates of these squares as $$(y, x)$$, where $$(1, 1)$$ is the top left and $$(5,5)$$ is the bottom right.
 
@@ -130,7 +130,7 @@ There are some more techniques we can use to try and discover new safe spots, bu
 
 What exactly is a graph? In loose terms, it is simply a collection of nodes connected by edges.
 
-![basic example of a graph](/assets/buckeye/agarg-usa/graph.png)
+![basic example of a graph](/assets/buckeye/agarg-usa/graph.webp)
 
 One common problem in computer science is: Given two nodes, how can we find a pathway from one node to the other? For example, if I give you node 3, can you tell me the steps I would need to take to get from point 3 to point 6? 
 

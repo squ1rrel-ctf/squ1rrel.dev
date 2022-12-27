@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/bluehens/quantum/cover.png
+cover:  assets/bluehens/quantum/cover.webp
 navigation: True
 title: "The Quantum Realm"
 date: 2022-11-03 10:00:00
@@ -101,7 +101,7 @@ Here's a nice slider showing some of the frames.
 </div>
 
 <div class="image">
-    <img id="image" src="/assets/bluehens/quantum/antman_frames/32.png" alt="Antman">
+    <img id="image" src="/assets/bluehens/quantum/antman_frames/32.webp" alt="Antman">
 </div>
 
 </center>
@@ -112,7 +112,7 @@ Here's a nice slider showing some of the frames.
     output.innerHTML = slider.value;
     slider.oninput = function() {
         output.innerHTML = this.value;
-        document.getElementById("image").src = `/assets/bluehens/quantum/antman_frames/` + this.value + ".png";
+        document.getElementById("image").src = `/assets/bluehens/quantum/antman_frames/` + this.value + ".webp";
     }
 </script>
 

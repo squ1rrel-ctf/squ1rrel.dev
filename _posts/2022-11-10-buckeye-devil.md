@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/buckeye/nisala/cover.png
+cover:  assets/buckeye/nisala/cover.webp
 navigation: True
 title: "devil"
 date: 2022-11-10 10:00:00

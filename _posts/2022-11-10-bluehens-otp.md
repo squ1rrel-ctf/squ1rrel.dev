@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/bluehens/ZeroDayTea/cover.png
+cover: assets/bluehens/ZeroDayTea/cover.webp
 navigation: True
 title: "Rick and Morty - One Time Pad - Esoteric Languages"
 date: 2022-11-10 10:00:00
@@ -68,7 +68,7 @@ Reusing the same key multiple times is referred to as increasing the *"depth"* o
 
 The most common operation used in modern applications of the one-time-pad scheme is the well-known XOR. If you've ever taken the time to look into logic gates or circuitry you may be familiar with it but what does that have to do with cryptography?
 
-![Truth table for an XOR gate](/assets/bluehens/ZeroDayTea/Truth-table-XOR-gate-417x500.png)
+![Truth table for an XOR gate](/assets/bluehens/ZeroDayTea/Truth-table-XOR-gate-417x500.webp)
 
 As seen by the image above, XOR works similarly to the OR logic expression but with the caveat that if the truth table for inputs A and B has both of them being 1 or "true" then XOR flips the resultant bit to a 0 or "false". Now if you remember how I mentioned that XOR is a stream cipher we can begin to connect these bitwise operations to the properties of a stream cipher.
 
@@ -95,7 +95,7 @@ A ⊕ B = C
 Many examples both in CTF challenges and real-world codebreaking are able to use property to find parts of the key if parts of the plaintext are known.
 
 Going back to our XOR example and plugging our operation into our favorite encryption/decryption tool, CyberChef, we see that it holds as expected :)
-![XORCyberChef.png](/assets/bluehens/ZeroDayTea/XORCyberChef.png)
+![XORCyberChef.png](/assets/bluehens/ZeroDayTea/XORCyberChef.webp)
 
 While XOR, if implemented correctly, is not the only stream one-time-pad operation, it is certainly the most common. The A5/1 standard for GSM (global standard for mobile communication), for example, is among the most popular encryption schemes for GSM phone calls and SMS messages in North America and Europe and is a stream cipher applying XOR as seen below:
 
@@ -122,7 +122,7 @@ Given that the resulting string has no non-printable characters, this verifies t
 
 The term "esolang" refers to esoteric programming languages. A very interesting body of programming languages designed not for practical uses as one would expect but usually as a proof-of-concept or to portray a ~~weird~~ interesting idea. The syntax for esolangs is often very odd or very funny with my favorite examples including (:
 
-![esolang that solves the halting problem if the user is dead](/assets/bluehens/ZeroDayTea/esolang.png)
+![esolang that solves the halting problem if the user is dead](/assets/bluehens/ZeroDayTea/esolang.webp)
 
 Or [Pikalang](https://github.com/groteworld/pikalang), an infamous member of the Brainfuck family of programming languages. It even has its own python package you can install with `pip install pikalang`!
 

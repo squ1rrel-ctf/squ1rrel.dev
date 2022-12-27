@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/bluehens/cryptoduck/cover.png
+cover: assets/bluehens/cryptoduck/cover.webp
 navigation: True
 title: "CryptoDuck!"
 date: 2022-11-04 10:00:00

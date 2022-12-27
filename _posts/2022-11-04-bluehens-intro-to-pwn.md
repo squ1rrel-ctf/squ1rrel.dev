@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/bluehens/introtopwn/cover.png
+cover:  assets/bluehens/introtopwn/cover.webp
 navigation: True
 title: "Intro to PWN 1-3"
 date: 2022-11-04 10:00:00
