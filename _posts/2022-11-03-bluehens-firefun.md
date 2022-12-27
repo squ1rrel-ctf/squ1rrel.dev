@@ -19,7 +19,7 @@ Special shoutout to Kyle for working on this with me ❤️
 
 In this challenge, we get a [link to a Firebase-hosted website](https://udctf-fire.web.app/), which displays the following image:
 
-![Image showing Firebase RTDB with the flag and the rules for the database](/assets/bluehens/nisala/rules.png)
+![Image showing Firebase RTDB with the flag and the rules for the database](/assets/bluehens/nisala/rules.webp)
 
 Okay, so it looks the flag is stored character-by-character in Realtime Database (RTDB), and the security rules block us from reading it directly. However, if we're authenticated, we can write to `/oracle/$userid/$index`, and if the written character at $index maches the character at $index at `/flag`, the write succeeds. Otherwise, the write fails. So assuming we can authenticate, we can brute-force the flag character-by-character, cycling through some character set until the write succeeds for each index.
 

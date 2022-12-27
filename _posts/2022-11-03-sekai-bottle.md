@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/Ace314159/cover.png
+cover:  assets/sekai/Ace314159/cover.webp
 navigation: True
 title: "Bottle Poem"
 date: 2022-11-03 10:00:00

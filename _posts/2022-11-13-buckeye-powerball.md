@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/clash/cover.png
+cover: assets/buckeye/clash/cover.webp
 navigation: True
 title: "powerball"
 date: 2022-11-13 10:00:00

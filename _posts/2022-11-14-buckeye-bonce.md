@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/bunnyrabbit022/cover.png
+cover: assets/buckeye/bunnyrabbit022/cover.webp
 navigation: True
 title: "bonce"
 date: 2022-11-14 10:00:00
@@ -89,16 +89,16 @@ It looks like the flag is randomly inserted into a line of the sample text, whic
 
 Reading the rest of the code, we see that every line of `output.txt` is XORed with the line number that it's on. There are some odd four digit numbers which we did not understand, so, clearly, the best solution was to ignore them. For example:
 
-![four digit numbers in output](/assets/buckeye/bunnyrabbit022/image5.png)
+![four digit numbers in output](/assets/buckeye/bunnyrabbit022/image5.webp)
 
 At this point, we knew that the solution was to XOR every line of the output with its line number (with 0 based indexing), since XOR is symmetric, so XORing with the same key gives us the original input. However, in the spirit of ignoring things I don’t understand, I decide to do it semi-by-hand, while skipping the strange lines and hoping things go well.
 
 Whipping up this recipe in CyberChef, I confirmed the decryption with the first line, and it looks like it goes well:
 
-![example cyberchef xor output](/assets/buckeye/bunnyrabbit022/image1.png)
+![example cyberchef xor output](/assets/buckeye/bunnyrabbit022/image1.webp)
 
 From here, I proceeded to go through all the reasonable looking lines of the output. Eventually, I got to line 19, and we got the flag!
 
-![cyberchef xor output with flag](/assets/buckeye/bunnyrabbit022/image4.png)
+![cyberchef xor output with flag](/assets/buckeye/bunnyrabbit022/image4.webp)
 
 `buckeye{some_say_somefish:)}`

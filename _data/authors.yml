@@ -4,10 +4,10 @@ squ1rrel:
   url_full: https://github.com/squ1rrel-ctf
   url: github.com/squ1rrel-ctf
   bio: Vanderbilt University's CTF team.
-  picture: assets/images/favicon.png
+  picture: assets/images/favicon.webp
   facebook: False
   twitter: False
-  cover: assets/images/squ1rrel_team_cover.png
+  cover: assets/images/squ1rrel_team_cover.webp
 nisala:
   username: nisala
   name: Nisala
@@ -15,10 +15,10 @@ nisala:
   url_full: https://github.com/nkalupahana
   url: github.com/nkalupahana
   bio: Nisala is a junior studying Computer Science at Vanderbilt University. Right now, he's working on baseline, an open source journaling and mood tracking app.
-  picture: assets/images/nkalupahana.png
+  picture: assets/images/nkalupahana.webp
   facebook: False
   twitter: False
-  cover: assets/images/nkalupahana_cover.png
+  cover: assets/images/nkalupahana_cover.webp
 kyleburgess2025:
   username: kyleburgess2025
   name: Kyle Burgess
@@ -29,7 +29,7 @@ kyleburgess2025:
   picture: assets/images/kyleburgess2025.jpg
   facebook: False
   twitter: False
-  cover: assets/images/kyleburgess2025_cover.png
+  cover: assets/images/kyleburgess2025_cover.webp
 siraben:
   username: siraben
   name: Ben Siraphob
@@ -51,7 +51,7 @@ ZeroDayTea:
   picture: assets/images/ZeroDayTea.jpg
   facebook: False
   twitter: ZeroDayTea
-  cover: assets/images/ZeroDayTea_cover.png
+  cover: assets/images/ZeroDayTea_cover.webp
 zineanteoh:
   username: zineanteoh
   name: Zi Teoh
@@ -62,7 +62,7 @@ zineanteoh:
   picture: assets/images/zineanteoh.jpg
   facebook: False
   twitter: False
-  cover: assets/images/zineanteoh_cover.png
+  cover: assets/images/zineanteoh_cover.webp
 Ace314159:
   username: Ace314159
   name: Akash
@@ -70,10 +70,10 @@ Ace314159:
   url_full: https://github.com/Ace314159
   url: github.com/Ace314159
   bio: Akash is a person who likes CTFs and coding cool things.
-  picture: assets/images/Ace314159.png
+  picture: assets/images/Ace314159.webp
   facebook: False
   twitter: False
-  cover: assets/images/Ace314159_cover.png
+  cover: assets/images/Ace314159_cover.webp
 abi-kothapalli:
   username: abi-kothapalli
   name: Abi Kothapalli
@@ -81,10 +81,10 @@ abi-kothapalli:
   url_full: https://github.com/abi-kothapalli
   url: github.com/abi-kothapalli
   bio: Abi is a sophomore studying Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything. 
-  picture: assets/images/abi-kothapalli.png
+  picture: assets/images/abi-kothapalli.webp
   facebook: False
   twitter: False
-  cover: assets/images/abi-kothapalli_cover.png
+  cover: assets/images/abi-kothapalli_cover.webp
 clash:
   username: clash
   name: Aadi Bajpai
@@ -95,7 +95,7 @@ clash:
   picture: assets/images/clash.jpg
   facebook: False
   twitter: clasherintherye
-  cover: assets/images/clash_cover.png
+  cover: assets/images/clash_cover.webp
 agarg-usa:
   username: agarg-usa
   name: Aryan Garg
@@ -106,7 +106,7 @@ agarg-usa:
   picture: assets/images/agarg-usa.jpg
   facebook: False
   twitter: False
-  cover: assets/images/agarg-usa_cover.png
+  cover: assets/images/agarg-usa_cover.webp
 bunnyrabbit022:
   username: bunnyrabbit022
   name: Evelyn
@@ -114,10 +114,10 @@ bunnyrabbit022:
   url_full: https://github.com/bunnyrabbit022
   url: github.com/bunnyrabbit022
   bio: Evelyn is a university student at a university. She really needs to sleep more but she can't because of university.
-  picture: assets/images/bunnyrabbit022.png
+  picture: assets/images/bunnyrabbit022.webp
   facebook: False
   twitter: False
-  cover: assets/images/bunnyrabbit022_cover.png
+  cover: assets/images/bunnyrabbit022_cover.webp
 samalws:
   username: samalws
   name: Sam Alws
@@ -125,10 +125,10 @@ samalws:
   url_full: https://samalws.com
   url: samalws.com
   bio: Sam is a CS/math student at Vanderbilt. He likes to guess his way through misc and crypto challenges. Sam has been living in the Metaverse since 2005.
-  picture: assets/images/samalws.png
+  picture: assets/images/samalws.webp
   facebook: False
   twitter: False
-  cover: assets/images/samalws_cover.png
+  cover: assets/images/samalws_cover.webp
 honeyedfox:
   username: honeyedfox
   name: Maya
@@ -136,7 +136,7 @@ honeyedfox:
   url_full: https://vanderbilt.edu
   url: vanderbilt.edu
   bio: non-cs major. in fact, anti-cs major. professional cs hater. was attracted by the promise of osint and puzzles.
-  picture: assets/images/honeyedfox.png
+  picture: assets/images/honeyedfox.webp
   facebook: False
   twitter: False
   cover: assets/images/honeyedfox_cover.jpg

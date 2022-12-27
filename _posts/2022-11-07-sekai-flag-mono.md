@@ -38,7 +38,7 @@ With some searching we figured out that XPS stands for "Open XML Paper Specifica
 
 After opening up the file, we saw looks something like this:
 
-![XPS File](/assets/sekai/agarg-usa/xpsfile.png)
+![XPS File](/assets/sekai/agarg-usa/xpsfile.webp)
 
 With some searching, we figured out that the XPS file format is just a zip file in disguise (like how a .jar file is just a .zip file). So we can change the extension of the file and then extract it.
 
@@ -139,7 +139,7 @@ To further investigate our `.tff` file, I used a font viewer I found online call
 
 Dragging in our `tff` file, we can immediately find our first flag.
 
-![glyphs of our odtff file](/assets/sekai/agarg-usa/odtffglyphs.png)
+![glyphs of our odtff file](/assets/sekai/agarg-usa/odtffglyphs.webp)
 
 Bingo: Flag 1 is `SEKAI{sCR4MBLed_a5ci1-FONT+GlYPHZ,W3|!.d0n&}`.
 It seems like for this flag, they just moved around the standard glyphs of ~!@#$%^&*()_+`1234567890-= ... to make the flag.

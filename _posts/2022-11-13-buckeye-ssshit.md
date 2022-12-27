@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/buckeye/samalws/cover.png
+cover: assets/buckeye/samalws/cover.webp
 navigation: True
 title: "SSSHIT"
 date: 2022-11-13 10:00:00

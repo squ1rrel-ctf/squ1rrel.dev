@@ -11,10 +11,10 @@ baseurl: "/"
 # Website info
 title: squ1rrel
 description: The Vanderbilt University CTF Club
-cover: assets/images/squ1rrel_cover.png
-logo: assets/images/squ1rrel_white.png
-logo_dark: assets/images/favicon.png
-favicon: assets/images/favicon.png
+cover: assets/images/squ1rrel_cover.webp
+logo: assets/images/squ1rrel_white.webp
+logo_dark: assets/images/favicon.webp
+favicon: assets/images/favicon.webp
 CNAME: #add cname for website to be created
 
 # Social info

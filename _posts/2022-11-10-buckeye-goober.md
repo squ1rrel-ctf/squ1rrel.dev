@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/buckeye/nisala/cover2.png
+cover:  assets/buckeye/nisala/cover2.webp
 navigation: True
 title: "goober"
 date: 2022-11-10 09:00:00
@@ -30,7 +30,7 @@ Searching around on the Internet, I found out that SVGs can be used to perform l
 ```
 
 And we get a file!
-![LFI of /etc/passwd](/assets/buckeye/nisala/lfi1.png)
+![LFI of /etc/passwd](/assets/buckeye/nisala/lfi1.webp)
 
 Unfortunately, our flag isn't on the public server -- it's on the private server, and we can't use this LFI attack to make HTTP requests. So we need to find another way to get the flag.
 
@@ -70,7 +70,7 @@ See the problem? Before entities, we match any characters (extraneous spaces, et
 ```
 
 And there we go!:
-![LFI of /etc/passwd, again](/assets/buckeye/nisala/lfi2.png)
+![LFI of /etc/passwd, again](/assets/buckeye/nisala/lfi2.webp)
 
 We can use this same approach to get the flag:
 ```xml
@@ -80,6 +80,6 @@ We can use this same approach to get the flag:
 </svg>
 ```
 
-![Flag image](/assets/buckeye/nisala/lfi3.png)
+![Flag image](/assets/buckeye/nisala/lfi3.webp)
 
 And there's our flag: `buckeye{wh0_n33ds_4n_htm1_c4n4s}`
