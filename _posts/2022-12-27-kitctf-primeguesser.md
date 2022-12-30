@@ -5,7 +5,7 @@ cover: assets/kitctf/holden/cover.png
 navigation: True
 title: "Prime Guesser 1 & 2"
 date: 2022-12-27 10:00:00
-tags: [KITCTF, crypto]
+tags: [KITCTFCTF, crypto]
 class: post-template
 subclass: 'post'
 author: holden
