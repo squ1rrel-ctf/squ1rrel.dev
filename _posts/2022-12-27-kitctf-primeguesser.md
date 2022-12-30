@@ -153,7 +153,7 @@ def keygen(size, modulus, poly_mod):
     return (b, a), sk
 ```
 
-Now this is the point in the cryptography analysis that randomness joins the party and really puts a damper on my mood. Randomness is required in ciphers to make them *confusing* and *complex*, and it sure does make my life difficult in CTFs. Anyway, `keygen` calls four unqiue separate functions: `gen_binary_poly`, `gen_uniform_poly`, `gen_normal_poly`, and `polyadd`. The code for these is short and sweet (though clustered), so let's take a look.
+Now this is the point in the cryptography analysis that randomness joins the party and really puts a damper on my mood. Randomness is required in ciphers to make them *confusing* and *complex*, and it sure does make my life difficult in CTFs. Anyway, `keygen` calls four unique separate functions: `gen_binary_poly`, `gen_uniform_poly`, `gen_normal_poly`, and `polyadd`. The code for these is short and sweet (though clustered), so let's take a look.
 
 ### polyadd
 ```python
