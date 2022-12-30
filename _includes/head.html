@@ -8,6 +8,10 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     {% endif %}
 
+    {% if page.mermaid %}
+    <script async src="https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js"></script>
+    {% endif %}
+
     {% if page.content and page.current == 'post' or page.current == 'about' %}
         {% assign excerpt = page.content | strip_html | newline_to_br | split: '<br />' | first %}
      {% endif %} <!--title below is coming from _includes/dynamic_title-->

@@ -142,18 +142,7 @@ honeyedfox:
   cover: assets/images/honeyedfox_cover.jpg
 david-a-perez:
   username: david-a-perez
-  name: Maya
-  location: Earth
-  url_full: https://github.com/david-a-perez
-  url: github.com/david-a-perez
-  bio: David is a Vanderbilt Computer Science student who likes fuzzing, optimizations, and CTF problems. He is a Rust fanatic and enjoys SIMD optimizations. David is always searching for fun problems to code solutions for.
-  picture: assets/images/david-a-perez.png
-  facebook: False
-  twitter: False
-  cover: assets/images/david-a-perez_cover.png
-david-a-perez:
-  username: david-a-perez
-  name: Maya
+  name: David Perez
   location: Earth
   url_full: https://github.com/david-a-perez
   url: github.com/david-a-perez
