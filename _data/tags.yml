@@ -18,6 +18,10 @@ Hacklu:
   name: Hack.lu
   description: Writeups from Hack.lu.
   cover: False
+niteCTF:
+  name: niteCTF
+  description: Writeups from niteCTF.
+  cover: False
 
 misc:
   name: misc
