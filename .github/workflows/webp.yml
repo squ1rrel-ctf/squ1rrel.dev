@@ -1,0 +1,26 @@
+name: convert images to webp
+on:
+  push:
+    paths:
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+  pull_request:
+    paths:
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install deps
+        run: sudo apt install webp
+      - uses: actions/checkout@v3 # This is a premade github action
+      - name: run convert script
+        run: .github/convert.sh
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Convert images to webp and update references
