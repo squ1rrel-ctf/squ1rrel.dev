@@ -29,7 +29,7 @@ const parseUrl = (url) => {
 
 In a lot of challenges, the bug would be here. But this uses the `URL` constructor. We're not breaking this. So how do we do this? Well, I noticed that when you visit any subdomain of `jsapi.tech`, you get a GitHub Pages 404 page. So every subdomain is hooked into GitHub Pages. Now, this wouldn't normally be exploitable -- but GitHub doesn't tie registered domains to user accounts. Instead, they expect you to register DNS to a domain and then immediately publish to it. If you don't, *anyone can publish to it later on*. And that's exactly the exploit here. So I just made a repo and published to `squ1rrel.jsapi.tech`, and I'm in!
 
-Now, we have to use the iframe API to get the flag. Unfortunately, we can't just put a script in -- not only because of a Content Security Policy, but because the Notes app is using `DOMPufify`. Lucky for us, though, they're using it insecurely:
+Now, we have to use the iframe API to get the flag. Unfortunately, we can't just put a script in -- not only because of a Content Security Policy, but because the Notes app is using `DOMPurify`. Lucky for us, though, they're using it insecurely:
 
 ```js
 DOMPurify.sanitize(str, {ADD_TAGS: ['link','style']}); // allow CSS
