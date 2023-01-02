@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+echo "Running convert.sh"
+
 # Check if webp is installed
 command -v cwebp >/dev/null 2>&1 || { echo "Error: cwebp is not installed. Aborting." >&2; exit 1; }
 
 # Iterate over the list of modified image files
-while read -r -d '' file; do
+while read -r file; do
     # Print the file being converted
     echo "Converting $file to webp"
 
