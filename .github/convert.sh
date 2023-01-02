@@ -36,4 +36,4 @@ while read -r -d '' file; do
     else
         rm "$webp_path"
     fi
-done < <(git diff-tree --no-commit-id --name-only -r HEAD --null)
+done < <(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '(\.png|\.jpg|\.jpeg)$')
