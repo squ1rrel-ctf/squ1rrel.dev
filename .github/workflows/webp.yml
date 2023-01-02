@@ -5,11 +5,6 @@ on:
       - "**.jpg"
       - "**.jpeg"
       - "**.png"
-  pull_request:
-    paths:
-      - "**.jpg"
-      - "**.jpeg"
-      - "**.png"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
@@ -19,8 +14,11 @@ jobs:
       - name: Install deps
         run: sudo apt install webp
       - uses: actions/checkout@v3 # This is a premade github action
+        with:
+          fetch-depth: 2
       - name: run convert script
-        run: .github/convert.sh
+        run: |
+          .github/convert.sh
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Convert images to webp and update references
