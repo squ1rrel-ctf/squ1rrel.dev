@@ -7,6 +7,12 @@ command -v cwebp >/dev/null 2>&1 || { echo "Error: cwebp is not installed. Abort
 
 # Iterate over the list of modified image files
 while read -r file; do
+    # Skip if file doesn't exist, eg. deleted file in the diff
+    if [ ! -f "$file" ]; then
+        echo "$file does not exist. Skipping file."
+        continue
+    fi
+
     # Print the file being converted
     echo "Converting $file to webp"
 
@@ -33,9 +39,13 @@ while read -r file; do
 
     # Replace original with webp if webp file is smaller
     if [[ $size_webp -le $size_og ]]; then
+        echo "Replacing $file with $webp_path and updating references"
         rm "$file"
         git grep --cached -Il '' | xargs sed -i "s|$file|$webp_path|g"
     else
         rm "$webp_path"
     fi
+
+    echo "\n"
+
 done < <(git diff-tree --no-commit-id --name-only -r HEAD | grep -E '(\.png|\.jpg|\.jpeg)$')
