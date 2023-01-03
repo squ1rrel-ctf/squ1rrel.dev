@@ -29,9 +29,7 @@ This is cool and all, but can we exploit it in some way?
 That's right baby, LDAP injection exists. And it's pretty straightforward, too - check out [this article](https://brightsec.com/blog/ldap-injection/) on LDAP injection in its many forms. It works just the same as SQL injection, but takes into account the LDAP protocol structure. For example, the statement ```(&(USER=Uname)(PASSWORD=Pwd))``` is often used in authentication. The ```&``` symbol checks to make sure both of the following statements are true; ie, both ```USER=Uname``` and ```PASSWORD=Pwd```. So, let's just say we need to log into the account with the username `kit`, but we do not know the password. We can input ```kit)(&)```, and the full query will become ```(&(USER=kit)(&))(PASSWORD=Pwd))```. This will only compare ```USER=kit``` and ```&```, which is the ```TRUE``` filter in the LDAP protocol. Therefore, the result will be true and the user will gain access without the password.
 
 ### The Solve
-That's great and all, but in our case, we have the password, but we do not have the username. So, I started playing around with what I learned. An important filter in LDAP is ```*```. Similarly to SQL, it is the "all" filter. So, I tried inputting * as the username. Lo and behold, it worked! The flag was at the bottom of the page: 
-
-```KCTF{nobody_escapes_ldap_filters}```
+That's great and all, but in our case, we have the password, but we do not have the username. So, I started playing around with what I learned. An important filter in LDAP is ```*```. Similarly to SQL, it is the "all" filter. So, I tried inputting * as the username. Lo and behold, it worked! The flag was at the bottom of the page: `KCTF{nobody_escapes_ldap_filters}`
 
 That got 16 solves. Come on, people.
 
@@ -73,7 +71,7 @@ while True:
             flag = flag_try
             break
 ```
-After a decent chunk of time this thing gave me the solution: kctf{user_enumer4t1on_zer0day}.
+After a decent chunk of time this thing gave me the solution: `kctf{user_enumer4t1on_zer0day}`.
 
 ## Conclusion
 I found these two challenges to be incredibly interesting simply because I had no prior experience with LDAP authentication. The first one was fun because I got to do a deep dive in LDAP injection, and then find out the solution required maybe 2 minutes of research. The second had a really cool solution, although I'm not sure I would have ever guessed a timing attack. Plus, I have the worst WiFi known to man so getting the timing attack to run correctly for, like, thirty minutes was a struggle. That's on me though. I had fun with these challenges and learned a lot!
