@@ -12,3 +12,11 @@ ports:
     name: Website
     description: Website Preview
     visibility: public
+    
+github:
+  prebuilds:
+    master: true
+    pullRequests: true
+    addComment: true
+    addBadge: true
+    addLabel: prebuilt-in-gitpod
