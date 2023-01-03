@@ -7,11 +7,9 @@
 name: Deploy Jekyll site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  pull_request:
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -21,9 +19,6 @@ permissions:
   id-token: write
 
 # Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
 
 jobs:
   # Build job
@@ -57,6 +52,9 @@ jobs:
 
   # Deployment job
   deploy:
+    concurrency:
+      group: "prod"
+      cancel-in-progress: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
