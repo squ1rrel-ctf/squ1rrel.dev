@@ -147,10 +147,10 @@ david-a-perez:
   url_full: https://github.com/david-a-perez
   url: github.com/david-a-perez
   bio: David is a Vanderbilt Computer Science student who likes fuzzing, optimizations, and CTF problems. He is a Rust fanatic and enjoys SIMD optimizations. David is always searching for fun problems to code solutions for.
-  picture: assets/images/david-a-perez.png
+  picture: assets/images/david-a-perez.webp
   facebook: False
   twitter: False
-  cover: assets/images/david-a-perez_cover.png
+  cover: assets/images/david-a-perez_cover.webp
 holden:
   username: holden
   name: Holden Turner
@@ -158,10 +158,10 @@ holden:
   url_full: https://github.com/JoshuaTurner3
   url: github.com/JoshuaTurner3
   bio: Holden is a mechanical engineering and computer science student at Vanderbilt University with a huge interest in cryptography.
-  picture: assets/images/holden.png
+  picture: assets/images/holden.webp
   facebook: False
   twitter: False
-  cover: assets/images/holden_cover.png
+  cover: assets/images/holden_cover.webp
 smsliman:
   username: smsliman
   name: Sam Sliman
@@ -172,4 +172,4 @@ smsliman:
   picture: assets/images/smsliman.jpg
   facebook: False
   twitter: False
-  cover: assets/images/smsliman_cover.png
+  cover: assets/images/smsliman_cover.webp
