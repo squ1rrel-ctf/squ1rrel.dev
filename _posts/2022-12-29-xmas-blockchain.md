@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/xmas/blockchain/cover.png
+cover: assets/xmas/blockchain/cover.webp
 navigation: True
 title: "Blocker, Cookie Market, & Bread Bank"
 date: 2022-12-29 10:00:00
