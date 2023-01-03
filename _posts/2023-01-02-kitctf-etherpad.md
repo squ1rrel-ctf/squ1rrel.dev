@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/kitctf/etherpad/cover.png
+cover: assets/kitctf/etherpad/cover.webp
 navigation: True
 title: "Etherpad 1 & 2"
 date: 2023-01-02 10:00:00
