@@ -3,6 +3,20 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: npm install && bundle install
+  - before: npm install && bundle install
+  - command: npx gulp css && bundle exec jekyll serve
 
-
+ports:
+  - port: 4000
+    onOpen: open-preview
+    name: Website
+    description: Website Preview
+    visibility: public
+    
+github:
+  prebuilds:
+    master: true
+    pullRequests: true
+    addComment: true
+    addBadge: true
+    addLabel: prebuilt-in-gitpod
