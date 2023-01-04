@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/kitctf/holden/cover.png
+cover: assets/kitctf/holden/cover.webp
 navigation: True
 title: "Prime Guesser 1 & 2"
 date: 2022-12-27 10:00:00

@@ -58,7 +58,7 @@ zineanteoh:
   location: Malaysia
   url_full: https://github.com/zineanteoh
   url: github.com/zineanteoh
-  bio: Zi is a student from Malaysia studying CS + Math at Vanderbilt. Unbeknownst to many, Zi has a bunch of useless(?) talents, such as being able to do handstands, juggle 3 balls, solve a Rubik's cube blindfolded, ride a bike without hands, rock climb upside down, and type insanely fast. 
+  bio: Zi is a student from Malaysia studying CS + Math at Vanderbilt. Unbeknownst to many, Zi has a bunch of useless(?) talents, such as being able to do handstands, juggle 3 balls, solve a Rubik's cube blindfolded, ride a bike without hands, rock climb upside down, and type insanely fast.
   picture: assets/images/zineanteoh.jpg
   facebook: False
   twitter: False
@@ -80,7 +80,7 @@ abi-kothapalli:
   location: Kansas City
   url_full: https://github.com/abi-kothapalli
   url: github.com/abi-kothapalli
-  bio: Abi is a sophomore studying Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything. 
+  bio: Abi is a sophomore studying Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything.
   picture: assets/images/abi-kothapalli.webp
   facebook: False
   twitter: False
@@ -102,7 +102,7 @@ agarg-usa:
   location: San Jose, California
   url_full: https://github.com/agarg-usa
   url: github.com/agarg-usa
-  bio: Aryan Is A Man Who Loves Learning About Machine Learning Technologies In BlockChain To Help To Help Finding Fish Tumors To Generate Kubenernatre Containerized Decentralization Using 8 Dimensional Deep Tensor Learning With Complicated Hypercomputing Big Data 
+  bio: Aryan Is A Man Who Loves Learning About Machine Learning Technologies In BlockChain To Help To Help Finding Fish Tumors To Generate Kubenernatre Containerized Decentralization Using 8 Dimensional Deep Tensor Learning With Complicated Hypercomputing Big Data
   picture: assets/images/agarg-usa.jpg
   facebook: False
   twitter: False
@@ -147,10 +147,10 @@ david-a-perez:
   url_full: https://github.com/david-a-perez
   url: github.com/david-a-perez
   bio: David is a Vanderbilt Computer Science student who likes fuzzing, optimizations, and CTF problems. He is a Rust fanatic and enjoys SIMD optimizations. David is always searching for fun problems to code solutions for.
-  picture: assets/images/david-a-perez.png
+  picture: assets/images/david-a-perez.webp
   facebook: False
   twitter: False
-  cover: assets/images/david-a-perez_cover.png
+  cover: assets/images/david-a-perez_cover.webp
 holden:
   username: holden
   name: Holden Turner
@@ -158,10 +158,10 @@ holden:
   url_full: https://github.com/JoshuaTurner3
   url: github.com/JoshuaTurner3
   bio: Holden is a mechanical engineering and computer science student at Vanderbilt University with a huge interest in cryptography.
-  picture: assets/images/holden.png
+  picture: assets/images/holden.webp
   facebook: False
   twitter: False
-  cover: assets/images/holden_cover.png
+  cover: assets/images/holden_cover.webp
 smsliman:
   username: smsliman
   name: Sam Sliman
@@ -172,5 +172,4 @@ smsliman:
   picture: assets/images/smsliman.jpg
   facebook: False
   twitter: False
-  cover: assets/images/smsliman_cover.png
-
+  cover: assets/images/smsliman_cover.webp

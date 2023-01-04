@@ -26,6 +26,10 @@ KITCTFCTF:
   name: KITCTFCTF
   description: Writeups from KITCTFCTF.
   cover: False
+XMAS:
+  name: X-MAS CTF
+  description: Writups from X-MAS CTF
+  cover: False
 
 misc:
   name: misc

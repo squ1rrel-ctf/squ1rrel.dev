@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/nite/nisala/cover.png
+cover: assets/nite/nisala/cover.webp
 navigation: True
 title: "un(documented)-js-api"
 date: 2022-12-27 10:00:00
