@@ -10,6 +10,7 @@ production stylesheet in assets/built/screen.css
 
 /* 12. Pagination - Tools to let you flick between pages
 /* ---------------------------------------------------------- */
+@import "global.css";
 
 /* The main wrapper for our pagination links */
 .pagination {
@@ -150,3 +151,85 @@ td.code {
 .highlight table td:last-child {
     background: none;
 }
+
+
+
+/* Contrast alterations of pre-existing classes */
+/* Cover Page and Author Page Title */
+.site-logo-contrast{
+    max-height: 60px;
+
+    background-color: var(--darkgrey);
+    border-radius: 30px;
+
+    align-items: center;
+}
+
+.site-title-contrast{
+    z-index: 10;
+    margin: 0;
+    height: 60px;
+    padding: 15px;
+    font-size: 3.25rem;
+    font-weight: 700;
+
+    background-color: var(--darkgrey);
+    border-radius: 30px;
+
+    align-items: center;
+}
+
+.site-description-contrast{
+    z-index: 10;
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    -webkit-text-stroke: 1px var(--darkgrey);
+}
+
+/* Navigation bar */
+.nav-contrast {
+    display: flex;
+    margin: 0 0 0 -12px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-contrast li {
+    display: block;
+    margin: 0;
+    padding: 10px 12px;
+    text-transform: uppercase;
+}
+
+.nav-contrast li a {
+    display: block;
+    margin: 0;
+    padding: 0.2em 0.5em;
+    color: #fff;
+
+    background-color: var(--darkgrey);
+    border-radius: 2em;
+    align-items: center;
+}
+
+.nav-contrast li a:hover {
+    text-decoration: none;
+}
+
+
+/* Social Media Bar */
+.social-links-contrast {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.social-links-contrast a:last-of-type {
+    background-color: var(--darkgrey);
+    border-radius: 2em;
+    align-items: center;
+}
+
