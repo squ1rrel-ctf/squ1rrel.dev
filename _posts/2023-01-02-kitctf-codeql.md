@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/kitctf/codeql/cover.png
+cover: assets/kitctf/codeql/cover.webp
 navigation: True
 title: "Grep it? CodeQL it!"
 date: 2023-01-02 20:48:00
