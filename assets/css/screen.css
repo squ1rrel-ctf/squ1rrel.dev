@@ -114,8 +114,6 @@ body {
 
 .site-header {
     position: relative;
-    /* padding-top: 4px; */
-    /* padding-bottom: 16px; */
     color: #fff;
     background: color(var(--darkgrey) l(-5%)) no-repeat center center;
     background-size: cover;
@@ -214,12 +212,6 @@ body {
     margin-right: 10px;
     letter-spacing: 0.4px;
     white-space: nowrap;
-    
-    /* overflow-x: auto; */
-    /* overflow-y: hidden; */
-    /* -webkit-overflow-scrolling: touch; */
-    /* padding-bottom: 80px; */
-    /* -ms-overflow-scrolling: touch; */
 }
 
 /* Site Nav Hack Explanation (above):
@@ -234,7 +226,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     flex-shrink: 0;
     display: block;
     margin-right: 24px;
-    /* padding: 11px 0 9px 0; */
     color: #fff;
     font-size: 1.7rem;
     line-height: 1em;
