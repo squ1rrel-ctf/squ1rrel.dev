@@ -319,7 +319,7 @@ The final function in the `AESWCM` class, and the same function called inside `m
 
         return ct.hex()
 ```
-A majority of the work performed by this function courts within its first line, where the encrypt function is called on the passed `pt` and subsequently split into blocks once more. These blocks are then randomly shuffled, and the first block in the `blocks` list is $$\oplus$$ed with all other blocks in `blocks` and then returned. See? It's pretty straightforward.
+A majority of the work performed by this function occurs within its first line, where the encrypt function is called on the passed `pt` and subsequently split into blocks once more. These blocks are then randomly shuffled, and the first block in the `blocks` list is $$\oplus$$ed with all other blocks in `blocks` and then returned. See? It's pretty straightforward.
 
 ## The Exploit
 Now that we fully understand the happenings of the script, it is time to break it and cause a collision. In order to facilitate this, let's work backwards. The tag added to list is a result of the $$\oplus$$ of all current characteristics' `ct` blocks ( $$ct_1, ct_2, ct_3, ...$$ ). (Because $$\oplus$$ is commutative the random shuffling of the blocks is of little importance.) From the $$\oplus$$ed properties above, it can be understood that for a collision to occur, the result of two `tag` calls must be the same. The simplest manner by which this can be achieved is by first passing enough plaintext for a singular block, and then somehow having the second block be a repetition of $$0$$'s; however, this becomes difficult due to the AES encryption by an unknown key. Finding the characteristic that would result in a $$0$$ block is difficult.  
