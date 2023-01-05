@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/htb/aeswcm/cover.png
+cover: assets/htb/aeswcm/cover.webp
 navigation: True
 title: "AESWCM"
 date: 2023-01-02 22:00:00
