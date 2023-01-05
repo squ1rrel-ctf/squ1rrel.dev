@@ -119,8 +119,6 @@ body {
     color: #fff;
     background: color(var(--darkgrey) l(-5%)) no-repeat center center;
     background-size: cover;
-    /* height: 50px; */
-    /* align-items: center; */
 }
 
 .site-header:before {
