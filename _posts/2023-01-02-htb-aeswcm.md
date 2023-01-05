@@ -133,7 +133,7 @@ ct_2 = "18b44cd1683cf0b227de75a43a5b2f462357ff9ee5b21a1b9b2464644b094823"
 This is one of the primary ways in which `AES-ECB` is vulnerable to attacks: the same plaintext will result in the same ciphertext every time. Now that `AES-ECB` has been briefly reviewed, let us move onto some `AESWCM` class functions.
 
 ### The `pad` Function
-As priorly discussed, `AES-ECB` is a block cipher and encrypts blocks of a particular size (in this case $$16$$ bytes); however, what if a block has $$<16$$ bytes? Well, this is where padding comes in: it essentially adds bytes of information to the end of a block until it is the required encryption size. This particular function really just calls the padding function defined in `Crypto.Util.Padding`, so long as $len(pt)\not\equiv0\hspace{.15cm}mod\hspace{0.15cm}self.BLOCK\_SIZE$.
+As priorly discussed, `AES-ECB` is a block cipher and encrypts blocks of a particular size (in this case $$16$$ bytes); however, what if a block has $$<16$$ bytes? Well, this is where padding comes in: it essentially adds bytes of information to the end of a block until it is the required encryption size. This particular function really just calls the padding function defined in `Crypto.Util.Padding`, so long as $$len(pt)\not\equiv0\hspace{.15cm}mod\hspace{0.15cm}self.BLOCK\_SIZE$$.
 ```python
     def pad(self, pt):
         if len(pt) % self.BLOCK_SIZE != 0:
