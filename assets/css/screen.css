@@ -73,6 +73,7 @@ body {
     margin: 0 auto;
     max-width: 1040px;
     width: 100%;
+    align-items: center;
 }
 
 /* Usage:
@@ -113,8 +114,6 @@ body {
 
 .site-header {
     position: relative;
-    padding-top: 4px;
-    padding-bottom: 16px;
     color: #fff;
     background: color(var(--darkgrey) l(-5%)) no-repeat center center;
     background-size: cover;
@@ -129,7 +128,7 @@ body {
     left: 0;
     z-index: 10;
     display: block;
-    background: rgba(0,0,0,0.18);
+    background: rgba(0,0,0,0.6);
 }
 
 .site-header:after {
@@ -201,24 +200,18 @@ body {
     z-index: 300;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     overflow-y: hidden;
-    height: 40px;
+    height: 50px;
     font-size: 1.2rem;
+    align-items: center;
 }
 
 .site-nav-left {
     display: flex;
     align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
     margin-right: 10px;
-    padding-bottom: 80px;
     letter-spacing: 0.4px;
     white-space: nowrap;
-
-    -ms-overflow-scrolling: touch;
 }
 
 /* Site Nav Hack Explanation (above):
@@ -233,7 +226,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     flex-shrink: 0;
     display: block;
     margin-right: 24px;
-    padding: 11px 0 9px 0;
     color: #fff;
     font-size: 1.7rem;
     line-height: 1em;
@@ -248,7 +240,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .site-nav-logo img {
     display: block;
     width: auto;
-    height: 30px;
+    height: 35px;
 }
 
 .nav {
@@ -288,7 +280,9 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 .social-links {
     flex-shrink: 0;
     display: flex;
-    align-items: center;
+    margin: 0 0 0 -12px;
+    padding: 0;
+    list-style: none;
 }
 
 .social-links a:last-of-type {
@@ -296,13 +290,11 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 .social-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     margin: 0;
-    padding: 10px;
+    padding: 0;
+    margin: 10px 12px;
     color: #fff;
-    opacity: 0.8;
 }
 
 .social-link:hover {
@@ -310,6 +302,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 .social-link svg {
+    display: block;
+    margin: 0;
     height: 1.8rem;
     fill: #fff;
 }
