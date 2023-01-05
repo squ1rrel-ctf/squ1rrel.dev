@@ -250,7 +250,7 @@ flowchart TD
 </div>
 
 ## Back to `encrypt`
-Now, returning to the `encrypt` function, we notice a peculiarity. In typical `AES-CBC` implementations, there is not an `xor_block`, but instead the previous `ct` is $$\oplus$$ed with the current `pt` ( $$ct=IV$$ in the case of the first block). This peculiarity will be important later on. Creating a flow chart for the actual `AESWCM` process provides the following:
+Now, returning to the `encrypt` function, we notice a peculiarity. In typical `AES-CBC` implementations, there is not a `xor_block`, but instead the previous `ct` is $$\oplus$$ed with the current `pt` ( $$ct=IV$$ in the case of the first block). This peculiarity will be important later on. Creating a flow chart for the actual `AESWCM` process provides the following:
 
 <div class="mermaid">
 flowchart TD
