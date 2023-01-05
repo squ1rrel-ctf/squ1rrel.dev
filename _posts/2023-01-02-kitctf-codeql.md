@@ -37,14 +37,14 @@ We are given a database that contains 172 folders. Each of these folders contain
 
 ```
 📂 project001
-┣ 🎵 foo_deriverd.rb
+└── 🎵 foo_deriverd.rb
 📂 project002
-┣ 🎵 foo_deriverd.rb
+└── 🎵 foo_deriverd.rb
 📂 project003
-┣ 🎵 foo_deriverd.rb
+└── 🎵 foo_deriverd.rb
 ...
 📂 project172
-┣ 🎵 foo_deriverd.rb
+└── 🎵 foo_deriverd.rb
 ```
 
 This is what one of the scripts look like.
@@ -75,7 +75,7 @@ This problem was intended to be solved using CodeQL. But before we understand wh
 
 ## What on earth is CodeQL
 
-> On the official website, CodeQL is a "semantic code analyzer and query tool that can be used to find security vulnerabilities in codebases".
+> On the official website, it says that CodeQL is a "semantic code analyzer and query tool that can be used to find security vulnerabilities in codebases".
 
 As a first-timer, that definition was not intuitive at all :(
 
@@ -123,8 +123,6 @@ select lines_of_code
 ```
 
 > *While the actual CodeQL script is more complicated than this pseudocode, the general structure is the same!*
-
-## Understanding the problem
 
 So in this problem, we need to write a CodeQL query that looks for vulnerable code written in Ruby. The author of the challenge has kindly left a comment `# BAD` at the end of all suspicious lines for reference purpose 🧐
 
