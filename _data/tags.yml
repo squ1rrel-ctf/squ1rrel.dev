@@ -28,7 +28,11 @@ KITCTFCTF:
   cover: False
 XMAS:
   name: X-MAS CTF
-  description: Writups from X-MAS CTF
+  description: Writups from X-MAS CTF.
+  cover: False
+HTB:
+  name: HackTheBox CTF
+  description: Writups from the HackTheBox CTF.
   cover: False
 
 misc:
