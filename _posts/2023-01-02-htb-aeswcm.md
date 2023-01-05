@@ -20,7 +20,7 @@ In this challenge, the user connects to the server and is prompted with the foll
 ```
 What properties should your magic wand have?
 ```
-Following this, the user can input any property in hex which is then added as a characteristic for a magic wand. This is reapeated three times. Should the user input repeated properties, then the program will prompt:
+Following this, the user can input any property in hex which is then added as a characteristic for a magic wand. This is repeated three times. Should the user input repeated properties, then the program will prompt:
 ```
 Only different properties are allowed!
 ```
@@ -35,7 +35,7 @@ Property: FF
 Only different properties are allowed!
 ```
 ## Overall Program Function
-In order to better understand the function of the server, it is necessary to delve into its decision making code.
+In order to better understand the function of the server, it is necessary to delve into its decision-making code.
 ```python
 def main():
     aes = AESWCM(KEY)
@@ -62,7 +62,7 @@ def main():
             print("Only different properties are allowed!")
             exit(1)
 ```
-The program begins as observed above, with a prompt for a magic wand characteristic. Following this, the chracteristic is converted to bytes and added to a list of prior  characteristics if it is unique. The characterstic is then encrypted using the provided custom `AESWCM` class and appended to a list of prior `AES` encrypted tags. The flag is revealed if the length of the tag list is greater than the length of the set of the tags list; that is, if there is a duplicate in the tag list then the flag is printed. Therefore, all that must be achieved to determine the flag is `AES` collision; however, `AES` is not a hash function and there are no collisions, so there must be some error in the provided `AESWCM` class that facilitates a collision.
+The program begins as observed above, with a prompt for a magic wand characteristic. Following this, the characteristic is converted to bytes and added to a list of prior characteristics if it is unique. The characteristic is then encrypted using the provided custom `AESWCM` class and appended to a list of prior `AES` encrypted tags. The flag is revealed if the length of the tag list is greater than the length of the set of the tags list; that is, if there is a duplicate in the tag list then the flag is printed. Therefore, all that must be achieved to determine the flag is `AES` collision; however, `AES` is not a hash function and there are no collisions, so there must be some error in the provided `AESWCM` class that facilitates a collision.
 
 ## Encryption Analysis
 Beginning our analysis of the `AESWCM` class, let's briefly go through `AESWCM.__init__`.
@@ -77,7 +77,7 @@ Within this constructor, there are three important variables created.
 2. `self.cipher`
 3. `self.BLOCK_SIZE`
 
-`self.key` is aptly named because it is the key to the `AES` encryption method implemented within the `AESWCM` class. What `AES` mode is used, you might ask? Well, using my top notch detective skills (I put the NSA to shame <sub>Hire me please</sub>) on the assignment of `self.cipher` to `AES.new(self.key, AES.MODE_ECB)` I think it is safe to say we are using `AES-ECB`, which is an insecure `AES` encryption standard that I will discuss momentarily. The final variable declared is `self.BLOCK_SIZE`, which simply designates the number of bytes per *block* for the `AES-ECB` encryption.
+`self.key` is aptly named because it is the key to the `AES` encryption method implemented within the `AESWCM` class. What `AES` mode is used, you might ask? Well, using my top-notch detective skills (I put the NSA to shame <sub>Hire me please</sub>) on the assignment of `self.cipher` to `AES.new(self.key, AES.MODE_ECB)` I think it is safe to say we are using `AES-ECB`, which is an insecure `AES` encryption standard that I will discuss momentarily. The final variable declared is `self.BLOCK_SIZE`, which simply designates the number of bytes per *block* for the `AES-ECB` encryption.
 
 ### A Review of AES-ECB
 Let's take a brief moment to review `AES-ECB` and why it is one of the more (if not most) insecure `AES` modes. To begin, `AES-ECB` is a block cipher, meaning that it splits a plaintext into blocks of a particular number of bytes. In our case, `self.BLOCK_SIZE` is $$16$$, meaning that the plaintext encrypted will be split into blocks of size $$16$$ bytes. For instance, consider the following example:
@@ -120,7 +120,7 @@ graph TD
     k3-->e3
 </div>
 
-The issue and vulnerability in `AES-ECB` is that every single block is encrypted with the same key such that if the plaintext of one block is known, then any other reoccurences of identical ciphertext indicate the known plaintext. Consider the following:
+The issue and vulnerability in `AES-ECB` is that every single block is encrypted with the same key such that if the plaintext of one block is known, then any other reoccurrences of identical ciphertext indicate the known plaintext. Consider the following:
 ```python
 pt_1 = "mega secret msg:"
 pt_2 = "mega secret msg: do not use AES pwds"
@@ -199,7 +199,7 @@ Now that the `blockify`, `xor` and `pad` functions have been discussed, the main
         return b"".join(ct).hex()
 ```
 
-The first step of the `encrypt` function is for the message to be padded and then split into blocks using the aforementioned `pad` and `blockify` functions. Thereafter, a variable named `xor_block` is set to the intermediate value ( `iv` ) which is the result of a Cryptographically Secure Psuedo-Random Number Generator (CSPRNG). Then, each `block` is $$\oplus$$ed with `xor_block` and subsequently encrypted using the `AES-ECB` object created in `AESWCM.__init__`. A very important part of this process is that `xor_block` is changed with each iteration be the $$\oplus$$ of the created `ct_block` and `block`. This manual addition essentially turns the `AES-ECB` encryption into something similar, to `AES-CBC` which we will quickly review.
+The first step of the `encrypt` function is for the message to be padded and then split into blocks using the aforementioned `pad` and `blockify` functions. Thereafter, a variable named `xor_block` is set to the intermediate value ( `iv` ) which is the result of a Cryptographically Secure Psuedo-Random Number Generator (CSPRNG). Then, each `block` is $$\oplus$$ed with `xor_block` and subsequently encrypted using the `AES-ECB` object created in `AESWCM.__init__`. A very important part of this process is that `xor_block` is changed with each iteration to be the $$\oplus$$ of the created `ct_block` and `block`. This manual addition essentially turns the `AES-ECB` encryption into something similar to `AES-CBC` which we will quickly review.
 
 ### A Review of `AES-CBC`
 Similarly to `AES-ECB`, `AES-CBC` is a block cipher and a provided plaintext is divided into blocks for encryption. However, unlike `AES-ECB`, each `pt` block is $$\oplus$$ed with an Intermediate Value ( `iv` ) prior to encryption. The first `iv` is a random number; however, all subsequent `iv`s are generated from the $$\oplus$$ing of the generated `ct` block with the next `pt` block. This removes one of the primary vulnerabilities of `AES-ECB`, where blocks consisting of the same plaintext receive the same ciphertext. Here is a colorful graph for you to ponder:
@@ -250,7 +250,7 @@ flowchart TD
 </div>
 
 ## Back to `encrypt`
-Now, returning to the `encrypt` function, we notice a peculiarity. In typical `AES-CBC` implementations, there is not an `xor_block`, but instead the previous `ct` is $$\oplus$$ed with the current `pt` ( $$ct=IV$$ in the case of the first block ). This peculiarity will be important later on. Creating a flow chart for the actual `AESWCM` process provides the following:
+Now, returning to the `encrypt` function, we notice a peculiarity. In typical `AES-CBC` implementations, there is not a `xor_block`, but instead the previous `ct` is $$\oplus$$ed with the current `pt` ( $$ct=IV$$ in the case of the first block). This peculiarity will be important later on. Creating a flow chart for the actual `AESWCM` process provides the following:
 
 <div class="mermaid">
 flowchart TD
@@ -306,7 +306,7 @@ flowchart TD
 </div>
 
 ### `tag` Function
-The final funtion in the `AESWCM` class, and the same function called inside `main`, is the `tag` function. This function acts as an outline for the entire creation process of a wand characteristic's tag and is incredibly important. Thankfully, it is also quite simple.
+The final function in the `AESWCM` class, and the same function called inside `main`, is the `tag` function. This function acts as an outline for the entire creation process of a wand characteristic's tag and is incredibly important. Thankfully, it is also quite simple.
 
 ```python
     def tag(self, pt, iv=os.urandom(16)):
@@ -319,20 +319,20 @@ The final funtion in the `AESWCM` class, and the same function called inside `ma
 
         return ct.hex()
 ```
-A majority of the work performed by this function ocurrs within its first line, where the encrypt function is called on the passed `pt` and subsequently split into blocks once more. These blocks are then randomly shuffled, and the first block in the `blocks` list is $$\oplus$$ed with all other blocks in `blocks` and then returned. See? It's pretty straightforward.
+A majority of the work performed by this function occurs within its first line, where the encrypt function is called on the passed `pt` and subsequently split into blocks once more. These blocks are then randomly shuffled, and the first block in the `blocks` list is $$\oplus$$ed with all other blocks in `blocks` and then returned. See? It's pretty straightforward.
 
 ## The Exploit
-Now that we fully understand the happenings of the script, it is time to break it and cause a collision. In order to facilitate this, let's work backwards. The tag added to list is a result of the $$\oplus$$ of all current characteristics' `ct` blocks ( $$ct_1, ct_2, ct_3, ...$$ ). (Because $$\oplus$$ is commutative the random shuffling of the blocks is of little importance.) From the $$\oplus$$ed properties above, it can be understood that for a collision to occur, the result of two `tag` calls must be the same. The simplest manner by which this can be achieved is by first passing enough plaintext for a singular block, and then somehow having the second block be a repetition of $0$'s; however, this becomes difficult due to the AES encryption by an unknown key. Finding the characteristic that would result in a $$0$$ block is difficult.  
+Now that we fully understand the happenings of the script, it is time to break it and cause a collision. In order to facilitate this, let's work backwards. The tag added to list is a result of the $$\oplus$$ of all current characteristics' `ct` blocks ( $$ct_1, ct_2, ct_3, ...$$ ). (Because $$\oplus$$ is commutative the random shuffling of the blocks is of little importance.) From the $$\oplus$$ed properties above, it can be understood that for a collision to occur, the result of two `tag` calls must be the same. The simplest manner by which this can be achieved is by first passing enough plaintext for a singular block, and then somehow having the second block be a repetition of $$0$$'s; however, this becomes difficult due to the AES encryption by an unknown key. Finding the characteristic that would result in a $$0$$ block is difficult.  
   
 Therefore, the next best option is for the result of a $$\oplus$$ being *'undone'* by another $$\oplus$$. This requires $$3$$ steps (which we coincidentally have).
 1. Determining the ciphertext of the first block ( $$ct_1$$ ) and the next xor block ( $$xor\_block_2$$ )
-2. Determining the ciphertext of the first block ( $$ct_2$$ ) and the next xor block ( $$xor\_block_3$$ )
+2. Determining the ciphertext of the second block ( $$ct_2$$ ) and the next xor block ( $$xor\_block_3$$ )
 3. Inputting a final block ( $$pt_3$$ ) that encrypts to the same as the second or first block ( $$ct_3=ct_2$$ or $$ct_3=ct_1$$ )
 
 ### Determining the Ciphertext of the First Block
-Determining the ciphertext of the first block is incredibly simple. If there is only $$1$$ block and it is $$16$$ bytes, then it will simply be $$\oplus$$ed with the $$IV$$, encrypted, and then returned since there are no other blocks for it to be $$\oplus$$ed against. Therefore, whatever is returned from the tag function ( $$tag_1$$ ) is the ciphertext of the first characteristic such that $$tag_1=ct_1$$. Now, to determine $$xor\_block_2$$, think back to the peculiarily of the `AESWCM`s `xor_block` function. $$xor\_block_2$$ can be calculated as $$xor\_block_2=ct_1\oplus pt_1$$. This will be useful for ensuring the same text is encrypted by `AES-ECB` on the second and third iterations.
+Determining the ciphertext of the first block is incredibly simple. If there is only $$1$$ block and it is $$16$$ bytes, then it will simply be $$\oplus$$ed with the $$IV$$, encrypted, and then returned since there are no other blocks for it to be $$\oplus$$ed against. Therefore, whatever is returned from the tag function ( $$tag_1$$ ) is the ciphertext of the first characteristic such that $$tag_1=ct_1$$. Now, to determine $$xor\_block_2$$, think back to the peculiarily of the `AESWCM`'s `xor_block` function. $$xor\_block_2$$ can be calculated as $$xor\_block_2=ct_1\oplus pt_1$$. This will be useful for ensuring the same text is encrypted by `AES-ECB` on the second and third iterations.
 
-### Determining the Ciphertext of the First Block
+### Determining the Ciphertext of the Second Block
 Determining the ciphertext of the second block is similarly just as simple as with the first block; however, there are some additional steps that should be taken. First, the ciphertext of the second block can be easily found by simply $$\oplus$$ing the first ciphertext ( $$ct_1$$ ) with the second tag ( $$tag_2$$ ); $$ct_2=ct_1\oplus tag_2$$. Now that the ciphertext of the second block has been determined $$xor\_block_3$$ may be determined a la step #1 by $$xor\_block_3=ct_2\oplus pt_2$$.
 
 ### Inputting a final block that encrypts to the same as the second or first block
