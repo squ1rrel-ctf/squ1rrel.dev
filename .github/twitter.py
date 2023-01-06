@@ -3,8 +3,6 @@ import requests
 import xml.etree.ElementTree as ET
 import os
 
-print(os.environ)
-
 def main():
     client = tweepy.Client(
         consumer_key=os.getenv("API_KEY"),
