@@ -3,9 +3,6 @@ import requests
 import xml.etree.ElementTree as ET
 import os
 import sys
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def main():
     client = tweepy.Client(
