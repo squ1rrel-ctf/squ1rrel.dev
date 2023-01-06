@@ -39,8 +39,8 @@ misc:
   name: misc
   description: Writeups on miscellaneous challenges.
   cover: False
-cryptography:
-  name: cryptography
+crypto:
+  name: crypto
   description: Writeups on cryptography challenges.
   cover: False
 web:
@@ -51,7 +51,11 @@ forensics:
   name: forensics
   description: Writeups on forensics challenges.
   cover: False
-ref:
+rev:
   name: rev
   description: Writeups on reverse engineering challenges.
+  cover: False
+pwn:
+  name: pwn
+  description: Writeups on pwn (binary exploitation) challenges.
   cover: False

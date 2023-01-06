@@ -18,9 +18,14 @@ layout: null
           <description>{{ post.content | xml_escape }}</description>
         {% endif %}
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>
-        {{ site.url }}{{ post.url }}</link>
+        <link>{{ site.url }}{{ post.url }}</link>
         <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        {% for tag in post.tags %}
+          <category term="{{ site.data.tags[tag].name }}" />
+        {% endfor %}
+        <author>
+          <name>{{ site.data.authors[post.author].name }}</name>
+        </author>
       </item>
       {% endunless %}
     {% endfor %}
