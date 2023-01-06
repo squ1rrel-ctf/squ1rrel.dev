@@ -2,6 +2,10 @@ import tweepy
 import requests
 import xml.etree.ElementTree as ET
 import os
+import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def main():
     client = tweepy.Client(
@@ -12,21 +16,40 @@ def main():
     )
 
     previous_atom = requests.get("https://squ1rrel.dev/atom.xml", allow_redirects=True).text
-    previous_links = [i.find("link").text.strip() for i in ET.fromstring(previous_atom)[0].findall('item')]
-    current_links = [i.find("link").text.strip() for i in ET.parse('_site/atom.xml').getroot()[0].findall('item')]
+    try:
+        prev_links_to_items = {i.find("link").text.strip(): i for i in ET.fromstring(previous_atom)[0].findall('item')}
+        current_links_to_items = {i.find("link").text.strip(): i for i in ET.parse('_site/atom.xml').getroot()[0].findall('item')}
+    except AttributeError as inst:
+        print("Field missing: ", inst)
+        sys.exit(1)
 
-    new_articles = list(set(current_links) - set(previous_links))
+    new_articles = { k : current_links_to_items[k] for k in set(current_links_to_items) - set(prev_links_to_items) }
 
     if len(new_articles) > 0:
         if len(new_articles) == 1:
-            tweet_text = f'New writeup!\nhttps://squ1rrel.dev{new_articles[0]}'
+            try:
+                link = list(new_articles.keys())[0]
+                author = list(new_articles.values())[0].find("author").find("name").text
+                tag = list(new_articles.values())[0].findall("category")[1].attrib['term']
+                client.create_tweet(text=f'New {tag} writeup from {author}!\nhttps://squ1rrel.dev{link}')
+            except AttributeError as inst:
+                    print("Field missing: ", inst)
+                    sys.exit(1)
+            except Exception as inst:
+                print(f"Tweet for {list(new_articles.keys())[0]} not posted: {inst}")
         else:
-            tweet_text = "New writeups!"
-            for i in new_articles:
-                tweet_text += "\nhttps://squ1rrel.dev" + i
-        if len(tweet_text) > 280:
-            tweet_text = "New writeups at https://squ1rrel.dev!"
-        client.create_tweet(text=tweet_text)
+            tweet_text = "New writeup!"
+            for i in list(new_articles.keys()):
+                try:
+                    link = i
+                    author = new_articles[i].find("author").find("name").text
+                    tag = new_articles[i].findall("category")[1].attrib['term']
+                    client.create_tweet(text=f'New {tag} writeup from {author}!\nhttps://squ1rrel.dev{i}')
+                except AttributeError as inst:
+                    print("Field missing: ", inst)
+                    sys.exit(1)
+                except Exception as inst:
+                    print(f"Tweet for {i} not posted: {inst} {type(inst)}")
 
 if __name__== "__main__":
     main()
