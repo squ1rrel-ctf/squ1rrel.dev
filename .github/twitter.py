@@ -32,7 +32,6 @@ def main():
             except Exception as inst:
                 print(f"Tweet for {list(new_articles.keys())[0]} not posted: {inst}")
         else:
-            tweet_text = "New writeup!"
             for i in list(new_articles.keys()):
                 try:
                     link = i
