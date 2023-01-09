@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/kitctf/protector/cover.png
+cover:  assets/kitctf/protector/cover.webp
 navigation: True
 title: "protector"
 date: 2023-01-05 10:00:00
@@ -29,7 +29,7 @@ No
 
 If we open the binary in Ghidra, we see that this writes some code to an address and immediately jumps to it, indicating self-modifying code.
 
-![ghidra screenshot showing entry code](/assets/kitctf/protector/2022-12-30-01-35-09.png)
+![ghidra screenshot showing entry code](/assets/kitctf/protector/2022-12-30-01-35-09.webp)
 
 Let's open the binary in GDB and see what's going on.
 
@@ -38,21 +38,21 @@ Let's open the binary in GDB and see what's going on.
 
 First, I wanted to see what was happening around the read syscall. I ran the program with the `r` command and then interrupted the program using `ctrl+c` when it was waiting for user input. I printed out the instructions around that area using `x/17i $rip-2`:
 
-![Instructions around the input; mostly nop](/assets/kitctf/protector/2023-01-01-17-19-59.png)
+![Instructions around the input; mostly nop](/assets/kitctf/protector/2023-01-01-17-19-59.webp)
 
 It appears that the code is obfuscated so that it executes a couple of instructions before jumping elsewhere. I stepped through more instructions, but it didn't seem simple enough to know what was going on immediately.
 
 I was stuck for a bit, but then I got the idea to put a read watchpoint on the string storing the input. The register view from [gef](https://github.com/hugsy/gef) showed me that the input was stored in `$rsp`, and I used the `rwatch` command to set a read watchpoint on that address.
 
-![gef register view](/assets/kitctf/protector/2023-01-02-19-34-39.png)
+![gef register view](/assets/kitctf/protector/2023-01-02-19-34-39.webp)
 
 The watchpoint was hit! I looked around the area to figure out which instruction caused the read, and it was a `CMP` instruction.
 
-![instructions around watchpoint, showing cmp](/assets/kitctf/protector/2023-01-02-19-36-53.png)
+![instructions around watchpoint, showing cmp](/assets/kitctf/protector/2023-01-02-19-36-53.webp)
 
 Using the stack view from gef, I was able to see that my input had completely changed.
 
-![stack view showing different data from input on stack](/assets/kitctf/protector/2023-01-02-19-37-57.png)
+![stack view showing different data from input on stack](/assets/kitctf/protector/2023-01-02-19-37-57.webp)
 
 From these observations, I concluded that the input had undergone some transformation, and that the first character needed to be `0x5a` after the transformation. To determine what transformations were done to the input, I set a write watchpoint on the input using the `watch` command. I restarted the program and noticed that each character only had three different instructions that modified it: `XOR`, `ADD`, and `SUB`.
 
