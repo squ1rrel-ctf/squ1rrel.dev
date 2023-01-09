@@ -11,7 +11,7 @@ subclass: 'post'
 author: Ace314159
 ---
 
-This was a cool reversing challenge, where I wrote a GDB script to deobfuscate the binary and undo the operations to get the flag.
+This was a cool reversing challenge where I wrote a GDB script to undo obfuscated operations to get the flag.
 
 ## Setup
 
