@@ -36,7 +36,7 @@ def main():
             tag = list(new_articles.values())[0].findall("category")[1].attrib["term"]
             ctf = list(new_articles.values())[0].findall("category")[0].attrib["term"]
             client.create_tweet(
-                text=f'New {tag} writeup from {ctf} by {author}! {ctf}\nhttps://squ1rrel.dev{link} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
+                text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{link} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
             )
         else:
             for i in list(new_articles.keys()):
@@ -45,7 +45,7 @@ def main():
                 tag = new_articles[i].findall("category")[1].attrib["term"]
                 ctf = new_articles[i].findall("category")[0].attrib["term"]
                 client.create_tweet(
-                    text=f'New {tag} writeup from {ctf} by {author}! #{ctf}\nhttps://squ1rrel.dev{i} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
+                    text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{i} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
                 )
 
 
