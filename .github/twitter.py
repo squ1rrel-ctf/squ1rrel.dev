@@ -39,17 +39,15 @@ def main():
         for k in set(current_links_to_items) - set(prev_links_to_items)
     }
 
-    # If new articles are detected:
-    if len(new_articles) > 0:
-        for i in list(new_articles.keys()):
-            link = i
-            author = new_articles[i].find("author").find("name").text
-            tag = new_articles[i].findall("category")[1].attrib["term"]
-            ctf = new_articles[i].findall("category")[0].attrib["term"]
-            # Create tweet
-            client.create_tweet(
-                text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{i} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
-            )
+    # Tweet new articles!
+    for link, article in new_articles.items():
+        author = article.find("author").find("name").text
+        tag = article.findall("category")[1].attrib["term"]
+        ctf = article.findall("category")[0].attrib["term"]
+        # Create tweet
+        client.create_tweet(
+            text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{link} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
+        )
 
 
 if __name__ == "__main__":
