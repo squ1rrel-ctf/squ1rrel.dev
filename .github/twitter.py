@@ -41,25 +41,15 @@ def main():
 
     # If new articles are detected:
     if len(new_articles) > 0:
-        if len(new_articles) == 1:
-            link = list(new_articles.keys())[0]
-            author = list(new_articles.values())[0].find("author").find("name").text
-            tag = list(new_articles.values())[0].findall("category")[1].attrib["term"]
-            ctf = list(new_articles.values())[0].findall("category")[0].attrib["term"]
+        for i in list(new_articles.keys()):
+            link = i
+            author = new_articles[i].find("author").find("name").text
+            tag = new_articles[i].findall("category")[1].attrib["term"]
+            ctf = new_articles[i].findall("category")[0].attrib["term"]
             # Create tweet
             client.create_tweet(
-                text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{link} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
+                text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{i} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
             )
-        else:
-            for i in list(new_articles.keys()):
-                link = i
-                author = new_articles[i].find("author").find("name").text
-                tag = new_articles[i].findall("category")[1].attrib["term"]
-                ctf = new_articles[i].findall("category")[0].attrib["term"]
-                # Create tweet
-                client.create_tweet(
-                    text=f'New {tag} writeup from {ctf} by {author}! \nhttps://squ1rrel.dev{i} #{tag.replace(" ", "")} #{ctf.replace(" ", "")}'
-                )
 
 
 if __name__ == "__main__":
