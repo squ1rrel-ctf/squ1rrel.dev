@@ -69,6 +69,7 @@ jobs:
           ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
         run: python3 .github/twitter.py
         shell: bash
+        continue-on-error: true
       
   # Deployment job
   deploy:
