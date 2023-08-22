@@ -22,6 +22,10 @@ niteCTF:
   name: niteCTF
   description: Writeups from niteCTF.
   cover: False
+FakeCTF:
+  name: fakeCTF
+  description: Writeups from FakeCTF.
+  cover: False
 KITCTFCTF:
   name: KITCTFCTF
   description: Writeups from KITCTFCTF.
