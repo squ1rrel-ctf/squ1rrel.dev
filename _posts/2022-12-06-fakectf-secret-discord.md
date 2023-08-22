@@ -16,7 +16,7 @@ My friend sent me a link to a discord message, but I can’t access the server!
 [https://discord.com/channels/1143240372986851338/1143240373871857757/<br>1143247419623100566](https://discord.com/channels/1143240372986851338/1143240373871857757/1143247419623100566)
 
 image.png:
-![image1.png](/assets/fakectf/secret-discord/image1.png)
+![image1.png](/assets/fakectf/secret-discord/image1.webp)
 
 The only thing we have to work with that might point us to a server is a discord message link. The only thing that looks like it's helpful are the numbers in the link, so I googled the structure of a discord message link.
 
@@ -24,7 +24,7 @@ Aha! The number right after channel is probably what we need. "[1143240372986851
 
 Looking at the image that was provided, I see a Discord widget, with a "Join Discord" button at the bottom. If I could somehow recreate this widget for the server, then I’d be able to join. Knowing this, I create my own server, and find my way to the widget screen.
 
-![widget screen](/assets/fakectf/secret-discord/image2.png)
+![widget screen](/assets/fakectf/secret-discord/image2.webp)
 
 Here we can see the "Premade Widget" code.
 
@@ -34,6 +34,6 @@ Here we can see the "Premade Widget" code.
 
 The only thing here that seems to identify the server it is a widget of is the server ID, which we had previously found. I take the premade widget code, replace the id with the server id, and run the code!
 
-![widget code](/assets/fakectf/secret-discord/image3.png)
+![widget code](/assets/fakectf/secret-discord/image3.webp)
 
 Now the widget pops up in chrome on a blank screen, and I click join Discord, and then I click the message link. There’s the flag!
