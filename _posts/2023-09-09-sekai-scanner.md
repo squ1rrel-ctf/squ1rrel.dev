@@ -15,7 +15,7 @@ Scanner? Buddy!
 
 In this challenge, we're presented with a vulnerability scanner, which we can use to scan for open ports using nmap.
 
-![Image of the challenge website](/assets/sekai/nisala/scanner.png)
+![Image of the challenge website](/assets/sekai/nisala/scanner.webp)
 
 Here's what the scanner is doing internally:
 
@@ -65,7 +65,7 @@ QUITTING!
 
 The problem becomes if you run this on the website:
 
-![Image of the challenge website, showing just a starting nmap output and nothing else](/assets/sekai/nisala/scanner_bad.png)
+![Image of the challenge website, showing just a starting nmap output and nothing else](/assets/sekai/nisala/scanner_bad.webp)
 
 It seems that this error is sent to `stderr`, but the scanner website only sends output from `stdout`. So, what can we do? Well, after some documentation reading, we realized that we can route all output to `stdout`:
 
@@ -76,6 +76,6 @@ It seems that this error is sent to `stderr`, but the scanner website only sends
 
 And there's our flag!
 
-![Image of the challenge website, showing the flag](/assets/sekai/nisala/scanner_flag.png)
+![Image of the challenge website, showing the flag](/assets/sekai/nisala/scanner_flag.webp)
 
 We actually "solved" this challenge hours before we actually did -- we had the right payload from the beginning, but we used "\t" in the input box instead of actual tabs because people on our team didn't set up the Docker container for the challenge and created a reproduction instead. Lesson learned! :)
