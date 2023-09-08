@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/nisala/scanner_cover.webp
+cover:  assets/sekai/nisala/scanner_cover.png
 navigation: True
 title: "Vulnerability Scanner"
 date: 2023-09-08 10:00:00
@@ -13,7 +13,7 @@ author: nisala
 
 Scanner? Buddy!
 
-In this challenge, we're presented with a vulnerability scanner, which we can use to scan for open ports using nmap.
+In this challenge, we're presented with a vulnerability scanner, which we can use to scan for open ports at an IP.
 
 ![Image of the challenge website](/assets/sekai/nisala/scanner.webp)
 
@@ -37,13 +37,18 @@ begin
 end
 ```
 
-Okay, so we're just inserting text into an `nmap` command. Should be simple enough to exploit, right? Well, it would be... except some characters are being escaped on the second line: `space, $, \`, ", |, &, ;, <, >, (, ), ', \n, *`.
 
-So that's a lot, but it's definitely not everything. Although it looks like we won't be able to chain commands, we can still exploit `nmap` to do some things it shouldn't.
+Okay, so we're just inserting text into an `nmap` command. Should be simple enough to exploit, right? Well, it would be... except some characters are being escaped by the function on the second line: 
+
+```
+space, $, \`, ", |, &, ;, <, >, (, ), ', \n, *`
+```
+
+So that's a lot, but it's definitely not everything. Although it looks like we won't be able to chain commands to run something else in addition to nmap, we can still exploit `nmap` to do some things it shouldn't.
 
 The first problem to get around is adding additional arguments to the `nmap` call. After all, spaces are escaped, right? And this is true... but they forgot about tabs. So we can just use tabs instead of spaces.
 
-The next problem to tackle is what argument to use. See, the flag is stored in a file at a randomized path, and there are a number of ways to get `nmap` to read files, from using nmap scripts like `http-put` to upload files to a remote server, to using a file as a list of places to scan. We started with the second one because it seemed easier, and ended up with a payload like this:
+The next problem to tackle is what file reading technique to use. See, the flag is stored in a file at a randomized path, and there are a number of ways to get `nmap` to read files, from using nmap scripts like `http-put` to upload files to a remote server, to using a file as a list of places to scan, and more. We started with the second one because it seemed easier, and ended up with a payload like this:
 
 ```
 # Tabs changed to spaces for readability
@@ -63,7 +68,7 @@ Error resolving name "sekai{flag}": Name or service not known
 QUITTING!
 ```
 
-The problem becomes if you run this on the website:
+This doesn't work if you run it on the website, though: 
 
 ![Image of the challenge website, showing just a starting nmap output and nothing else](/assets/sekai/nisala/scanner_bad.webp)
 
@@ -78,4 +83,4 @@ And there's our flag!
 
 ![Image of the challenge website, showing the flag](/assets/sekai/nisala/scanner_flag.webp)
 
-We actually "solved" this challenge hours before we actually did -- we had the right payload from the beginning, but we used "\t" in the input box instead of actual tabs because people on our team didn't set up the Docker container for the challenge and created a reproduction instead. Lesson learned! :)
+We actually "solved" this challenge hours before we actually did -- we had the right payload from the beginning, but we used "\t" in the input box instead of actual tabs because people on our team didn't set up the Docker container for the challenge and created our own reproduction instead. Lesson learned! :)
