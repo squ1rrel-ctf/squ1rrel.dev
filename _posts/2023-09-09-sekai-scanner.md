@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/nisala/scanner_cover.png
+cover:  assets/sekai/nisala/scanner_cover.webp
 navigation: True
 title: "Vulnerability Scanner"
 date: 2023-09-08 10:00:00
