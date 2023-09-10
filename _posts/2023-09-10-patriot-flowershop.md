@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/patriot/flowershop/cover.png
+cover:  assets/patriot/flowershop/cover.webp
 navigation: True
 title: "Flower Shop"
 date: 2023-09-10 22:00:00
@@ -15,7 +15,7 @@ Bad news: pay-to-win made it to CTFs. Good news: we paid first.
 
 In this challenge, we're presented with a basic user management system:
 
-![Sign up, login, and password reset screen](assets/patriot/flowershop/image1.png)
+![Sign up, login, and password reset screen](assets/patriot/flowershop/image1.webp)
 
 Alright, login, signup, and password reset. Pretty standard stuff. The one difference is in the password reset system. Instead of providing an email, you have to provide a webhook URL.
 
@@ -83,16 +83,16 @@ private function initDB() {
 
 So it seems that `admin`'s password resets are being sent to `webhook.site/fake`. If we can see those, we can just log in as admin and get the flag. Now, this may seem far-fetched, but... can we control that URL?
 
-![webhook.site page that shows premium tier has custom aliases](assets/patriot/flowershop/image2.png)
+![webhook.site page that shows premium tier has custom aliases](assets/patriot/flowershop/image2.webp)
 
 Oh my god. So, does that mean...
 
-![webhook.site page showing control of webhook.site/fake](assets/patriot/flowershop/image3.png)
+![webhook.site page showing control of webhook.site/fake](assets/patriot/flowershop/image3.webp)
 
 Yes. Yes it does. Let's send in a password reset for admin.
 
-![webhook.site/fake showing the password](assets/patriot/flowershop/image4.png)
+![webhook.site/fake showing the password](assets/patriot/flowershop/image4.webp)
 
 And now we just sign in and claim our prize.
 
-![flag, logged in as admin on the flower shop website](assets/patriot/flowershop/image5.png)
+![flag, logged in as admin on the flower shop website](assets/patriot/flowershop/image5.webp)
