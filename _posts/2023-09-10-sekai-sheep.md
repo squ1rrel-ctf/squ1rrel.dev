@@ -64,7 +64,9 @@ From here, there are two key questions that can be answered to come up with a vi
 ## Question 1 (Answer: Sort the Nodes)
 
 Let's tackle question 1 first. Instead of thinking when we _should_ take a detour, we can instead think of when we _should not_ take a detour. The answer to this question is pretty clear: if there is no better travel pass! If
-$$ L_u = \min_{v\in V\setminus A} L_v$$
+
+$$ L_u = \min_{v\in V\setminus A} L_v $$
+
 then there is no better travel pass in the entire graph! Finding $$c_u$$ thus simply entails a BFS from $$u$$ to all leaf nodes and choosing the traversal that yields the most apples, and at no point do we need to worry about travel passes (since we already have the best one).
 
 Thus, we will ultimately sort all possible $$u\in V\setminus A$$ by $$L_u$$, and compute $$c_u$$ in this order. This is a good segue to the next question, as we will see how doing this leads us to the correct solution.
@@ -73,11 +75,19 @@ Thus, we will ultimately sort all possible $$u\in V\setminus A$$ by $$L_u$$, and
 
 The key observation to answer question 2 is that this problem exhibits optimal substructure (as many graph path finding problems do). Let's discuss why this is the case.
 
-Lets index the nodes in $$V\setminus A$$ as follows, $$V\setminus A = \{u_1, u_2, \dots, u_{N-\alpha} \}$$ such that $$L_{u_1} \leq L_{u_2} \leq \dots \leq L_{u_{N-\alpha}}$$ and $$\alpha := \lvert A \rvert$$. We've already discussed how we can compute $$c_{u_1}$$, so let's suppose we've done that already. 
+Lets index the nodes in $$V\setminus A$$ as follows, 
+
+$$V\setminus A = \{u_1, u_2, \dots, u_{N-\alpha} \}$$
+
+such that $$L_{u_1} \leq L_{u_2} \leq \dots \leq L_{u_{N-\alpha}}$$ and $$\alpha := \lvert A \rvert$$. We've already discussed how we can compute $$c_{u_1}$$, so let's suppose we've done that already. 
 
 Now, suppose we start a BFS traversal starting from $$u_2$$, and along the way our BFS reaches $$u_1$$. We can observe that once we reach $$u_1$$, nothing has changed from when the traversal originated from $$u_1$$! We already know what the optimal path from $$u_1$$ is and all decisions to get to $$u_1$$ from $$u_2$$ are completely independent and don't change that! 
 
-This is precisely optimal substructure. We can more generally state this result as follows. If during the BFS originating at $$u_m$$ we encounter node $$u_n$$ for $$n < m$$, then we can end that branch of the BFS with cost $$c_{u_n} + c_{u_m \to u_n} + 1$$ where $$c_{u_m \to u_n}$$ is the cost of getting to $$u_n$$ from $$u_m$$. Note we drop the $$+1$$ term if it so happens that $$L_{u_m} = L_{u_n}$$.
+This is precisely optimal substructure. We can more generally state this result as follows. If during the BFS originating at $$u_m$$ we encounter node $$u_n$$ for $$n < m$$, then we can end that branch of the BFS with cost 
+
+$$c_{u_n} + c_{u_m \to u_n} + 1$$ 
+
+where $$c_{u_m \to u_n}$$ is the cost of getting to $$u_n$$ from $$u_m$$. Note we drop the $$+1$$ term if it so happens that $$L_{u_m} = L_{u_n}$$.
 
 And that's it! Let's look at what the solution looks like!
 
