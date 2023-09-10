@@ -38,6 +38,10 @@ HTB:
   name: HackTheBox CTF
   description: Writups from the HackTheBox CTF.
   cover: False
+PatriotCTF:
+  name: PatriotCTF
+  description: Writups from PatriotCTF.
+  cover: False
 
 misc:
   name: misc
