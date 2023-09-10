@@ -39,7 +39,7 @@ public function resetPassword() {
 }
 ```
 
-A call to `exec`? It's practically asking to be exploited -- and you very easily can. The webhook is validated, but the valdation is done very insecurely, using PHP filters:
+A call to `exec`? It's practically asking to be exploited -- and you very easily can. The webhook is validated, but the validation is done very insecurely, using PHP filters:
 
 ```php
 $this->wh = filter_var($wh, FILTER_SANITIZE_URL);
