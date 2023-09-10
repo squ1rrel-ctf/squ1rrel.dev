@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/abi-kothapalli/cover.png
+cover:  assets/sekai/abi-kothapalli/cover.webp
 navigation: True
 title: "Gluttonous Sheep"
 date: 2023-09-10 10:00:00
@@ -49,7 +49,7 @@ Unfortunately, it was pretty easy to construct a counterexample for why this wou
 
 Take the following example, where we are starting at $$u$$ and need to end at $$L_{v_4}$$ (we can asssume that this is the best leaf node to end at by simply letting $$L_{v_4} \to \infty$$). I'm using dotted lines to simply indicate that $$u$$ and $$v_2$$ are internal nodes. By this approach, if we simply let $$L_u\to\infty$$, $$L_{v_1} \to \infty$$, $$L_{v_3} \to \infty$$, while $$L_{v_2} = 1$$, then it becomes immediately clear that we shouldn't be taking a direct path to $$v_4$$. Instead, it is clearly better to take a detour to get a significantly better travel pass to reduce the number of apples spent along the traversal.
 
-![Image of counterexample](/assets/sekai/abi-kothapalli/counterexample.png)
+![Image of counterexample](/assets/sekai/abi-kothapalli/counterexample.webp)
 
 In fact, one can come up with increasingly elaborate example for optimal traversals, where one must make detours _during other detours_ to pick up intermediary travel passes that make it easier to get _other intermediary travel passes_ to then go to the desired leaf node.
 
