@@ -1,6 +1,5 @@
 tasks:
-  - before: npm install && bundle install
-  - command: npx gulp css && bundle exec jekyll serve
+  - command: npm install && bundle install && npx gulp css && bundle exec jekyll serve
 
 ports:
   - port: 4000
