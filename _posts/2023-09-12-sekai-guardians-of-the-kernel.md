@@ -35,7 +35,7 @@ You can also run it without opening a new windows as such
 $ qemu-system-x86_64 -kernel bzImage -initrd initramfs.cpio.gz -nographic -append "console=ttyS0"
 ```
 
-![loadedkernel](/assets/sekai/zerodaytea/loadedkernel.png)
+![loadedkernel](/assets/sekai/zerodaytea/loadedkernel.webp)
 
 Nice! Looks like we've got everything set up. Based off the warning message, we can run ``lsmod`` and see what kernel modules are loaded.
 
@@ -344,7 +344,7 @@ while True:
 Note that for this section I chose to replicate the lower level steps in the disassembly. This is to prevent mistakes from translating the pseudo-C code provided into python for Z3 and allows check for mistakes a little more easily when comparing to the original binary.
 
 You can view increasingly lower levels of disassembly in binja by selecting the button in the top left
-![binjalowlevel](/assets/sekai/zerodaytea/binjalowlevel.png)
+![binjalowlevel](/assets/sekai/zerodaytea/binjalowlevel.webp)
 
 Running this script unfortunately we get something that doesn't quite match the flag:
 ```bash
