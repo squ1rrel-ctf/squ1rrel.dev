@@ -25,29 +25,29 @@ $ qemu-system-x86_64 -kernel bzImage
 ```
 
 ![runningkernel](/assets/sekai/zerodaytea/runningkernel.gif)
-hmm looks like we get an ``Unable to mount root fs`` error since there's no ``init`` binary to run. To fix this let's try loading the initramfs file we've been provided. (Make sure to create a copy of your initramfs.cpio.gz file, this will be necessary later)
+Looks like we get an ``Unable to mount root fs`` error since there's no ``init`` binary to run. To fix this, let's try loading the initramfs file we've been provided. (Make sure to create a copy of your initramfs.cpio.gz file; this will be necessary later.)
 ```
 $ qemu-system-x86_64 -kernel bzImage -initrd initramfs.cpio.gz
 ```
 
-You can also run it without opening a new windows as such
+You can also run it without opening a new window:
 ```
 $ qemu-system-x86_64 -kernel bzImage -initrd initramfs.cpio.gz -nographic -append "console=ttyS0"
 ```
 
 ![loadedkernel](/assets/sekai/zerodaytea/loadedkernel.webp)
 
-Nice! Looks like we've got everything set up. Based off the warning message, we can run ``lsmod`` and see what kernel modules are loaded.
+Nice! Looks like we've got everything set up. Based off of the warning message, we can run ``lsmod`` and see what kernel modules are loaded.
 
 ```
 / # lsmod
 flag_checker 16384 0 - Live 0xffffffffc022e000 (O)
 ```
 
-This looks like what we're looking for. It's possible now to interface with the kernel module but instead I'm going to try and statically analyze it.
+This looks like what we're looking for. It's possible now to interface with the kernel module, but instead I'm going to try and statically analyze it.
 
 # Static Reversing
-Going back to our directory with the ``initramfs.cpio.gz`` file we can extract the initramfs with
+Going back to our directory with the ``initramfs.cpio.gz`` file we can extract the initramfs with:
 ```
 $ mkdir initramfs
 $ cd initramfs
@@ -55,13 +55,13 @@ $ gzip -d ../initramfs.cpio.gz
 $ cpio -idm < ../initramfs.cpio
 ```
 
-You'll now have a directory with the contents of initramfs
+You'll now have a directory with the contents of initramfs:
 ```
 $ ls
 bin  etc  flag_checker.ko  home  init  linuxrc  proc  root  sbin  sys  usr
 ```
 
-If you look at the ``init`` file you can see where the kernel module is loaded with ``insmod flag_checker.ko``. Regardless let's load the kernel module into binja and start analyzing.
+If you look at the ``init`` file you can see where the kernel module is loaded with ``insmod flag_checker.ko``. Regardless, let's load the kernel module into binja and start analyzing.
 
 ```c
 00000060  int64_t device_ioctl(int64_t arg1, int32_t arg2)
@@ -142,7 +142,7 @@ If you look at the ``init`` file you can see where the kernel module is loaded w
 000001f3  }
 ```
 
-It looks like the data is being checked in 3 distinct parts so let's start with the most easily digestible ones.
+It looks like the data is being checked in 3 distinct parts, so let's start with the most easily digestible ones.
 
 ## Part 1
 ```c
@@ -166,12 +166,12 @@ if (arg2 != 0x7002)
   goto label_83;
 }
 ```
-*``label_83`` points to a false return so we want to avoid jumping there with our input for all the parts*
+> ``label_83`` points to a false return so we want to avoid jumping there with our input for all the parts.
 
 This part specifically looks like it's doing a direct value comparison which makes it easy for us. ``buffer == 0x414b4553`` and ``data_8e4 == 0x7b49`` decoded give us part 1 of the flag ``SEKAI{`` after swapping endianness of the hex bytes.
 
 ## Part 3
-Let's procrastinate on some of the longer segments and take a look at the ending portion
+Let's procrastinate on some of the longer segments and take a look at the ending portion.
 ```c
 do
 {
@@ -201,7 +201,7 @@ if ((buffer == 0x788c88b91d88af0e && (data_8e8 == 0x7df311ec && data_8ec == 0)))
 goto label_83;
 ```
 
-It appears that this is looping over the buffer values and adding the value at an index to the bitwise NOT of the index multiplied by the next consecutive value. Converting this to pseudo python we have something along the lines of
+It appears that this is looping over the buffer values and adding the value at an index to the bitwise NOT of the index, multiplied by the next consecutive value. Converting this to pseudo python we have something along the lines of:
 ```python
 buffer = []
 newBuffer = []
@@ -215,7 +215,6 @@ We need to find an input ``buffer`` that will result in the ending ``newBuffer``
 
 ![z3 for rev](https://twitter.com/0x_shaq/status/1677006785373442048)
 
-Let's write that up now
 ```python
 from z3 import * 
 buffer = [] 
@@ -244,7 +243,7 @@ print(inp)
 This gets us our third part of the flag: ``SEKAIPL@YER}``
 
 ## Part 2
-For the middle and final part looks like we need to reverse this segment
+For the middle and final part looks like we need to reverse this segment:
 ```c
 if (arg2 == 0x7001)
 {
@@ -281,7 +280,7 @@ if (arg2 == 0x7001)
 }
 ```
 
-Thank fully we can apply the same process as before and use an SMT solver to set constraints on the output and solve for the corresponding input. My script for this section looked something like this:
+Thankfully we can apply the same process as before and use an SMT solver to set constraints on the output and solve for the corresponding input. My script for this section looked something like this:
 ```python
 from z3 import *
 
@@ -341,12 +340,12 @@ while True:
     print(inp)
 ```
 
-Note that for this section I chose to replicate the lower level steps in the disassembly. This is to prevent mistakes from translating the pseudo-C code provided into python for Z3 and allows check for mistakes a little more easily when comparing to the original binary.
+Note that for this section I chose to replicate the lower level steps in the disassembly. This is to prevent mistakes from translating the pseudo-C code provided into python for Z3 and allows us to check for mistakes a little more easily when comparing to the original binary.
 
-You can view increasingly lower levels of disassembly in binja by selecting the button in the top left
+You can view increasingly lower levels of disassembly in binja by selecting the button in the top left:
 ![binjalowlevel](/assets/sekai/zerodaytea/binjalowlevel.webp)
 
-Running this script unfortunately we get something that doesn't quite match the flag:
+Unfortunately, this script gives us something that doesn't quite match the flag:
 ```bash
 [buf5 = 51,
  buf3 = 45,
@@ -377,7 +376,7 @@ while True:
 ...
 ```
 
-Running it again we get our final part of the flag
+Running it again we get our final part of the flag:
 ```bash
 [buf5 = 51,
  buf3 = 49,
@@ -389,13 +388,12 @@ Running it again we get our final part of the flag
 b'6001337'
 ```
 
-## Flag
 ``SEKAI{6001337SEKAIPL@YER}``
 
 ## Challenge Analysis
 
-Since Linux kernel modules and the kernel itself use the ELF specification, reverse engineering one isn't always as different from a regular binary as one might imagine. Running and interfacing with it is surely different but not entirely difficult either. In our case the kernel module was still just a compiled C binary and statically reversing it was similar to reversing any other C binary.
+Since Linux kernel modules and the kernel itself use the ELF specification, reverse engineering one isn't much different from a regular binary. Running and interfacing with it is surely different, but still not that difficult. In our case the kernel module was still just a compiled C binary and statically reversing it was similar to reversing any other C binary.
 
 On top of that, tools like Z3 and angr are incredibly helpful for these kinds of challenges and can make the process of finding necessary inputs significantly faster. 
 
-Overall a great introduction into kernel module reversing and using Z3 for those who might not have seen them before!
+Overall, this was a great introduction into kernel module reversing and using Z3 for those who might not have seen them before!
