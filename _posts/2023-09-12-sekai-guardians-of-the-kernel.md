@@ -11,14 +11,12 @@ subclass: 'post'
 author: ZeroDayTea
 ---
 
-Kernel can be a scary word. That's alright though because we have an SMT solver on our team
+Kernel can be a scary word. That's alright though because we have an SMT solver on our team.
 
-## Problem Description
-
-It’s just a warmup but with another layer which is the kernel.
+> It’s just a warmup but with another layer which is the kernel.
 
 ## Looking at the Problem
-We are provided with a zip file `dist.zip` containing a custom kernel `bzImage` and a compressed `initramfs.cpio.gz`. Let's start by trying to run this kernel in an emulator like qemu
+We are provided with a zip file `dist.zip` containing a custom kernel `bzImage` and a compressed `initramfs.cpio.gz`. Let's start by trying to run this kernel in an emulator like qemu:
 
 ```
 $ qemu-system-x86_64 -kernel bzImage
@@ -396,4 +394,4 @@ Since Linux kernel modules and the kernel itself use the ELF specification, reve
 
 On top of that, tools like Z3 and angr are incredibly helpful for these kinds of challenges and can make the process of finding necessary inputs significantly faster. 
 
-Overall, this was a great introduction into kernel module reversing and using Z3 for those who might not have seen them before!
+Overall, this was a great introduction to kernel module reversing and using Z3 for those who haven't done them before!
