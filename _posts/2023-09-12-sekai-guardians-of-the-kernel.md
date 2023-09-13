@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/sekai/zerodaytea/cover.png
+cover:  assets/sekai/zerodaytea/cover.webp
 navigation: True
 title: "Guardians of the Kernel"
 date: 2023-09-12 02:00:00
