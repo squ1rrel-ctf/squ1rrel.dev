@@ -211,7 +211,7 @@ if newBuffer[0:8] == 0x788c88b91d88af0e and newBuffer[8:12] == 0x7df311ec
 
 We need to find an input ``buffer`` that will result in the ending ``newBuffer`` matching the conditions provided by the final if statement. Thankfully we don't have to setup equations or do this ourselves! With the trusty power of a tool like Z3 or some other SMT solver we can "add" our constraints and have it find the necessary inputs for us.
 
-![z3 for rev](https://twitter.com/0x_shaq/status/1677006785373442048)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">CTF rev players discovering symbolic execution <a href="https://t.co/n0G5jBdIQG">pic.twitter.com/n0G5jBdIQG</a></p>&mdash; faulty *ptrrr (@0x_shaq) <a href="https://twitter.com/0x_shaq/status/1677006785373442048?ref_src=twsrc%5Etfw">July 6, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <br />
 
 ```python
 from z3 import * 
