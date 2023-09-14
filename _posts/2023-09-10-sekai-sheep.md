@@ -26,7 +26,7 @@ A town is considered to be _abandonded_ if there is only 1 other town that it is
 
 For a given node $$v\in V$$, if $$v$$ is a leaf node, we are told that there will be $$L_v \geq 1$$ golden apples hidden at that node. Golden apples are only hidden at leaf nodes.
 
-If $$v$$ is instead a internal node, then one can instead by a _travel pass_ from the respective town for the cost of 1 apple. The value of the travel pass available at internal node $$v$$ is $$L_v \geq 1$$, and one must always have exactly 1 travel pass to travel between towns (if you buy a new one then you discard your previous travel pass). When any given edge in the graph is traversed, you must pay $$L_v$$ apples, where $$L_v$$ is the value of the travel pass that was last purchased (the edge traversed need not be inident to $$v$$).
+If $$v$$ is instead a internal node, then one can instead buy a _travel pass_ from the respective town for the cost of 1 apple. The value of the travel pass available at internal node $$v$$ is $$L_v \geq 1$$, and one must always have exactly 1 travel pass to travel between towns (if you buy a new one then you discard your previous travel pass). When any given edge in the graph is traversed, you must pay $$L_v$$ apples, where $$L_v$$ is the value of the travel pass that was last purchased (the edge traversed need not be inident to $$v$$).
 
 ## Objective
 
