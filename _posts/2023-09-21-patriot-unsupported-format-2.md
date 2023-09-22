@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/patriot/unsupportedformat2/cover.png
+cover:  assets/patriot/unsupportedformat2/cover.webp
 navigation: True
 title: "Unsupported Format 2"
 date: 2023-09-21 02:00:00
@@ -18,7 +18,7 @@ Like Unsupported Format 1, we start with a "corrupted" image file. However, if w
 
 We then see the Windows background. Wow! What a classic. At this point though, there is nothing immediately obvious to do, so we turn to binwalk.
 
-![binwalk output](/assets/patriot/unsupportedformat2/binwalk.png)
+![binwalk output](/assets/patriot/unsupportedformat2/binwalk.webp)
 
 
 Here we can see there is a zip file hidden in our image. We can extract it using ```binwalk -e``` and unzip the zip file to find another image. Unlike Unsupported Format 1 though, the computer in this image doesn’t have the flag, and just coyly says “Not a Flag”. However, it still feels a little suspicious, so we can throw it in an image editor to see if there is anything strange going on visually.
@@ -26,6 +26,6 @@ Here we can see there is a zip file hidden in our image. We can extract it using
 
 After messing around with various settings for a while, we found that increasing the luminance gradient gives the following:
 
-![image of the computer with the luminance gradient increased](/assets/patriot/unsupportedformat2/flag.png)
+![image of the computer with the luminance gradient increased](/assets/patriot/unsupportedformat2/flag.webp)
 
 And with a little bit of zooming in and squinting, we have our flag.
