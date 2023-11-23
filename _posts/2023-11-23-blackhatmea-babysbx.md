@@ -294,7 +294,7 @@ While I said that all the registers had been reset so we didn't have any address
 ![SSEregisters](/assets/blackhatmea/zerodaytea/SSEregisters.webp)
 While all the main registers have been reset, the SSE registers that libc uses for SIMD optimization (such as `xxm0`, `ymm0`, etc.) have been untouched and it looks like they contain some heap addresses. 
 
-While getting ELF base from these random heap addresses would still require some offset checking, it's a lot simpler than bruteforcing the way I did. Regardless, I think the `brk` + `nanosleep` trick is a good one to remember for the future.
+On top of that, seccomp rules are stored in the heap and these rules contain the address of "/bin/id" as shown earlier. With this known heap address, it's possible to iterate over and find where these rules are stored and get the address of ALLOWED EXE. Thanks to [disconnect3d](https://twitter.com/disconnect3d_pl) from justCatTheFish and [nobodyisnobody](https://twitter.com/_Nobodyisnobody) from Sand Swimmers for pointing this out to me. A good bit simpler than what I did but I still think the `brk` + `nanosleep` trick is a good one to remember for the future.
 ## Writing to BSS
 
 Now that we have ELF base we know the address of the `ALLOWED_EXE` variable we're trying to control. It's time to find a way to write to it. 
