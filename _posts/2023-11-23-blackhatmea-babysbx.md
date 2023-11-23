@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/blackhatmea/zerodaytea/cover.png
+cover:  assets/blackhatmea/zerodaytea/cover.webp
 navigation: True
 title: "babysbx"
 date: 2023-11-23 02:00:00
@@ -194,7 +194,7 @@ Looks like the filename for our execve syscall is being compared to a string in 
 ## Setting up an Exploit
 
 At first I tried to just get some simple shellcode going to run /bin/id which we should be able to do without any exploit. Quite noticeably, however, all the registers have been reset 
-![reset_registers](/assets/blackhatmea/zerodaytea/reset_registers.png)
+![reset_registers](/assets/blackhatmea/zerodaytea/reset_registers.webp)
 *You can see this for yourself if you just send 0xfd7 bytes of anything and inspect in GDB*
 
 Any PUSH instruction we try will fail because there's no stack frame setup with RSP and RBP. For our initial setup code, we can start by creating a stack within the memory region that was allocated for us by setting rbp and rsp to some values with a couple of bytes in between for our stack.
@@ -291,7 +291,7 @@ As I mentioned earlier, there's an easier way to do this for this challenge whic
 
 While I said that all the registers had been reset so we didn't have any addresses left over in them, that's not entirely true. Breaking where we did earlier at the start of our shellcode, we can run `info reg all` to inspect all of the registers available.
 
-![SSEregisters](/assets/blackhatmea/zerodaytea/SSEregisters.png)
+![SSEregisters](/assets/blackhatmea/zerodaytea/SSEregisters.webp)
 While all the main registers have been reset, the SSE registers that libc uses for SIMD optimization (such as xxm0, ymm0, etc) have been untouched and it looks like they contain some heap addresses. 
 
 While getting ELF base from these random heap addresses would still require some offset checking, it's a lot simpler than bruteforcing the way I did. Regardless, I think the brk + nanosleep trick is a good one to remember for the future.
@@ -346,7 +346,7 @@ shellcode += asm(set_var)
 
 Checking again to make sure it worked, we see that we've successfully overwritten ALLOWED_EXE as intended :)
 
-![overwrite_success](/assets/blackhatmea/zerodaytea/overwrite_success.png)
+![overwrite_success](/assets/blackhatmea/zerodaytea/overwrite_success.webp)
 ## Getting the Flag
 
 Finally, all that's left to do is execute our execve call with the now allowed "/readflag" filename argument and get the flag.
@@ -463,7 +463,7 @@ def run():
 run()
 ```
 
-![babysbxflag](/assets/blackhatmea/zerodaytea/babysbxflag.png)
+![babysbxflag](/assets/blackhatmea/zerodaytea/babysbxflag.webp)
 *flag redacted on local*
 
 Pretty fun shellcoding challenge that I ended up making a bit more difficult than necessary. The brk + nanosleep and mremap tricks are good ones to remember for the future though!
