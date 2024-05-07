@@ -22,7 +22,7 @@ Here's what the scanner is doing internally:
 ```rb
 post '/' do
 input_service = escape_shell_input(params[:service])
-hostname, port = input_service.split ':', 2
+hostname, port = input_service.split ':', 2∑
 begin
     if valid_ip? hostname and valid_port? port
         # Service up?
