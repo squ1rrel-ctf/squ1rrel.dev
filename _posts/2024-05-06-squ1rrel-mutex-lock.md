@@ -19,7 +19,7 @@ This challenge was the second hardest in web, with ten solves. As I discuss late
 
 In this challenge, we're presented with a simple "web mutex" interface. The interface allows us to create and lock a mutex, and unlock it given the pasword we got when we acquired the lock.
 
-![Image of the challenge website](/assets/squ1rrel/nisala/mutex-lock/challenge-site.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/mutex-lock/challenge-site.webp)
 
 Now, as far as I can tell, there's nothing exploitable at all in this -- the operations are very simple, and there's nothing nefarious going on. The flag is stored in the env, but there's no way to get to it using this simple web server code.
 
@@ -27,17 +27,17 @@ Now, as far as I can tell, there's nothing exploitable at all in this -- the ope
 
 However, if you look in the frontend source, you'll see something very curious: a button that takes you to `/flag`. What happens when you go there?
 
-![Browser standard 404 page](/assets/squ1rrel/nisala/mutex-lock/remoteflagnotfound.png)
+![Browser standard 404 page](/assets/squ1rrel/nisala/mutex-lock/remoteflagnotfound.webp)
 
 A "Not Found" page. Boring, right? But what if you go to another URL that shouldn't exist, like `/asdf`?
 
-![Express 404 page](/assets/squ1rrel/nisala/mutex-lock/remoteothernotfound.png)
+![Express 404 page](/assets/squ1rrel/nisala/mutex-lock/remoteothernotfound.webp)
 
 The 404 page is different... but the `/flag` route isn't in the provided source. What's going on?
 
 Another way to discover this is by running the web server locally. If you download the ZIP file and run `npm install` and then `node index.js`, and go to `localhost:3000/flag`, here's what you see.
 
-![Express 404 page](/assets/squ1rrel/nisala/mutex-lock/localflagnotfound.png)
+![Express 404 page](/assets/squ1rrel/nisala/mutex-lock/localflagnotfound.webp)
 
 Okay, something really weird is going on. This is a normal Express 404 page. The tampering is gone!
 
@@ -63,8 +63,8 @@ Anyways, here's the diff you'll see:
 
 If we go to this commit of this repo, what do we find?
 
-![Diff showing modified code in express package](/assets/squ1rrel/nisala/mutex-lock/diff.png)
+![Diff showing modified code in express package](/assets/squ1rrel/nisala/mutex-lock/diff.webp)
 
 Without the `pwd` parameter, we get a 404 page. But with it?
 
-![Flag](/assets/squ1rrel/nisala/mutex-lock/flag.png)
+![Flag](/assets/squ1rrel/nisala/mutex-lock/flag.webp)
