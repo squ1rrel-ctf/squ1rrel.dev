@@ -38,6 +38,10 @@ PatriotCTF:
   name: PatriotCTF
   description: Writups from PatriotCTF.
   cover: False
+squ1rrel:
+  name: squ1rrel CTF
+  description: Writeups from squ1rrel CTF, which we host.
+  cover: False
 
 misc:
   name: misc
