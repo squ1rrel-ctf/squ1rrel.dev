@@ -21,7 +21,7 @@ The interface for this challenge is pretty simple -- we can enter our username, 
 
 We can also query these JSON "rows" (different JSON documents) by submitting another JSON with different keys and their corresponding values, and the website will show all rows that matches the key-value pairs that are specified in this JSON (for the provided username, of course).
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/challenge-site.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/challenge-site.webp)
 
 The data storage and filtering are managed by a package called `taffy`:
 
@@ -40,9 +40,9 @@ And look, the flag's in there too! But we can't query it directly -- `admin` is 
 
 taffy's a weird choice for a database, so there must be a reason it was chosen. Let's Google around for `taffy`.
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/google.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/google.webp)
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/npm.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/npm.webp)
 
 Well, well, well. What could this be?
 
@@ -54,16 +54,16 @@ Amazing. It looks like all we have to query for is the ID of the first element, 
 
 Let's try the provided exploit.
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/badexploit.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/badexploit.webp)
 
 Invalid JSON? Right, because `true` is not a string. Let's change it to `"true"` (filled strings evaluate to true):
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/goodexploit.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/goodexploit.webp)
 
 And there's our flag.
 
 You can also see that IDs are easily guessable by simply submitting a bunch of data items under your username.
 
-![Image of the challenge website](/assets/squ1rrel/nisala/json-store/guessable.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/json-store/guessable.webp)
 
 The IDs are sequential, so it's trivial to find the ID of the flag, and then request it with the `___s` attribute set.
