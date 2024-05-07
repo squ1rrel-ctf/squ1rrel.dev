@@ -13,7 +13,7 @@ author: kyleburgess2025
 
 I'd rather die than use a password manager. In other news, can anyone help me remember the login info for my account? *The flag for this challenge is the account password.*
 
-This was my first challenge that I ever wrote. I've seen countless SQL injection challenges, but as a corporate shill who is interning at MongoDB this summer, I wanted to try out NoSQL injection. This challenge is inspired by [this writeup](https://kevin-denotariis.medium.com/writeup-wild-goose-hunt-cyber-apocalypse-2021-ctf-hackthebox-38dde9c50178) by Kevin De Notariis about a Cyber Apocalypse 2021 challenge with a similar premise. This challenge ended up getting 54 solves, the 2nd most solves in a web category.
+This was the first challenge I've ever written, so be nice to her, okay? I've seen countless SQL injection challenges, but as a corporate shill who is interning at MongoDB this summer, I wanted to try out NoSQL injection. This challenge is inspired by [this writeup](https://kevin-denotariis.medium.com/writeup-wild-goose-hunt-cyber-apocalypse-2021-ctf-hackthebox-38dde9c50178) by Kevin De Notariis about a Cyber Apocalypse 2021 challenge with a similar premise. My challenge ended up getting 54 solves, the 2nd most solves in the web category.
 
 This writeup will include the intended solution; I saw a bunch of other solutions in writeups that use a similar premise, but different queries. I'll link those as I find them.
 
