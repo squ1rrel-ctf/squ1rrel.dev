@@ -4,7 +4,7 @@ current: post
 cover:  assets/squ1rrel/kyleburgess2025/goosemon/cover.webp
 navigation: True
 title: "Goosemon"
-date: 2024-05-06 
+date: 2024-05-06 11:59:00
 tags: [squ1rrel, web]
 class: post-template
 subclass: 'post'
@@ -151,4 +151,4 @@ This runs great, until...
 
 Oh no, "regex" is in the flag! Thankfully, since my method looks for a substring, I can restart my solve script with `egex` as the original `full_pw`. A few potential solves, including those that use the `$lt` and `$gt` operator, stopped working completely at this point. I added `regex` to the flag mainly to mess with people and make some queries not work. This was cruel. Sorry 🤭
 
-Flag: `squ1rrel{7h0ugh7_y0u_c0u1d_rege`
+Flag: `squ1rrel{7h0ugh7_y0u_c0u1d_regex_y0ur_way_0u7_0f_7h1s_ay3?}`
