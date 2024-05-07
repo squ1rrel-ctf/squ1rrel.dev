@@ -56,6 +56,6 @@ If you control the public key and private key, then you control the full content
 
 Here's the final setup on `jwt.io`:
 
-![jwt.io setup](/assets/squ1rrel/nisala/key-server/jwt.png)
+![jwt.io setup](/assets/squ1rrel/nisala/key-server/jwt.webp)
 
 And with that set, we get the flag. `squ1rrel{subdomains_that_start_with_10_should_be_private_too}`
