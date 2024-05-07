@@ -19,13 +19,13 @@ This was the hardest web challenge in the CTF, with only two solves. My favorite
 
 This challenge has no source, so all we have to go off of is the website, https://blog.squ1rrel.dev.
 
-![Image of the challenge website](/assets/squ1rrel/nisala/personal-website/challenge-site.png)
+![Image of the challenge website](/assets/squ1rrel/nisala/personal-website/challenge-site.webp)
 
 Let's start by identifying its technologies. Using the Chrome extension Wappalyzer, we can see that the site is hosted on Firebase. I'm not entirely sure how the extension is figuring this out, but there are a number of possibilities, from the IP it's connecting to (an easily-identifiable Firebase load balancer), to the fact that blog.squ1rrel.dev has a CNAME record to a web.app URL (Firebase Hosting's subdomain).
 
 We can also see that the challenge very clearly wants us to look at cloud storage. The blog post only has one image, and it's being loaded in from Firebase storage. The blog post also says they have "more in storage". So, let's do that.
 
-![Storage link in HTML](/assets/squ1rrel/nisala/personal-website/storage.png)
+![Storage link in HTML](/assets/squ1rrel/nisala/personal-website/storage.webp)
 
 ## Step 2: Authentication
 
