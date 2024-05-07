@@ -13,7 +13,7 @@ author: nisala
 
 just solved distributed systems
 
-This challenge was the second hardest in web, with ten solves. As I discuss later in this writeup, I wrote this challenge in response to new trends in web security. Backdoored and malicious packages are becoming increasingly common, especially in the npm ecosystem. [Entire companies](https://socket.dev) have been created to help identify these problems, and yet I've never seen a challenge with one in a CTF before. 
+This challenge was the second hardest in web, with ten solves. As I discuss later in this writeup, I wrote this challenge in response to new trends in web security. Backdoored and malicious packages are becoming increasingly common, especially in the npm ecosystem. [Entire companies](https://socket.dev) have been created to help identify these problems, and yet I've never seen one in a CTF before. 
 
 ## Step 1: Getting our bearings
 
