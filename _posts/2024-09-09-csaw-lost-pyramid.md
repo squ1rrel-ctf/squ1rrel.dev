@@ -17,12 +17,12 @@ The only way to avoid SSTIs is to use protection.
 
 In this problem, we are able to navigate through a pyramid through a website. The goal is to access the King's Lair without being turned away by the king. The king will only allow you in if your JWT token (stored in a cookie) states that you are royalty and that you are approaching on the King's Day.
 
-![A photo of the inside of a pyramid.](/assets/csaw/kyleburgess2025/pyramid.png)
+![A photo of the inside of a pyramid.](/assets/csaw/kyleburgess2025/pyramid.webp)
 *This 1000 sqft ranch-style home has an open floor plan, unique architecture, and whispering coming from the walls!*
 
 Lovely. There are a few other rooms, the most notable of which allows you to provide your name, which is then rendered on the screen. Suspicious...
 
-![A photo of a pyramid with text across the top.](/assets/csaw/kyleburgess2025/scarab.png)
+![A photo of a pyramid with text across the top.](/assets/csaw/kyleburgess2025/scarab.webp)
 *This seems normal. I'm sure this has nothing to do with the challenge.*
 
 ## My Approach
@@ -69,7 +69,7 @@ Do you see that? `**globals()`. This passes all global variables into the contex
 Payload: `{{KINGSDAY}}𓁹{{PUBLICKEY}}`:
 
 Result:
-![A photo of the inside of a pyramid with the public key and the kingsday written on it.](/assets/csaw/kyleburgess2025/scarab_key.png)
+![A photo of the inside of a pyramid with the public key and the kingsday written on it.](/assets/csaw/kyleburgess2025/scarab_key.webp)
 *What a beautiful name for a baby boy.*
 
 Ok, let's put it all together. I wrote this lovely encoding function that created the token we need:
@@ -89,6 +89,6 @@ def encode():
 
 I set the `pyramid` cookie to be equal to this token and proceeded to the King's Lair:
 
-![Gold! Gold!!!](/assets/csaw/kyleburgess2025/pyramid_flag.png)
+![Gold! Gold!!!](/assets/csaw/kyleburgess2025/pyramid_flag.webp)
 
 Done. QED. Bam.
