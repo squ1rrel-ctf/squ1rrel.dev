@@ -36,6 +36,8 @@ Basically, if you set `algorithms=jwt.algorithms.get_default_algorithms()` while
 
 Except... we're not done. First off, we don't know the public key. Second off, we don't know the King's Day, which we need to include in our payload. That's where SSTI comes in. SSTI stands for server-side template injection; basically, we can expose variables from the code by injecting our own code. I actually couldn't figure this out for a while until I called fellow teammate Nisala Kalupahana calmly and nicely pointed out these lines of code:
 
+{% raw %}
+
 ```python
 kings_safelist = ['{','}', '𓁹', '𓆣','𓀀', '𓀁', '𓀂', '𓀃', '𓀄', '𓀅', '𓀆', '𓀇', '𓀈', '𓀉', '𓀊', 
                     '𓀐', '𓀑', '𓀒', '𓀓', '𓀔', '𓀕', '𓀖', '𓀗', '𓀘', '𓀙', '𓀚', '𓀛', '𓀜', '𓀝', '𓀞', '𓀟',
@@ -67,6 +69,8 @@ return render_template_string('''
 Do you see that? `**globals()`. This passes all global variables into the context of the template. Do you see that other thing? Brackets are on the allowlist! Ok, fine, Nisala yelled at us for missing this. Apparently, we hosted a workshop where we discussed this exact vulnerability. Sadly, I host a lot of different workshops on a lot of different topics and also I'm a silly goose so I'm not sure how I was expected to remember all this. Whatever. We keep grinding. Both the King's Day and the public key are stored in global variables, so let's pull those out by claiming our name is `{{PUBLICKEY}}` and `{{KINGSDAY}}`:
 
 Payload: `{{KINGSDAY}}𓁹{{PUBLICKEY}}`:
+
+{% endraw %}
 
 Result:
 ![A photo of the inside of a pyramid with the public key and the kingsday written on it.](/assets/csaw/kyleburgess2025/scarab_key.webp)
