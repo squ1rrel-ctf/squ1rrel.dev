@@ -34,7 +34,7 @@ In Lost Pyramid, we have a private key and a public key for signing and verifyin
 
 Basically, if you set `algorithms=jwt.algorithms.get_default_algorithms()` while decoding a JWT, the JWT decoder will try multiple algorithms to decode your JWT. A bad actor can use the symmetric `HS256` algorithm to sign the token with the public key, rather than the intended shared private key. By not specifying the exact algorithm we are using to decode the JWT, the decoder is tricked into thinking the key was signed with a shared private key, rather than a public key, and the decoding is successful. So, rather than needing to know the private key in order to sign the JWT token using the `EdDSA` algorithm used elsewhere in the app, we can sign our key using the public key without any problems. Done. Easy.
 
-Except... we're not done. First off, we don't know the public key. Second off, we don't know the King's Day, which we need to include in our payload. That's where SSTI comes in. SSTI stands for server-side template injection; basically, we can expose variables from the code by injecting our own code. I actually couldn't figure this out for a while until I called fellow teammate Nisala Kalupahana calmly and nicely pointed out these lines of code:
+Except... we're not done. First off, we don't know the public key. Second off, we don't know the King's Day, which we need to include in our payload. That's where SSTI comes in. SSTI stands for server-side template injection; basically, we can expose variables from the code by injecting our own code. I actually couldn't figure this out for a while until I called fellow teammate Nisala Kalupahana, who calmly and nicely pointed out these lines of code:
 
 {% raw %}
 
