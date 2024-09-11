@@ -25,11 +25,22 @@ kyleburgess2025:
   location: Charlotte, NC
   url_full: https://github.com/kyleburgess2025
   url: github.com/kyleburgess2025
-  bio: Kyle has big muscles and an even bigger heart
+  bio: Kyle has big muscles and an even bigger heart.
   picture: assets/images/kyleburgess2025.jpg
   facebook: False
   twitter: False
   cover: assets/images/kyleburgess2025_cover.webp
+kohrachel:
+  username: kohrachel
+  name: Rachel Koh
+  location: Malaysia
+  url_full: https://github.com/kohrachel
+  url: github.com/kohrachel
+  bio: Rachel is two stuffed toy animals in a trenchcoat with a crippling matcha addiction. She also claims that her funny-looking words and even weirder-looking symbols are actual work, but I have my doubts.
+  picture: assets/images/kohrachel.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/kohrachel_cover.jpg
 siraben:
   username: siraben
   name: Ben Siraphob
