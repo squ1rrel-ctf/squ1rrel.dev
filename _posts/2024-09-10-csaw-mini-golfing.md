@@ -1,3 +1,16 @@
+---
+layout: post
+current: post
+cover: assets/csaw/zerodaytea/plane_spotting.webp
+navigation: True
+title: "MiniGolfing"
+date: 2024-09-09 11:59:00
+tags: [csaw, pwn]
+class: post-template
+subclass: 'post'
+author: ZeroDayTea
+---
+
 ## Looking at the Problem
 
 We're providing with a binary ``golf`` so let's first begin by seeing what protections we're working with.
@@ -16,7 +29,7 @@ $ checksec ./golf
 ```
 
 And let's take a look at the decomp as well with Binary Ninja
-![[golfdecomp.png]]
+![A photo of the decomp](/assets/csaw/zerodaytea/golfdecomp.webp)
 
 Only two functions are of particular notice that being ``main()`` and ``win()``. The ``win()`` function clearly reads the flag file but is never called explicitly so it looks like we'll need to find a way to jump to it.
 
@@ -40,12 +53,12 @@ Fortunately, there appears to be a simple format string printf vulnerability in
 As ``printf()`` is called on our input with no format specifier, we can pass our own format specifier as input and leak values earlier on the stack. Since ``win()`` is never invoked, it's address will likely not be anywhere on the stack, but the address of ``main()`` surely will be and we can use the fact that ``win()`` and ``main()`` will always be at consistent offsets away from each other to our advantage. 
 
 I'll use gdb and pass in the ``%p`` format specifier to leak stack data as pointers. Looking at the address space with ``info proc mappings`` we see
-![[memoryspace.png]]
+![memory space](/assets/csaw/zerodaytea/memoryspace.webp)
 So we should be looking for addresses of the format ``0x55555555...`` 
 
 Passing in as many ``%p``'s into the printf call as we can we can then start looking for something matching. Note that this can be more easily done but just iterating with ``%{i}$p`` until we find something like the address of main but because our buffer is big enough here this works as well.
 
-![[formatstring.png]]
+![format string](/assets/csaw/zerodaytea/formatstring.webp)
 We can use ``info functions main`` in gdb to get the address of main and win
 
 ```
