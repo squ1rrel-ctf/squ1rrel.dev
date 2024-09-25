@@ -137,13 +137,13 @@ Em... that text still looks like a bunch of nonsense. Let's put it into [CyberCh
 
 Oh look, a small wand lights up on the output. Clicking on it reveals an image:
 
-![illustration of cyberchef](/assets/csaw/davidhuang/cyberchef.png)
+![illustration of cyberchef](/assets/csaw/davidhuang/cyberchef.webp)
 
-![the decoded image](/assets/csaw/davidhuang/decoded-img.png)
+![the decoded image](/assets/csaw/davidhuang/decoded-img.webp)
 
 Well, it is inspiring to see the CSAW logo, but where is our flag? Perhaps it is hidden in some way. Let’s start by changing the contrast on the image. A good tool for this is [Aperi'Solve](https://www.aperisolve.com/). With that, we are able to finally spot our flag nice and clear:
 
-![solved-img.png](/assets/csaw/davidhuang/solved-img.png)
+![solved-img.png](/assets/csaw/davidhuang/solved-img.webp)
 
 Case closed!
 
@@ -151,7 +151,7 @@ Case closed!
 
 Well, that was fun. Now, let me just clean up those annoying ZIP files. 
 
-![trash can not](/assets/csaw/davidhuang/path-too-long.png)
+![trash can not](/assets/csaw/davidhuang/path-too-long.webp)
 
 What the freak... first time I've see my trash failing to handle a file. Might as well rename it to "Trash Can't." Don’t tell me I have to write another program just to delete those ZIP files one by one. Wait, I have an idea:
 
