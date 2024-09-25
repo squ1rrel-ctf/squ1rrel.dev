@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: assets/csaw/zerodaytea/mini-golfing.png
+cover: assets/csaw/zerodaytea/mini-golfing.webp
 navigation: True
 title: "mini-golfing"
 date: 2024-09-09 11:59:00
