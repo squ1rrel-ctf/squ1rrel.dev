@@ -1,15 +1,17 @@
 ---
 layout: post
 current: post
-cover: assets/csaw/zerodaytea/plane_spotting.webp
+cover: assets/csaw/zerodaytea/mini-golfing.png
 navigation: True
-title: "MiniGolfing"
+title: "mini-golfing"
 date: 2024-09-09 11:59:00
 tags: [csaw, pwn]
 class: post-template
 subclass: 'post'
 author: ZeroDayTea
 ---
+
+Leaky stacks with printf: format string basics
 
 ## Looking at the Problem
 
