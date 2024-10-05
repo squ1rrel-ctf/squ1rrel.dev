@@ -1,0 +1,14 @@
+presets:
+  post_card_image_lazy:
+    formats: [webp]
+    markup: data_auto
+    widths: [300, 600, 900]
+    fallback_width: 600
+    attributes:
+      img: 'class="post-card-image lazyload"'
+  author_profile_image:
+    formats: [webp]
+    widths: [50]
+    fallback_width: 50
+    attributes:
+      img: 'class="author-profile-image"'
