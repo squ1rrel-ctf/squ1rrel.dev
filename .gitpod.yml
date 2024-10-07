@@ -1,5 +1,5 @@
 tasks:
-  - command: npm install && bundle install && npx gulp css && bundle exec jekyll serve
+  - command: sudo apt-get update && sudo apt-get -y install libvips && npm install && bundle install && npx gulp css && bundle exec jekyll serve
 
 ports:
   - port: 4000
@@ -7,11 +7,3 @@ ports:
     name: Website
     description: Website Preview
     visibility: public
-    
-github:
-  prebuilds:
-    master: true
-    pullRequests: true
-    addComment: true
-    addBadge: true
-    addLabel: prebuilt-in-gitpod
