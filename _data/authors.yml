@@ -85,6 +85,17 @@ Ace314159:
   facebook: False
   twitter: False
   cover: assets/images/Ace314159_cover.webp
+davidhuang:
+  username: davidhuang
+  name: David Huang
+  location: Somewhere over the rainbow
+  url_full: https://github.com/DavidHuang2002
+  url: github.com/Ace314159
+  bio: David is a simple man. He codes. He runs. He travels. Then, someday he dies (probably), but the first three things make it worth it.
+  picture: assets/images/davidhuang-cover.webp
+  facebook: False
+  twitter: False
+  cover: assets/images/Ace314159_cover.webp
 abi-kothapalli:
   username: abi-kothapalli
   name: Abi Kothapalli
