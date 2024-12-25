@@ -820,7 +820,7 @@ Usage (In Ghost editor):
 .post-full-content pre {
     overflow-x: auto;
     margin: 0 0 2em;
-    padding: 0 20px;
+    padding: 20px;
     max-width: 100%;
     border: color(var(--darkgrey) l(-10%)) 1px solid;
     color: var(--whitegrey);
