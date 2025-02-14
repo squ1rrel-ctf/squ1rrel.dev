@@ -8,7 +8,7 @@ class: page-template
 subclass: "post page"
 ---
 
-squ1rrel is the Vanderbilt CTF Club's competitive team.
+squ1rrel is Vanderbilt CTF Club's competitive team.
 
 A Capture the Flag (CTF) tournament is a type of cybersecurity competition where teams compete to solve different types of challenges to find "flags", which can be exchanged for points. Currently, we only compete in Jeopardy-style CTFs, which generally have challenges based in binary exploitation, reverse engineering, web exploitation, forensics, and cryptography.
 
@@ -20,6 +20,6 @@ our [CTFtime profile](https://ctftime.org/team/201730) to see our past performan
 
 ### Want to participate?
 
-The club operates on an invite-only basis. If you're interested and willing to put in the time on weekends to participate, seek out a current member to learn more :) If you're a Vanderbilt student, you can also reach out to us on [Anchor Link](https://anchorlink.vanderbilt.edu/organization/vandyctf)!
+Feel free to [Join](https://discord.gg/TZVTtv7wdb) our discord server and look out for announcements about our upcoming meetings. We typically meet once a week with CTF competitions every other week and workshops, speaker events, and fun get togethers in between. If you're a Vanderbilt student, you can also reach out to us on [Anchor Link](https://anchorlink.vanderbilt.edu/organization/vandyctf)!
 
 We're not looking for previous experience with CTFs -- just a willingness to put in the time to learn. By regularly participating in CTFs with the team, you'll pick up a lot of what goes into solving challenges (while having fun in the process!).
