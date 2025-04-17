@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}assets/built/syntax.css" />
     <!-- highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-    <style>.hljs { background: none; }</style>
 
     <!--[if IE]>
         <style>
@@ -35,6 +34,8 @@
 
 </head>
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
+    <!-- Fix FOUC on Firefox: https://stackoverflow.com/a/57888310 -->
+    <script>0</script>
 
     <div class="site-wrapper">
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
@@ -83,15 +84,6 @@
             </div>
         </div>
     {% endif %}
-
-    <!-- highlight.js -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('pre code').forEach(function(block) {
-                hljs.highlightBlock(block);
-            });
-        });
-    </script>
 
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->

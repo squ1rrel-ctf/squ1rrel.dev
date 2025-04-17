@@ -92,17 +92,17 @@ davidhuang:
   url_full: https://github.com/DavidHuang2002
   url: github.com/Ace314159
   bio: David is a simple man. He codes. He runs. He travels. Then, someday he dies (probably), but the first three things make it worth it.
-  picture: assets/images/davidhuang-cover.webp
+  picture: assets/images/davidhuang.webp
   facebook: False
   twitter: False
-  cover: assets/images/Ace314159_cover.webp
+  cover: assets/images/davidhuang-cover.webp
 abi-kothapalli:
   username: abi-kothapalli
   name: Abi Kothapalli
   location: Kansas City
   url_full: https://github.com/abi-kothapalli
   url: github.com/abi-kothapalli
-  bio: Abi is a junior studying Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything.
+  bio: Abi studies Computer Science and Mathematics at Vanderbilt. He is interested in some useless stuff like algorithms, combinatorial optimization, mathematical ML, and some other random junk too. He also has over half a dozen social media accounts but has not and never will post anything.
   picture: assets/images/abi-kothapalli.webp
   facebook: False
   twitter: False
@@ -113,7 +113,7 @@ clash:
   location: Kanpur, India
   url_full: https://aadibajpai.com
   url: aadibajpai.com
-  bio: Aadi is a senior at Vanderbilt studying CS honors, Applied Math and Business. He enjoys finding gaps in things, playing table tennis and competing in CTFs with the best CTF team a lad could ask for. Very proud of all of you ❤️
+  bio: Aadi is a Vanderbilt University graduate who studied CS honors, Applied Math, and Business. He enjoys finding gaps in things, playing table tennis, and competing in CTFs with the best CTF team a lad could ask for. Very proud of all of you ❤️
   picture: assets/images/clash.jpg
   facebook: False
   twitter: clasherintherye
@@ -146,7 +146,7 @@ samalws:
   location: New Jersey
   url_full: https://samalws.com
   url: samalws.com
-  bio: Sam is a CS/math student at Vanderbilt. He likes to guess his way through misc and crypto challenges. Sam has been living in the Metaverse since 2005.
+  bio: Sam is a CS/math graduate of Vanderbilt. He likes to guess his way through misc and crypto challenges. Sam has been living in the Metaverse since 2005.
   picture: assets/images/samalws.webp
   facebook: False
   twitter: False
@@ -168,7 +168,7 @@ david-a-perez:
   location: Earth
   url_full: https://github.com/david-a-perez
   url: github.com/david-a-perez
-  bio: David is a Vanderbilt Computer Science student who likes fuzzing, optimizations, and CTF problems. He is a Rust fanatic and enjoys SIMD optimizations. David is always searching for fun problems to code solutions for.
+  bio: David is a Vanderbilt Computer Science graduate who likes fuzzing, optimizations, and CTF problems. He is a Rust fanatic and enjoys SIMD optimizations. David is always searching for fun problems to code solutions for.
   picture: assets/images/david-a-perez.webp
   facebook: False
   twitter: False
