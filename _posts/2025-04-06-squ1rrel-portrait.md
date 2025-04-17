@@ -22,7 +22,7 @@ Upon registering for an account, we are brought to a gallery where we can create
 ![image of gallery page](/assets/squ1rrel/kyleburgess2025/portrait/gallery.webp)
 *if you're looking for a gallery curator, MoMA, hmu*
 
-There is also a `/report` endpoint where you can give the admin bot a link to a gallery to visit; the flag will be stored in the cookies of the admin bot. Basically, we need to make a portrait that will cause the cookies of the admin bot to be leaked to us when the admin bot visits.
+There is also a `/report` endpoint where you can give the admin bot a link to a gallery to visit; the flag will be stored in the cookies of the admin bot. The admin bot will only visit other pages on the Portrait website. Basically, we need to make a portrait that will cause the cookies of the admin bot to be leaked to us when the admin bot visits.
 
 # Diving In
 
