@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/squ1rrel/kyleburgess2025/acorn-clicker/cover.webp
+cover:  assets/squ1rrel/kyleburgess2025/acorn-clicker/cover.png
 navigation: True
 title: "Acorn Clicker"
 date: 2025-04-06 11:59:00
@@ -15,7 +15,7 @@ Click acorns. Buy squirrels. Profit.
 
 Anyone else love getting emails from companies saying they fucked up? It's one of my favorite things ever. So imagine my excitement when I received this email from the company I work at:
 
-![image of email](/assets/squ1rrel/kyleburgess2025/acorn-clicker/email.webp)
+![image of email](/assets/squ1rrel/kyleburgess2025/acorn-clicker/email.png)
 *I appreciate the transparency.*
 
 Incorrect deserialization of negative numbers? This was just BEGGING for a challenge to be written about it! So I got to work.
@@ -24,7 +24,7 @@ Incorrect deserialization of negative numbers? This was just BEGGING for a chall
 
 After registering an account, we are brought to the beautiful Acorn Clicker and Squirrel Market...
 
-![image of main page of website](/assets/squ1rrel/kyleburgess2025/acorn-clicker/main.webp)
+![image of main page of website](/assets/squ1rrel/kyleburgess2025/acorn-clicker/main.png)
 *What a beautiful website! Compliments to the designer*
 
 Clicking the acorn gives us a random number of acorns between 1 and 10, and increases our balance accordingly. When we reach 999999999999999999 acorns, we can buy the Flag Squirrel, who holds the flag.
@@ -80,7 +80,7 @@ The market checks when you purchase a squirrel if you have enough money, so this
 
 We also need to auth up - you can get your JWT token by running `localStorage.getItem("token")` in your browser console, and set this as Bearer auth in your request. Once the request succeeds, let's see what our balance is:
 
-![a VERY POSITIVE balance](/assets/squ1rrel/kyleburgess2025/acorn-clicker/balance.webp)
+![a VERY POSITIVE balance](/assets/squ1rrel/kyleburgess2025/acorn-clicker/balance.png)
 *cash money*
 
 HOLY SMOKES! We're loaded! We can now purchase the Flag Squirrel and collect the flag.
