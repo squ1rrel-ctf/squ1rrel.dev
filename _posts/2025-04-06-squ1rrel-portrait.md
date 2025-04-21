@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/squ1rrel/kyleburgess2025/portrait/cover.webp
+cover:  assets/squ1rrel/kyleburgess2025/portrait/cover.png
 navigation: True
 title: "Portrait"
 date: 2025-04-06 11:59:00
@@ -19,7 +19,7 @@ Welcome to Portrait, the final challenge I wrote and my first XSS challenge. The
 
 Upon registering for an account, we are brought to a gallery where we can create new portraits, providing a name and a source URL for the image. The gallery also displays our previous portraits as a title and an image combination.
 
-![image of gallery page](/assets/squ1rrel/kyleburgess2025/portrait/gallery.webp)
+![image of gallery page](/assets/squ1rrel/kyleburgess2025/portrait/gallery.png)
 *if you're looking for a gallery curator, MoMA, hmu*
 
 There is also a `/report` endpoint where you can give the admin bot a link to a gallery to visit; the flag will be stored in the cookies of the admin bot. The admin bot will only visit other pages on the Portrait website. Basically, we need to make a portrait that will cause the cookies of the admin bot to be leaked to us when the admin bot visits.
@@ -95,7 +95,7 @@ app.listen(8081);
 
 Using you favorite quick-deploy service (I used Cloudflared, since it doesn't have an interstitial that checks if you're human), we can get a public URL that we can use as the image source. Let's try this out:
 
-![image of gallery page with xss](/assets/squ1rrel/kyleburgess2025/portrait/xss.webp)
+![image of gallery page with xss](/assets/squ1rrel/kyleburgess2025/portrait/xss.png)
 
 Beautiful. Now, let's change the payload:
 
@@ -129,6 +129,6 @@ app.listen(8081);
 
 After deploying with Cloudflared and reporting the link to my account (`http://{CHALLENGE_IP}/gallery?username={ACCOUNT_NAME}`), our Webhook gets pinged!
 
-![image of a Webhook request](/assets/squ1rrel/kyleburgess2025/portrait/webhook.webp)
+![image of a Webhook request](/assets/squ1rrel/kyleburgess2025/portrait/webhook.png)
 
 Flag: `flag=squ1rrel{unc_s747us_jqu3ry_l0wk3y_take_two_new_flag_check_this_out_guys}`
