@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/squ1rrel/kyleburgess2025/acorn-clicker/cover.png
+cover:  assets/squ1rrel/kyleburgess2025/acorn-clicker/cover.webp
 navigation: True
 title: "Acorn Clicker"
 date: 2025-04-06 11:59:00

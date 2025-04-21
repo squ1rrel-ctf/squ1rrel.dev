@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/squ1rrel/kyleburgess2025/portrait/cover.png
+cover:  assets/squ1rrel/kyleburgess2025/portrait/cover.webp
 navigation: True
 title: "Portrait"
 date: 2025-04-06 11:59:00

@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover:  assets/squ1rrel/kyleburgess2025/go-getter/cover.png
+cover:  assets/squ1rrel/kyleburgess2025/go-getter/cover.webp
 navigation: True
 title: "Go Getter"
 date: 2025-04-06 11:59:00
