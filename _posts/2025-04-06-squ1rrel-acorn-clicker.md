@@ -25,7 +25,7 @@ Incorrect deserialization of negative numbers? This was just BEGGING for a chall
 After registering an account, we are brought to the beautiful Acorn Clicker and Squirrel Market...
 
 ![image of main page of website](/assets/squ1rrel/kyleburgess2025/acorn-clicker/main.png)
-*What a beautiful website! Compliments to the designer*
+*What a beautiful website! Compliments to the designer.*
 
 Clicking the acorn gives us a random number of acorns between 1 and 10, and increases our balance accordingly. When we reach 999999999999999999 acorns, we can buy the Flag Squirrel, who holds the flag.
 
@@ -70,7 +70,7 @@ Why are we using `useBigInt64`? This causes all Longs to be deserialized as BigI
 
 A bit of research into this specific version of the MongoDB Node driver will turn up [this CVE](), as mentioned in the email. Seems like the balance is the long that will be deserialized as a BigInt, so our next step is to get our balance negative.
 
-The market checks when you purchase a squirrel if you have enough money, so this won't get us flag. However, when you click, the amount you receive is sent from the frontend to the server. The server checks if this value is less than 10, but does not check if it is negative. So... let's boot up our Postman (or Thunder Client, if you're lazy like me) and send a Post request to `/api/click` with the following payload:
+The market checks when you purchase a squirrel if you have enough money, so this won't get us flag. However, when you click, the amount you receive is sent from the frontend to the server. The server checks if this value is less than 10, but does not check if it is negative. So... let's boot up our Postman (or Thunder Client, if you're lazy like me) and send a POST request to `/api/click` with the following payload:
 
 ```json
 {

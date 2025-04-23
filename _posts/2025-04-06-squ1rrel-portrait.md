@@ -11,9 +11,9 @@ subclass: 'post'
 author: kyleburgess2025
 ---
 
-It's like DeviantArt, but with a report button to keep it less Deviant. *Reporting a gallery will make the admin bot visit it.*
+It's like DeviantArt, but with a report button to keep it less Deviant.
 
-Welcome to Portrait, the final challenge I wrote and my first XSS challenge. The idea for this challenge came from a super cool Canvas vuln I read about recently. This XSS vulnerability in the Canvas course software was found by Andrew Healey and can be read about [here](https://github.com/andrew-healey/canvas-lms-vuln). The vulnerability comes from an outdated version of JQuery being used - namely, 1.7.2, which has [this vulnerability](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251). The name of this challenge, Portrait, is a cheeky reference to the Canvas vulnerability.
+Welcome to Portrait, the final challenge I wrote and my first XSS challenge. The idea for this challenge came from a super cool Canvas vuln I read about recently. This XSS vulnerability in the Canvas course software was found by Andrew Healey and can be read about [here](https://github.com/andrew-healey/canvas-lms-vuln). The vulnerability comes from an outdated version of JQuery being used - namely, `1.7.2`, which has [this vulnerability](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251). The name of this challenge, Portrait, is a cheeky reference to the Canvas vulnerability.
 
 # The Problem
 
@@ -38,36 +38,40 @@ Sweet, an outdated version of JQuery! A quick Google of JQuery 1.8.1 leads us ba
 
 ```js
 $(document).ready(function () {
-  const username = new URLSearchParams(window.location.search).get("username");
-  $.ajax({
-      url: "/api/portraits/" + username,
-      type: "GET",
-      success: function (data) {
-          data.forEach(portrait => {
-              const newImage = $("#portraitsContainer").append(`
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-sm">
-                          <img src="${portrait.source}" class="card-img-top" alt="${portrait.name}">
-                          <div class="card-body text-center">
-                              <h5 class="card-title">${portrait.name}</h5>
-                          </div>
-                      </div>
-                  </div>
-              `);
-              newImage.find("img").last().on("error", e => {
-                  $.get(e.currentTarget.src).fail(response => {
-                      if (response.status === 403) {
-                          $(e.target).attr("src", "https://cdn.pixabay.com/photo/2021/08/03/06/14/lock-6518557_1280.png");
-                      } else {
-                          $(e.target).attr("src", "https://cdn.pixabay.com/photo/2024/02/12/16/05/siguniang-mountain-8568913_1280.jpg");
-                      }
-                  })
-              })
-          });
-      }
-  });
-  // ...
-});
+    const username = new URLSearchParams(window.location.search).get("username");
+    $.ajax({
+        url: "/api/portraits/" + username,
+        type: "GET",
+        success: function (data) {
+            data.forEach((portrait) => {
+                const col = $("<div>").addClass("col-md-4 mb-4");
+                const card = $("<div>").addClass("card shadow-sm");
+                const img = $("<img>").addClass("card-img-top").attr("src", portrait.source).attr("alt", portrait.name);
+                const cardBody = $("<div>").addClass("card-body text-center");
+                const title = $("<h5>").addClass("card-title").text(portrait.name);
+
+                img.on("error", (e) => {
+                    $.get(e.currentTarget.src).fail((response) => {
+                        if (response.status === 403) {
+                            $(e.target).attr("src", "https://cdn.pixabay.com/photo/2021/08/03/06/14/lock-6518557_1280.png");
+                        } else {
+                            $(e.target).attr(
+                                "src",
+                                "https://cdn.pixabay.com/photo/2024/02/12/16/05/siguniang-mountain-8568913_1280.jpg"
+                            );
+                        }
+                    });
+                });
+
+                cardBody.append(title);
+                card.append(img).append(cardBody);
+                col.append(card);
+                $("#portraitsContainer").append(col);
+            });
+        },
+    });
+    // snip
+})
 ```
 
 Ok, first off, we have `$.ajax` being called without the `dataType` option, which is a red flag. However, on success, the data retrieved from the URL is put into an `img` source, so any scripts returned won't be run. Let's look instead at the error handling. If an `img` element has an error, a request is made to the image source and the error code is checked to see which placeholder image should be used.
@@ -93,7 +97,7 @@ app.get("/image", (req, res) =>
 app.listen(8081);
 ```
 
-Using you favorite quick-deploy service (I used Cloudflared, since it doesn't have an interstitial that checks if you're human), we can get a public URL that we can use as the image source. Let's try this out:
+Using you favorite quick-deploy service (I used `cloudflared`, since it doesn't have an interstitial that checks if you're human), we can get a public URL that we can use as the image source. Let's try this out:
 
 ![image of gallery page with xss](/assets/squ1rrel/kyleburgess2025/portrait/xss.png)
 
@@ -127,8 +131,8 @@ app.get("/image", (req, res) =>
 app.listen(8081);
 ```
 
-After deploying with Cloudflared and reporting the link to my account (`http://{CHALLENGE_IP}/gallery?username={ACCOUNT_NAME}`), our Webhook gets pinged!
+After deploying with `cloudflared` and reporting the link to my account (`http://{CHALLENGE_IP}/gallery?username={ACCOUNT_NAME}`), our Webhook gets pinged!
 
 ![image of a Webhook request](/assets/squ1rrel/kyleburgess2025/portrait/webhook.png)
 
-Flag: `flag=squ1rrel{unc_s747us_jqu3ry_l0wk3y_take_two_new_flag_check_this_out_guys}`
+Flag: `squ1rrel{unc_s747us_jqu3ry_l0wk3y_take_two_new_flag_check_this_out_guys}`
