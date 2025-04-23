@@ -19,7 +19,7 @@ I recently attended the InsomniHack conference with a few other members of the t
 
 The challenge itself is very simple. We have a server written in Go that's serving us some HTML. We can either get a GOpher or get the flag. Sadly, simply asking for the flag doesn't work - we are told that only admins can access the flag. 
 
-![image of home page](/assets/squ1rrel/kyleburgess2025/go-getter/gopher.png)
+![image of home page](/assets/squ1rrel/kyleburgess2025/go-getter/gopher.webp)
 *God, so true! I AM three gopher!*
 
 The website consists of two separate services - the Go service, which serves HTML and authenticates us as an admin, and the Python service, which gets us our GOpher (or the flag). The Go service receives a JSON input from the frontend and checks if the user is attempting to execute the `getgopher` action. If so, it forwards the JSON input to the Python server. If the user is attempting to execute `getflag`, the server checks if the user is admin - this is hardcoded to false, so this always returns an authentication error. The Python server checks if the action is `getgopher` or `getflag`; if it's `getgopher`, it returns a randomly generated gopher. If it's `getflag`, the server returns the flag. The Python server is not accessible outside the network, so requests cannot be made to it by anything outside of the Go server.
