@@ -13,7 +13,7 @@ author: kyleburgess2025
 
 Click acorns. Buy squirrels. Profit.
 
-Anyone else love getting emails from companies saying they fucked up? It's one of my favorite things ever. So imagine my excitement when I received this email from the company I work at:
+Anyone else love getting emails from companies saying they messed up? It's one of my favorite things ever. So imagine my excitement when I received this email from the company I work at:
 
 ![image of email](/assets/squ1rrel/kyleburgess2025/acorn-clicker/email.webp)
 *I appreciate the transparency.*
